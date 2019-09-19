@@ -1,27 +1,26 @@
 import React, { Component } from "react";
 
 // ----------SCSS--------------
-import "./landingPage.scss";
+import "./LandingPage.scss";
 // ----------SCSS--------------
 
 //---------IMPORTED COMPONENTS--------------
-//Gallery
-//Events
-//testimonials
-//Our story
-//googleMap
-
-// import GalleryCard
+import DefaultLanding from "../../Components/DefaultLanding/DefaultLanding.js";
+import EventLanding from "../../Components/EventLanding/EventLanding.js";
 //---------IMPORTED COMPONENTS--------------
 
 class LandingPage extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      isLoggedIn: false,
+      renderEventLanding: false,
+    };
   }
 
   render() {
-    return <div className="LandingPage-container"></div>;
+    const { renderEventLanding } = this.state;
+    return renderEventLanding ? <EventLanding /> : <DefaultLanding />;
   }
 }
 

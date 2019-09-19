@@ -1,15 +1,11 @@
+import React from 'react';
+
 // ----------SCSS--------------
 import "./Event.scss";
 // ----------SCSS--------------
 
 const EventCard = () => {
-  return ( 
-    <div className="EventCard-container">
+  return <div className="EventCard-container"></div>;
+};
 
-    </div>
-   );
-}
- 
 export default EventCard;
-
-export default Event;

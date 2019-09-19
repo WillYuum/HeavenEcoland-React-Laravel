@@ -1,3 +1,5 @@
+import React from 'react';
+
 // ----------SCSS--------------
 import "./GalleryCard.scss";
 // ----------SCSS--------------
