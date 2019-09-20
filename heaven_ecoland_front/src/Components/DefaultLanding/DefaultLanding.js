@@ -16,10 +16,83 @@ import ReacUs from "../Reach Us/ReachUs.js";
 class DefaultLanding extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      data: [
+        {
+          img:
+            "https://lh3.googleusercontent.com/bCDiJJkItiG4-s1ijDXxtsKy60hpf4Jo1fiQExKujtORmIrWgczZ67gLmFifzUuDxaRbaVV1oYgGD4HE4g=w768-h768-n-o-v1"
+        },
+        {
+          img:
+            "https://lh3.googleusercontent.com/bCDiJJkItiG4-s1ijDXxtsKy60hpf4Jo1fiQExKujtORmIrWgczZ67gLmFifzUuDxaRbaVV1oYgGD4HE4g=w768-h768-n-o-v1"
+        },
+        {
+          img:
+            "https://lh3.googleusercontent.com/bCDiJJkItiG4-s1ijDXxtsKy60hpf4Jo1fiQExKujtORmIrWgczZ67gLmFifzUuDxaRbaVV1oYgGD4HE4g=w768-h768-n-o-v1"
+        },
+        {
+          img:
+            "https://lh3.googleusercontent.com/bCDiJJkItiG4-s1ijDXxtsKy60hpf4Jo1fiQExKujtORmIrWgczZ67gLmFifzUuDxaRbaVV1oYgGD4HE4g=w768-h768-n-o-v1"
+        },
+        {
+          img:
+            "https://lh3.googleusercontent.com/bCDiJJkItiG4-s1ijDXxtsKy60hpf4Jo1fiQExKujtORmIrWgczZ67gLmFifzUuDxaRbaVV1oYgGD4HE4g=w768-h768-n-o-v1"
+        },
+        {
+          img:
+            "https://lh3.googleusercontent.com/bCDiJJkItiG4-s1ijDXxtsKy60hpf4Jo1fiQExKujtORmIrWgczZ67gLmFifzUuDxaRbaVV1oYgGD4HE4g=w768-h768-n-o-v1"
+        },
+        {
+          img:
+            "https://lh3.googleusercontent.com/bCDiJJkItiG4-s1ijDXxtsKy60hpf4Jo1fiQExKujtORmIrWgczZ67gLmFifzUuDxaRbaVV1oYgGD4HE4g=w768-h768-n-o-v1"
+        },
+        {
+          img:
+            "https://lh3.googleusercontent.com/bCDiJJkItiG4-s1ijDXxtsKy60hpf4Jo1fiQExKujtORmIrWgczZ67gLmFifzUuDxaRbaVV1oYgGD4HE4g=w768-h768-n-o-v1"
+        },
+        {
+          img:
+            "https://lh3.googleusercontent.com/bCDiJJkItiG4-s1ijDXxtsKy60hpf4Jo1fiQExKujtORmIrWgczZ67gLmFifzUuDxaRbaVV1oYgGD4HE4g=w768-h768-n-o-v1"
+        },
+        {
+          img:
+            "https://lh3.googleusercontent.com/bCDiJJkItiG4-s1ijDXxtsKy60hpf4Jo1fiQExKujtORmIrWgczZ67gLmFifzUuDxaRbaVV1oYgGD4HE4g=w768-h768-n-o-v1"
+        },
+        {
+          img:
+            "https://lh3.googleusercontent.com/bCDiJJkItiG4-s1ijDXxtsKy60hpf4Jo1fiQExKujtORmIrWgczZ67gLmFifzUuDxaRbaVV1oYgGD4HE4g=w768-h768-n-o-v1"
+        }
+      ]
+    };
   }
   render() {
-    return <div className="DefaultLanding-container"></div>;
+    const { data } = this.state;
+    return (
+      <div className="DefaultLanding-container">
+        <Hero />
+
+        {/* -----------------GALLERY SECTION---------------- */}
+        <div className="galleryCard-container">
+          <h2 classname="gallery-title">Gallery</h2>
+          <div className="images-container">
+            {data.map(data => {
+              return <GalleryCard srcImage={data.img} />;
+            })}
+          </div>
+        </div>
+        {/* -----------------GALLERY SECTION---------------- */}
+
+        <div>
+          <EventCard />
+        </div>
+        <div>
+          <TestimonialCard />
+        </div>
+
+        <OurStory />
+        <ReacUs />
+      </div>
+    );
   }
 }
 
