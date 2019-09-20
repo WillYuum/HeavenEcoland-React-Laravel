@@ -73,10 +73,14 @@ class DefaultLanding extends Component {
 
         {/* -----------------GALLERY SECTION---------------- */}
         <div className="galleryCard-container">
-          <h2 classname="gallery-title">Gallery</h2>
+          <div className="gallery-title">
+            <h2 >Gallery</h2>
+          </div>
           <div className="images-container">
-            {data.map(data => {
-              return <GalleryCard srcImage={data.img} />;
+            {data.map((data, i) => {
+              if (i < 9) {
+                return <GalleryCard srcImage={data.img} />;
+              }
             })}
           </div>
         </div>
