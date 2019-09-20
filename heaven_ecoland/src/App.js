@@ -13,7 +13,9 @@ import LandingPage from "./Pages/LandingPage/LandingPage.js";
 function App() {
   return (
     <div className="App">
+      <Nav />
       <LandingPage />
+      <Footer />
     </div>
   );
 }
