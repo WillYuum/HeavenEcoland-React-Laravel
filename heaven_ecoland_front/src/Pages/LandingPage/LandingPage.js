@@ -20,7 +20,8 @@ class LandingPage extends Component {
 
   render() {
     const { renderEventLanding } = this.state;
-    return renderEventLanding ? <EventLanding /> : <DefaultLanding />;
+    const {editMode} = this.props;
+    return renderEventLanding ? <EventLanding editMode={editMode} /> : <DefaultLanding editMode={editMode} />;
   }
 }
 

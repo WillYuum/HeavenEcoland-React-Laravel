@@ -4,7 +4,9 @@
   margin: 0;
 }
 
-.App {
-  width: 80vw;
-  margin: 0 auto;
+
+
+
+.EditMode-btn{
+  position: fixed;
 }

@@ -67,6 +67,7 @@ class DefaultLanding extends Component {
   }
   render() {
     const { data } = this.state;
+    const {editMode} = this.props;
     return (
       <div className="DefaultLanding-container">
         <Hero />
@@ -78,7 +79,7 @@ class DefaultLanding extends Component {
           </div>
           <div className="images-container">
             {data.map((data, i) => {
-              if (i < 9) {
+              while (i < 9) {
                 return <GalleryCard srcImage={data.img} />;
               }
             })}
@@ -93,7 +94,7 @@ class DefaultLanding extends Component {
           <TestimonialCard />
         </div>
 
-        <OurStory />
+        <OurStory editMode={editMode} />
         <ReacUs />
       </div>
     );

@@ -1,0 +1,75 @@
+.footer-container {
+  background-color: #ededed;
+  width: 100%;
+  padding: 40px 0;
+  margin-top: 150px;
+
+  .content {
+    .socialMedia {
+      text-align: center;
+    }
+
+    .socialMedia .socialMedia-Title {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .socialMedia-Icons {
+      display: inline-flex;
+      img {
+        width: 50px;
+        margin: 20px 20px;
+      }
+    }
+
+    /* ------------------------------------------------------------------------------- */
+
+    /* ------------------------------CONTACT US SECTION---------------------------- */
+
+    .contactUs-Icons {
+      display: inline-flex;
+      margin: 20px auto;
+
+      .icon {
+        width: 150px;
+      }
+    }
+    .contactUs {
+      margin-top: 20px;
+      text-align: center;
+      .contactus-Title {
+        font-size: 18px;
+        font-weight: bold;
+      }
+      .contactus-Title {
+        width: 200px;
+        margin: 20px auto;
+        border-top: 3px solid black;
+      }
+      .contactus-Title {
+        width: 200px;
+        margin: 20px auto;
+        border-top: 3px solid black;
+      }
+    }
+  }
+
+  .content .contactUs-Icons img {
+    width: 40px;
+    margin: 0 auto;
+
+    .contactUs-Icons .icon p {
+      font-size: 15px;
+    }
+  }
+
+  /* ------------------------------------------------------------------------------- */
+
+  /*---------------------------------COPYRIGHT SECTION-------------------------- */
+  .copyRight {
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  /* ------------------------------------------------------------------------------- */
+}

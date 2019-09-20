@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Component} from "react";
 
 //-------------CSS---------------
 import "./App.css";
@@ -10,14 +10,30 @@ import Footer from "./Components/footer/Footer.js";
 import LandingPage from "./Pages/LandingPage/LandingPage.js";
 //---------IMPORTED COMPONENTS--------------
 
-function App() {
-  return (
-    <div className="App">
-      <Nav />
-      <LandingPage />
-      <Footer />
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      editMode: false
+    };
+  }
+
+  toggleEditMode = () => {
+    const editMode = !this.state.editMode;
+    this.setState({ editMode });
+  };
+
+  render() {
+    const {editMode} = this.state;
+    return (
+      <div className="App">
+        <Nav />
+        <button className="EditMode-btn" onClick={this.toggleEditMode}>Edit Mode</button>
+        <LandingPage editMode={editMode}/>
+        <Footer />
+      </div>
+    );
+  }
 }
 
 export default App;

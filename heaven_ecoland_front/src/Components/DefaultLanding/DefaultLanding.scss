@@ -1,11 +1,13 @@
 .DefaultLanding-container {
+  width: 80vw;
+  margin: 0 auto;
   .galleryCard-container {
     width: 100%;
     margin: 0 auto;
 
     .gallery-title {
       text-align: center;
-      margin:100px 0px;
+      margin: 100px 0px;
     }
     .images-container {
       width: 80vw;
