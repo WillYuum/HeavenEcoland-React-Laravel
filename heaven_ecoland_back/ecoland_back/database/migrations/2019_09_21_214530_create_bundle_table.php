@@ -24,6 +24,8 @@ class CreateBundleTable extends Migration
         });
     }
 
+
+    
     /**
      * Reverse the migrations.
      *
