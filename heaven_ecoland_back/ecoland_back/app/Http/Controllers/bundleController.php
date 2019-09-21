@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Controllers\DB;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\bundle;
