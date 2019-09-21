@@ -21,7 +21,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('bundles', 'bundleController@index');
 // List single article
 Route::get('bundle/{id}', 'bundleController@show');
-// Create new article
+// Create new bundle
 Route::post('bundle', 'bundleController@store');
 // Update article
 Route::put('bundle', 'bundleController@store');

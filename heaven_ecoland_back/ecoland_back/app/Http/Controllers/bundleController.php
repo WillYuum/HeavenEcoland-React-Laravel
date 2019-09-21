@@ -44,7 +44,7 @@ class bundleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
