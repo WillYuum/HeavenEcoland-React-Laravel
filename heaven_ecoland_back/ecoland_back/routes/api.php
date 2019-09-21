@@ -24,6 +24,6 @@ Route::get('article/{id}', 'bundleController@show');
 // Create new article
 Route::post('bundle', 'bundleController@store');
 // Update article
-Route::put('article', 'bundleController@store');
+Route::put('bundle', 'bundleController@store');
 // Delete article
-Route::delete('article/{id}', 'bundleController@destroy');
+Route::delete('bundle/{id}', 'bundleController@destroy');
