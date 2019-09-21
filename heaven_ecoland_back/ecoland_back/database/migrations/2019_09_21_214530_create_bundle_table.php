@@ -15,6 +15,11 @@ class CreateBundleTable extends Migration
     {
         Schema::create('bundle', function (Blueprint $table) {
             $table->bigIncrements('id');
+
+            $table->string('name', 255);
+            $table->bigInteger('bundle_id');
+            $table->bigInteger('price');
+
             $table->timestamps();
         });
     }
