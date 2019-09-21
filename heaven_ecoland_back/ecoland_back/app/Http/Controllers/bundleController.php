@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Http\Controllers\DB;
+
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\bundle;
@@ -15,11 +15,12 @@ class bundleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {DB::table('bundle')->insert(
-        ['name' => 'bundleone', 'bundle_id' => 55,'price'=>17]
-    );
+    {
+    //     DB::table('bundle')->insert(
+    //     ['name' => 'bundleone', 'bundle_id' => 55,'price'=>17]
+    // );
         //
-        // Get articles
+        // Get bundles
         $bundles = bundle::paginate(15);
         // Return collection of articles as a resource
         return bundleResource::collection($bundles);
