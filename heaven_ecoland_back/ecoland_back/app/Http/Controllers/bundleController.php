@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests;
+use App\bundle;
 
+use App\Http\Resources\bundle as bundleResource;
 class bundleController extends Controller
 {
     /**

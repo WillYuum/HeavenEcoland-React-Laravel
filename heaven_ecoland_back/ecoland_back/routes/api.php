@@ -20,7 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 // List bundles
 Route::get('bundles', 'bundleController@index');
 // List single article
-Route::get('article/{id}', 'bundleController@show');
+Route::get('bundle/{id}', 'bundleController@show');
 // Create new article
 Route::post('bundle', 'bundleController@store');
 // Update article
