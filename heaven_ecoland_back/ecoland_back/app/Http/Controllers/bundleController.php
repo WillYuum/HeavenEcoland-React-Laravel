@@ -15,8 +15,14 @@ class bundleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {DB::table('bundle')->insert(
+        ['name' => 'bundleone', 'bundle_id' => 55,'price'=>17]
+    );
         //
+        // Get articles
+        $bundles = bundle::paginate(15);
+        // Return collection of articles as a resource
+        return bundleResource::collection($bundles);
     }
 
     /**
