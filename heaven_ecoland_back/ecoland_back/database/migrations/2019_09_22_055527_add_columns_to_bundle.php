@@ -30,7 +30,7 @@ class AddColumnsToBundle extends Migration
     {
         Schema::table('bundle', function (Blueprint $table) {
             //drop columns
-            // $table->dropColumn('paid');
+            $table->dropColumn('name');
         });
     }
 }
