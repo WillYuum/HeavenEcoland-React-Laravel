@@ -1,6 +1,8 @@
 .DefaultLanding-container {
   width: 80vw;
   margin: 0 auto;
+
+  // ----------------------GALLERY SECTION----------------------
   .galleryCard-container {
     width: 100%;
     margin: 0 auto;
@@ -13,9 +15,38 @@
       width: 80vw;
       margin: 0px auto;
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(295px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       object-fit: cover;
       gap: 20px 20px;
     }
+    // ----------------------GALLERY SECTION---------------------
   }
+
+  // ----------------------EVENT SECTION----------------------
+  .event-Section {
+    width: 100%;
+    .event-title h2{
+      text-align: center;
+      margin: 100px 0px;
+    }
+
+    .event-container {
+      width: 80vw;
+      margin: 0px auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(295px, 2fr));
+      object-fit: cover;
+      gap: 20px 20px;
+    }
+
+    .description-warper{
+      .time{
+        font-weight: bold;
+      }
+      .event-title{
+        text-align: center;
+      }
+    }
+  }
+  // ----------------------EVENT SECTION----------------------
 }
