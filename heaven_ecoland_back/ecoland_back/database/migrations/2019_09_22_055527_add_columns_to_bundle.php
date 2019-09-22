@@ -15,9 +15,9 @@ class AddColumnsToBundle extends Migration
     {
         Schema::table('bundle', function (Blueprint $table) {
             // add columns
-            $table->string('name', 255)->nullable();
-            $table->bigInteger('bundle_id')->nullable();
-            $table->bigInteger('price')->nullable();
+            // $table->string('name', 255)->nullable();
+            // $table->bigInteger('bundle_id')->nullable();
+            // $table->bigInteger('price')->nullable();
         });
     }
 
