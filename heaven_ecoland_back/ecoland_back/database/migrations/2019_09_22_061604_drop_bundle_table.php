@@ -14,7 +14,7 @@ class DropBundleTable extends Migration
     public function up()
     {
         //
-        // Schema::dropIfExists('bundle');
+        Schema::dropIfExists('bundle');
     }
 
     /**
