@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 
 //-------------CSS---------------
 import "./App.css";
@@ -14,6 +14,9 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      galleryData: [],
+      eventsData: [],
+      testimonialsData: [],
       editMode: false
     };
   }
@@ -24,12 +27,23 @@ class App extends Component {
   };
 
   render() {
-    const {editMode} = this.state;
+    const { editMode } = this.state;
+    // -----------DATA STATES---------------
+    const { galleryData, eventsData, testimonialsData } = this.state;
+    // -----------DATA STATES---------------
+
     return (
       <div className="App">
         <Nav />
-        <button className="EditMode-btn" onClick={this.toggleEditMode}>Edit Mode</button>
-        <LandingPage editMode={editMode}/>
+        <button className="EditMode-btn" onClick={this.toggleEditMode}>
+          Edit Mode
+        </button>
+        <LandingPage
+          editMode={editMode}
+          galleryData={galleryData}
+          eventsData={eventsData}
+          testimonialsData={testimonialsData}
+        />
         <Footer />
       </div>
     );

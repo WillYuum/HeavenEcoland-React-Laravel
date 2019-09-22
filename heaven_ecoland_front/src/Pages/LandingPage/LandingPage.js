@@ -14,14 +14,18 @@ class LandingPage extends Component {
     super(props);
     this.state = {
       isLoggedIn: false,
-      renderEventLanding: false,
+      renderEventLanding: false
     };
   }
 
   render() {
     const { renderEventLanding } = this.state;
-    const {editMode} = this.props;
-    return renderEventLanding ? <EventLanding editMode={editMode} /> : <DefaultLanding editMode={editMode} />;
+    const { editMode, ...rest } = this.props;
+    return renderEventLanding ? (
+      <EventLanding editMode={editMode}  />
+    ) : (
+      <DefaultLanding editMode={editMode} {...rest}/>
+    );
   }
 }
 

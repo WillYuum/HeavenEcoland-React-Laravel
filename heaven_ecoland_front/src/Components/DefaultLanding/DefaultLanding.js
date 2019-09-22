@@ -11,15 +11,13 @@ import EventCard from "../EventCard/EventCard.js";
 import TestimonialCard from "../TestimonialCard/TestimonialCard.js";
 import OurStory from "../Our Story/OurStory.js";
 import ReacUs from "../Reach Us/ReachUs.js";
+import { tsConstructorType } from "@babel/types";
 //---------IMPORTED COMPONENTS--------------
 
 class DefaultLanding extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      galleryData: [],
-      eventsData: [],
-      testimonialsData: [],
       data: [
         {
           img:
@@ -125,7 +123,7 @@ class DefaultLanding extends Component {
   }
   render() {
     const { data } = this.state;
-    const { editMode } = this.props;
+    const { editMode, ...rest } = this.props;
     return (
       <div className="DefaultLanding">
         {/* -----------------HERO SECTION---------------- */}
