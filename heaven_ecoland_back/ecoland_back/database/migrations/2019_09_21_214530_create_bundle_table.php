@@ -22,6 +22,8 @@ class CreateBundleTable extends Migration
 
             $table->timestamps();
         });
+        Schema::dropIfExists('bundle');
+
     }
 
 
