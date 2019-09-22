@@ -24,15 +24,7 @@ class CreateBundleTable extends Migration
         });
        
 
-        Schema::create('bundle_new', function (Blueprint $table) {  
-            $table->bigIncrements('id');
-
-            $table->string('name', 255)->nullable();
-            $table->bigInteger('bundle_id')->nullable();
-            $table->bigInteger('price')->nullable();
-
-            $table->timestamps();
-        });
+      
 
     }
 
