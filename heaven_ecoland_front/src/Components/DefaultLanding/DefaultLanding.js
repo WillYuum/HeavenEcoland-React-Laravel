@@ -17,6 +17,9 @@ class DefaultLanding extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      galleryData: [],
+      eventsData: [],
+      testimonialsData: [],
       data: [
         {
           img:
@@ -124,52 +127,60 @@ class DefaultLanding extends Component {
     const { data } = this.state;
     const { editMode } = this.props;
     return (
-      <div className="DefaultLanding-container">
-        <Hero />
+      <div className="DefaultLanding">
+        {/* -----------------HERO SECTION---------------- */}
 
-        {/* -----------------GALLERY SECTION---------------- */}
-        <div className="galleryCard-container">
-          <div className="gallery-title">
-            <h2>Gallery</h2>
-          </div>
-          <div className="images-container">
-            {data.map((data, i) => {
-              while (i < 9) {
-                return <GalleryCard srcImage={data.img} />;
-              }
-            })}
-          </div>
-        </div>
-        {/* -----------------GALLERY SECTION---------------- */}
-
-        {/* -----------------EVENT SECTION------------------ */}
-        <div className="event-Section">
-          <div className="event-title">
-            <h2>Events</h2>
-          </div>
-          <div className="event-container">
-            {data.map((event, i) => {
-              while (i < 6) {
-                return (
-                  <EventCard
-                    price={event.price}
-                    ImageSrc={event.img}
-                    date={event.date}
-                    eventTitle={event.eventTitle}
-                    discription={event.discription}
-                  />
-                );
-              }
-            })}
-          </div>
-        </div>
-        {/* -----------------EVENT SECTION------------------ */}
-        <div>
-          <TestimonialCard />
+        <div className="hero-Section">
+          <Hero />
         </div>
 
-        <OurStory editMode={editMode} />
-        <ReacUs />
+        {/* -----------------HERO SECTION---------------- */}
+
+        <div className="DefaultLanding-container">
+          {/* -----------------GALLERY SECTION---------------- */}
+          <div className="galleryCard-container">
+            <div className="gallery-title">
+              <h2>Gallery</h2>
+            </div>
+            <div className="images-container">
+              {data.map((gallery, i) => {
+                while (i < 9) {
+                  return <GalleryCard srcImage={gallery.img} />;
+                }
+              })}
+            </div>
+          </div>
+          {/* -----------------GALLERY SECTION---------------- */}
+
+          {/* -----------------EVENT SECTION------------------ */}
+          <div className="event-Section">
+            <div className="event-title">
+              <h2>Events</h2>
+            </div>
+            <div className="event-container">
+              {data.map((event, i) => {
+                while (i < 6) {
+                  return (
+                    <EventCard
+                      price={event.price}
+                      ImageSrc={event.img}
+                      date={event.date}
+                      eventTitle={event.eventTitle}
+                      discription={event.discription}
+                    />
+                  );
+                }
+              })}
+            </div>
+          </div>
+          {/* -----------------EVENT SECTION------------------ */}
+          <div>
+            <TestimonialCard />
+          </div>
+
+          <OurStory editMode={editMode} />
+          <ReacUs />
+        </div>
       </div>
     );
   }
