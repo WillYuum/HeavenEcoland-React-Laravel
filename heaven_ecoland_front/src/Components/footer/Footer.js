@@ -31,7 +31,7 @@ class Footer extends Component {
                   <img src={facebook} alt="facebook icon" />
                 </a>
               </div>
-              <div class="icon">
+              <div className="icon">
                 <a
                   href="https://www.instagram.com/explore/locations/149529028940477/heaven-ecoland"
                   target="_blank"

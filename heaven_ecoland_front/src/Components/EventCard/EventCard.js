@@ -1,10 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 // ----------SCSS--------------
 import "./Event.scss";
 // ----------SCSS--------------
 
-const EventCard = ({ price, ImageSrc, date, eventTitle, discription }) => {
+const EventCard = ({ id, price, ImageSrc, date, eventTitle, discription }) => {
   return (
     <div className="EventCard-container">
       <div className="priceTag">${price}</div>

@@ -19,7 +19,7 @@ class DefaultLanding extends Component {
     this.state = {};
   }
   render() {
-    const { editMode, ...rest} = this.props;
+    const { editMode, ...rest } = this.props;
     return (
       <div className="DefaultLanding">
         {/* -----------------HERO SECTION---------------- */}
