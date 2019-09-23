@@ -17,13 +17,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// List bundles
-Route::get('bundles', 'bundleController@index');
-// List single article
-Route::get('bundle/{id}', 'bundleController@show');
-// Create new bundle
-Route::post('bundle', 'bundleController@store');
-// Update article
-Route::put('bundle', 'bundleController@store');
-// Delete article
-Route::delete('bundle/{id}', 'bundleController@destroy');
+Route::resource('event','EventController');
+Route::resource('bundle','BundleController');
+Route::resource('eventbundle','EventBundleController');
