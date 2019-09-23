@@ -12,6 +12,7 @@ import LandingPage from "./Pages/LandingPage/LandingPage.js";
 import GalleryPage from "./Pages/GalleryPage/GalleryPage";
 import EventPage from "./Pages/EventPage/EventPage.js";
 import BlogPage from "./Pages/BlogPage/BlogPage.js";
+import ContactUsPage from "./Pages/ContactUsPage/ContactUsPage.js";
 //---------IMPORTED COMPONENTS--------------
 
 class App extends Component {
@@ -147,9 +148,15 @@ class App extends Component {
               />
             )}
           />
-          <GalleryPage editMode={editMode} galleryData={galleryData} />
-          <EventPage />
-          <BlogPage />
+          <Route
+            path="/gallerypage"
+            render={() => (
+              <GalleryPage editMode={editMode} galleryData={galleryData} />
+            )}
+          />
+          <Route path="/eventpage" render={() => <EventPage />} />
+          <Route path="/blogpage" render={() => <BlogPage />} />
+          <Route path="/contactus" render={() => <ContactUsPage />} />
         </Switch>
         <Footer />
       </div>

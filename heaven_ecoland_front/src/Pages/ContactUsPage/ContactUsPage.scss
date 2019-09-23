@@ -1,0 +1,21 @@
+.contactUsPage-container {
+  .contactUs-Title {
+    text-align: center;
+    text-decoration: underline;
+    margin-bottom: 10vh;
+    margin-top: 90px;
+  }
+
+  .contactUs-display {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 300px;
+    text-align: center;
+    margin-bottom: 30px;
+
+    .Contact_Information {
+      height: 150px;
+      display: inline-block;
+    }
+  }
+}
