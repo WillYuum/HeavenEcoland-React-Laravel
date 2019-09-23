@@ -19,7 +19,7 @@ class ContactUsPage extends Component {
         <div className="contactUs-Title">
           <h1>ContactUs</h1>
         </div>
-        <div>
+        <div className="contactUs-display">
           <div className="Contact_Information">
             <h2>Contact:</h2>
             <h4>71 153 141</h4>
