@@ -58,73 +58,30 @@ class App extends Component {
             "https://lh3.googleusercontent.com/bCDiJJkItiG4-s1ijDXxtsKy60hpf4Jo1fiQExKujtORmIrWgczZ67gLmFifzUuDxaRbaVV1oYgGD4HE4g=w768-h768-n-o-v1"
         }
       ],
-      eventsData: [
-        {
-          name: "12982",
-          img:
-            "https://lh3.googleusercontent.com/bCDiJJkItiG4-s1ijDXxtsKy60hpf4Jo1fiQExKujtORmIrWgczZ67gLmFifzUuDxaRbaVV1oYgGD4HE4g=w768-h768-n-o-v1",
-          price: "free",
-          date: "12/2/2019",
-          eventTitle: "Mike Andrews",
-          discription:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi odio, molestiae minima minus impedit in tempore suscipit quia ullam quisquam recusandae. Quae eum expedita quam dolores consectetur fugiat, voluptatibus aspernatur."
-        },
-        {
-          name: "111",
-          img:
-            "https://lh3.googleusercontent.com/bCDiJJkItiG4-s1ijDXxtsKy60hpf4Jo1fiQExKujtORmIrWgczZ67gLmFifzUuDxaRbaVV1oYgGD4HE4g=w768-h768-n-o-v1",
-          price: "free",
-          date: "12/2/2019",
-          eventTitle: "Mike Andrews",
-          discription:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi odio, molestiae minima minus impedit in tempore suscipit quia ullam quisquam recusandae. Quae eum expedita quam dolores consectetur fugiat, voluptatibus aspernatur."
-        },
-        {
-          name: "12122",
-          img:
-            "https://lh3.googleusercontent.com/bCDiJJkItiG4-s1ijDXxtsKy60hpf4Jo1fiQExKujtORmIrWgczZ67gLmFifzUuDxaRbaVV1oYgGD4HE4g=w768-h768-n-o-v1",
-          price: "free",
-          date: "12/2/2019",
-          eventTitle: "Mike Andrews",
-          discription:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi odio, molestiae minima minus impedit in tempore suscipit quia ullam quisquam recusandae. Quae eum expedita quam dolores consectetur fugiat, voluptatibus aspernatur."
-        },
-        {
-          name: "832",
-          img:
-            "https://lh3.googleusercontent.com/bCDiJJkItiG4-s1ijDXxtsKy60hpf4Jo1fiQExKujtORmIrWgczZ67gLmFifzUuDxaRbaVV1oYgGD4HE4g=w768-h768-n-o-v1",
-          price: "free",
-          date: "12/2/2019",
-          eventTitle: "Mike Andrews",
-          discription:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi odio, molestiae minima minus impedit in tempore suscipit quia ullam quisquam recusandae. Quae eum expedita quam dolores consectetur fugiat, voluptatibus aspernatur."
-        },
-        {
-          name: "800",
-          img:
-            "https://lh3.googleusercontent.com/bCDiJJkItiG4-s1ijDXxtsKy60hpf4Jo1fiQExKujtORmIrWgczZ67gLmFifzUuDxaRbaVV1oYgGD4HE4g=w768-h768-n-o-v1",
-          price: "free",
-          date: "12/2/2019",
-          eventTitle: "Mike Andrews",
-          discription:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi odio, molestiae minima minus impedit in tempore suscipit quia ullam quisquam recusandae. Quae eum expedita quam dolores consectetur fugiat, voluptatibus aspernatur."
-        },
-        {
-          name: "120",
-          img:
-            "https://lh3.googleusercontent.com/bCDiJJkItiG4-s1ijDXxtsKy60hpf4Jo1fiQExKujtORmIrWgczZ67gLmFifzUuDxaRbaVV1oYgGD4HE4g=w768-h768-n-o-v1",
-          price: "free",
-          date: "12/2/2019",
-          eventTitle: "Mike Andrews",
-          discription:
-            "Lorem ipsum aljdfskdfnaldkfnlakdnflakdsnflasknfklasnfkalnfkasjbfklajn dolor sit amet consectetur adipisicing elit. Commodi odio, molestiae minima minus impedit in tempore suscipit quia ullam quisquam recusandae. Quae eum expedita quam dolores consectetur fugiat, voluptatibus aspernatur."
-        }
-      ],
+      eventsData: [],
       testimonialsData: [],
       eventId: "",
       editMode: false
     };
   }
+
+  async componentDidMount() {
+    this.getEvents();
+  }
+
+  getEvents = async () => {
+    try {
+      const res = await fetch("http://127.0.0.1:8000/api/event/", {
+        method: "GET"
+      });
+      const events = await res.json();
+      this.setState({ eventsData: events });
+      console.log(this.state.eventsData);
+    } catch (err) {
+      console.log(err);
+      throw new Error("fetching  EVENTS failed");
+    }
+  };
 
   toggleEditMode = () => {
     const editMode = !this.state.editMode;
