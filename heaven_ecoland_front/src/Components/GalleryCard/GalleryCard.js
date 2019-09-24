@@ -1,17 +1,15 @@
-import React from 'react';
+import React from "react";
 
 // ----------SCSS--------------
 import "./GalleryCard.scss";
 // ----------SCSS--------------
 
-
-const GalleryCard = () => {
-  return ( 
-    <div className="galleryCard-container">
-
+const GalleryCard = ({ srcImage }) => {
+  return (
+    <div className="image-card">
+      <img className="galleryImage" src={srcImage} />
     </div>
-   );
-}
- 
-export default GalleryCard;
+  );
+};
 
+export default GalleryCard;

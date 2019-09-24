@@ -14,9 +14,12 @@ class GalleryPage extends Component {
     this.state = {};
   }
   render() {
+    const { editMode, galleryData } = this.props;
     return (
       <div className="galleryPage-container">
-        <GalleryCard />
+        {galleryData.map(gallery => {
+          return <GalleryCard srcImage={gallery.img} />;
+        })}
       </div>
     );
   }

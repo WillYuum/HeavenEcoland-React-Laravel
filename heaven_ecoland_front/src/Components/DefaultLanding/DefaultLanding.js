@@ -19,7 +19,64 @@ class DefaultLanding extends Component {
     this.state = {};
   }
   render() {
-    return <div className="DefaultLanding-container"></div>;
+    const { editMode, ...rest } = this.props;
+    return (
+      <div className="DefaultLanding">
+        {/* -----------------HERO SECTION---------------- */}
+
+        <div className="hero-Section">
+          <Hero />
+        </div>
+
+        {/* -----------------HERO SECTION---------------- */}
+
+        <div className="DefaultLanding-container">
+          {/* -----------------GALLERY SECTION---------------- */}
+          <div className="galleryCard-container">
+            <div className="gallery-title">
+              <h2>Gallery</h2>
+            </div>
+            <div className="images-container">
+              {rest.galleryData.map((gallery, i) => {
+                while (i < 9) {
+                  return <GalleryCard srcImage={gallery.img} />;
+                }
+              })}
+            </div>
+          </div>
+          {/* -----------------GALLERY SECTION---------------- */}
+
+          {/* -----------------EVENT SECTION------------------ */}
+          <div className="event-Section">
+            <div className="event-title">
+              <h2>Events</h2>
+            </div>
+            <div className="event-container">
+              {rest.eventsData.map((event, i) => {
+                while (i < 6) {
+                  return (
+                    <EventCard
+                      price={event.price}
+                      ImageSrc={event.img}
+                      date={event.date}
+                      eventTitle={event.eventTitle}
+                      discription={event.discription}
+                    />
+                  );
+                }
+              })}
+            </div>
+          </div>
+          {/* -----------------EVENT SECTION------------------ */}
+          <div>
+            <TestimonialCard />
+          </div>
+
+          <OurStory editMode={editMode} />
+          <ReacUs />
+        </div>
+      </div>
+    );
   }
 }
 

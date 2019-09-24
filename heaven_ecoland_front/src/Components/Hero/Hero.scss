@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css?family=Quicksand:400,500,700");
+
+.hero-container {
+  .home {
+    text-align: center;
+    .Slogan {
+      padding-top: 15%;
+      h1 {
+        color: #cff5ad;
+        padding-bottom: 1%;
+        font-size: 400%;
+      }
+      p {
+        color: white;
+        font-weight: bold;
+        font-size: 200%;
+      }
+    }
+    .social_media {
+      position: fixed;
+      right: 10px;
+      top: 42vh;
+      .fa-facebook {
+        color: #1c89d1;
+      }
+      .fa-instagram {
+        color: #e42c1f;
+      }
+    }
+  }
+}

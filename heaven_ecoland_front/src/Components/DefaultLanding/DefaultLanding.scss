@@ -1,0 +1,66 @@
+.DefaultLanding {
+  // ----------------------HERO SECTION----------------------
+  .hero-Section {
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    background-image: linear-gradient(
+        rgba(117, 29, 82, 0.3),
+        rgba(117, 29, 82, 0.3)
+      ),
+      url(https://lh3.googleusercontent.com/mJucJPkLTfEmoqE9kNXjj5JGLyIhiP-Es_98KOWL4R2yWPaylqs12Ss_KNYLtkQWxAk71AZA=w1080-h608-p-no-v0);
+  }
+  // ----------------------HERO SECTION----------------------
+  .DefaultLanding-container {
+    width: 80vw;
+    margin: 0 auto;
+
+    // ----------------------GALLERY SECTION----------------------
+    .galleryCard-container {
+      width: 100%;
+      margin: 0 auto;
+
+      .gallery-title {
+        text-align: center;
+        margin: 100px 0px;
+      }
+      .images-container {
+        width: 80vw;
+        margin: 0px auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        object-fit: cover;
+        gap: 20px 20px;
+      }
+      // ----------------------GALLERY SECTION---------------------
+    }
+
+    // ----------------------EVENT SECTION----------------------
+    .event-Section {
+      width: 100%;
+      .event-title h2 {
+        text-align: center;
+        margin: 100px 0px;
+      }
+
+      .event-container {
+        width: 80vw;
+        margin: 0px auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(295px, 2fr));
+        object-fit: cover;
+        gap: 20px 20px;
+      }
+
+      .description-warper {
+        .time {
+          font-weight: bold;
+        }
+        .event-title {
+          text-align: center;
+        }
+      }
+    }
+    // ----------------------EVENT SECTION----------------------
+  }
+}
