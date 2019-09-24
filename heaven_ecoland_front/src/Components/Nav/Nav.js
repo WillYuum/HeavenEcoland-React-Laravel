@@ -12,25 +12,29 @@ class Nav extends Component {
   }
   render() {
     return (
-      <footer class="Nav-container">
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/blogpage">Blog</Link>
-          </li>
-          <li>
-            <Link to="/eventpage">Event</Link>
-          </li>
-          <li>
-            <Link to="/gallerypage">Gallery</Link>
-          </li>
-          <li>
-            <Link to="/contactus">contact</Link>
-          </li>
-        </ul>
-      </footer>
+      <nav class="Nav-container">
+        <div className="Left_Nav">
+          <Link to="/">
+            <h1>Heaven Ecoland</h1>
+          </Link>
+        </div>
+        <div className="Right_Nav">
+          <ul>
+            <li>
+              <Link to="/blogpage">Blog</Link>
+            </li>
+            <li>
+              <Link to="/eventpage">Event</Link>
+            </li>
+            <li>
+              <Link to="/gallerypage">Gallery</Link>
+            </li>
+            <li>
+              <Link to="/contactus">Contact</Link>
+            </li>
+          </ul>
+        </div>
+      </nav>
     );
   }
 }

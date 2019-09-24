@@ -1,0 +1,44 @@
+// nav container
+.Nav-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: aqua;
+  // left nav header
+  h1 {
+    font-size: 2rem;
+  }
+  // Left nav
+  .Left_Nav {
+    background-color: red;
+    margin-top: 1%;
+    margin-left: 1%;
+
+    position: relative;
+    flex: 0 0 200px;
+    margin: 10px;
+  }
+  //Right Nav
+  .Right_Nav {
+    background-color: gold;
+    margin-top: 1%;
+    // margin-right: 2%;
+    // position: relative;
+    // flex: 0 0 200px;
+    // margin: 10px;
+
+    //right nav unordered list
+    ul {
+      display: flex;
+
+      //right nav list
+      li {
+        list-style-type: none;
+        margin: 0 4% 0 0;
+
+        text-decoration: none;
+        font-size: 1.7rem;
+      }
+    }
+  }
+}
