@@ -72,7 +72,11 @@ class App extends Component {
   getEvents = async () => {
     try {
       const res = await fetch("http://127.0.0.1:8000/api/event/", {
-        method: "GET"
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        }
       });
       const events = await res.json();
       this.setState({ eventsData: events });
