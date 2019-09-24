@@ -32,7 +32,7 @@ class Hero extends Component {
                 target="_blank"
               >
                 <i
-                  class="fa fa-4x fa-instagram"
+                  className="fa fa-4x fa-instagram"
                   data-toggle="tooltip"
                   data-placement="left"
                   title="Follow us on Instagram"

@@ -12,7 +12,7 @@ class Nav extends Component {
   }
   render() {
     return (
-      <nav class="Nav-container">
+      <nav className="Nav-container">
         <div className="Left_Nav">
           <Link to="/">
             <h1>Heaven Ecoland</h1>
