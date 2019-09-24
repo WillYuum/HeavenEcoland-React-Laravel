@@ -7,10 +7,8 @@ import "./EventDetail.scss";
 // ----------SCSS--------------
 
 //---------IMPORTED COMPONENTS--------------
-import BundleCard from "../bundleCard/bundleCard.js"
+import BundleCard from "../bundleCard/bundleCard.js";
 //---------IMPORTED COMPONENTS--------------
-
-
 
 const EventDetails = ({
   ImageSrc,
@@ -33,7 +31,7 @@ const EventDetails = ({
           </div>
         </div>
         <div className="event-bundles">
-            <BundleCard />
+          <BundleCard />
         </div>
         <div className="event-description">
           <p>{description}</p>

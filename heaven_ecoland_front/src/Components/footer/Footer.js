@@ -45,12 +45,12 @@ class Footer extends Component {
             <p className="contactus-Title">Contact Us</p>
             <div className="contactUs-Icons">
               <div className="icon">
-                <img src={email} alt="phone icon" />
+                <img src={phone} alt="phone icon" />
                 <p>+961 71 153 141</p>
               </div>
 
               <div className="icon">
-                <img src={email} alt="phone icon" />
+                <img src={email} alt="email icon" />
                 <p className="Gmail_Heaven">heavenecoland@gmail.com</p>
               </div>
             </div>
