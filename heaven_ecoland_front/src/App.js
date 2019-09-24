@@ -117,7 +117,7 @@ class App extends Component {
           date: "12/2/2019",
           eventTitle: "Mike Andrews",
           discription:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi odio, molestiae minima minus impedit in tempore suscipit quia ullam quisquam recusandae. Quae eum expedita quam dolores consectetur fugiat, voluptatibus aspernatur."
+            "Lorem ipsum aljdfskdfnaldkfnlakdnflakdsnflasknfklasnfkalnfkasjbfklajn dolor sit amet consectetur adipisicing elit. Commodi odio, molestiae minima minus impedit in tempore suscipit quia ullam quisquam recusandae. Quae eum expedita quam dolores consectetur fugiat, voluptatibus aspernatur."
         }
       ],
       testimonialsData: [],

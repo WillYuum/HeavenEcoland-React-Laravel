@@ -13,4 +13,13 @@
     max-width: 100%;
     min-width: 100%;
   }
+
+  .description-warper{
+    max-width: 100%;
+    min-width: 100%;
+  }
+
+  .description{
+    text-overflow: ellipsis;
+  }
 }

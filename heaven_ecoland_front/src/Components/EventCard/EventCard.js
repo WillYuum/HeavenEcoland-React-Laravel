@@ -26,7 +26,7 @@ const EventCard = ({
         <div className="description-warper">
           <time className="time">{date}</time>
           <h2 className="event-title">{eventTitle}</h2>
-          <div className="discription">{discription}</div>
+          <div className="description">{discription}</div>
         </div>
         <Link to={`/event/${eventId}`}>More Info</Link>
       </div>
