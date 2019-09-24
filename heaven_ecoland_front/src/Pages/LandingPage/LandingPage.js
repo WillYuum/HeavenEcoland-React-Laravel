@@ -22,9 +22,9 @@ class LandingPage extends Component {
     const { renderEventLanding } = this.state;
     const { editMode, ...rest } = this.props;
     return renderEventLanding ? (
-      <EventLanding editMode={editMode}  />
+      <EventLanding editMode={editMode} />
     ) : (
-      <DefaultLanding editMode={editMode} {...rest}/>
+      <DefaultLanding editMode={editMode} {...rest} />
     );
   }
 }
