@@ -12,10 +12,15 @@ import BundleCard from "../bundleCard/bundleCard.js";
 
 const EventDetails = ({ eventId }) => {
   const [event, setEvent] = useState([]);
+
   useEffect(() => {
     getEvent(eventId);
   }, [event]);
 
+  /**
+   * @function getEvent -get event data depending on it's id and store in state event
+   * @param {int} id
+   */
   const getEvent = async id => {
     if (!id) {
       throw new Error("The id is missing");

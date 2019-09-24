@@ -69,6 +69,9 @@ class App extends Component {
     this.getEvents();
   }
 
+  /**
+   * @function getEvents - fetch the data for events
+   */
   getEvents = async () => {
     try {
       const res = await fetch("http://127.0.0.1:8000/api/event/", {
@@ -87,6 +90,9 @@ class App extends Component {
     }
   };
 
+  /**
+   * @function toggleEditMode -changes the editMode in state to True or False
+   */
   toggleEditMode = () => {
     const editMode = !this.state.editMode;
     this.setState({ editMode });
