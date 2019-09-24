@@ -63,7 +63,9 @@ class EventController extends Controller
      */
     public function show($id)
     {
-        //
+        // get event by id
+        $eventsById = DB::table('Event')->where('id', '=', $id)->get();
+        return $eventsById;
     }
 
     /**
