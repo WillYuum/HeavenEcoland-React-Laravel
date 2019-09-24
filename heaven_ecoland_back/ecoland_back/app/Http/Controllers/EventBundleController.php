@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+USE DB;
 class EventBundleController extends Controller
 {
     /**

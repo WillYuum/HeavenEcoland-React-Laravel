@@ -14,10 +14,10 @@ class CreateBundleTable extends Migration
     public function up()
     {
         Schema::create('Bundle', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id'); // bundle id
             $table->string('name',100)->nullable();
-            $table->bigInteger('bundle_id')->nullable();
             $table->bigInteger('price')->nullable();
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }
