@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 // ----------SCSS--------------
 import "./Nav.scss";
-
 // ----------SCSS--------------
 
 class Nav extends Component {
@@ -16,7 +15,7 @@ class Nav extends Component {
       <div class="Navbar">
         <Link to="/">
           {" "}
-          <h2 class="logo">DarkCode</h2>
+          <h2 class="logo">Heaven Ecoland</h2>
         </Link>
         <input type="checkbox" id="chk" />
         <label for="chk" class="show-menu-btn">

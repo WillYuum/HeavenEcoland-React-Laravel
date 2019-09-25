@@ -29,7 +29,7 @@ const EventCard = ({
           <h2 className="event-title">{eventTitle}</h2>
           <div className="description">{discription}</div>
         </div>
-        <Link to={`/event/${eventId}`} onClick={()=>{getEventId(eventId)}}>More Info</Link>
+        <Link to={`/event/${eventId}`}>More Info</Link>
       </div>
     );
   };
