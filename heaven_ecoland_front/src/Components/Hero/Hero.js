@@ -19,24 +19,26 @@ class Hero extends Component {
             {/* <!-- social media icons --> */}
             <div className="social_media">
               <a href="https://www.facebook.com/heavenecoland/" target="_blank">
-                <i
+                {/* <i
                   className="fa fa-4x fa-facebook"
                   data-toggle="tooltip"
                   data-placement="left"
                   title="Like us on Facebook"
-                ></i>
+                ></i> */}
+                <i class="fab fa-facebook-f" title="Like us on Facebook"></i>
               </a>
               <br />
               <a
                 href="https://www.instagram.com/explore/locations/149529028940477/heaven-ecoland"
                 target="_blank"
               >
-                <i
+                {/* <i
                   className="fa fa-4x fa-instagram"
                   data-toggle="tooltip"
                   data-placement="left"
                   title="Follow us on Instagram"
-                ></i>
+                ></i> */}
+                <i class="fab fa-instagram" title="Follow us on Instagram"></i>
               </a>
             </div>
             <p>Campground in Wadi El Sitt</p>
