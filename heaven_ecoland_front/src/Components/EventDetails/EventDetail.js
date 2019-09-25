@@ -10,11 +10,11 @@ import "./EventDetail.scss";
 import BundleCard from "../bundleCard/bundleCard.js";
 //---------IMPORTED COMPONENTS--------------
 
-const EventDetails = ({ eventId }) => {
+const EventDetails = ({ match }) => {
   const [event, setEvent] = useState([]);
 
   useEffect(() => {
-    getEvent(eventId);
+    getEvent(match.params.id);
   }, [event]);
 
   /**
@@ -34,8 +34,8 @@ const EventDetails = ({ eventId }) => {
         }
       });
       const result = await req.json();
-      console.log(result);
       setEvent(result);
+      console.log(event);
     } catch (err) {
       console.log(err);
       throw new Error(`getting event with id = ${id} failed`);
