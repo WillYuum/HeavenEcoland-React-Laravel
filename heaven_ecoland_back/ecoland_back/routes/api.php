@@ -20,3 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::resource('event','EventController');
 Route::resource('bundle','BundleController');
 Route::resource('eventbundle','EventBundleController');
+Route::resource('admin','AdminController');
+Route::resource('gallery','GalleryController');
+Route::resource('testimonial','TestimonialController');
+Route::resource('blog','BlogController');
