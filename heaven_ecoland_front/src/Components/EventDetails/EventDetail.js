@@ -11,6 +11,7 @@ import BundleCard from "../bundleCard/bundleCard.js";
 //---------IMPORTED COMPONENTS--------------
 
 const EventDetails = ({ eventId }) => {
+  debugger;
   const [event, setEvent] = useState([]);
   useEffect(() => {
     getEvent(eventId);
