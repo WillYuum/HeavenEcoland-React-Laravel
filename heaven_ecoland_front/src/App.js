@@ -98,6 +98,7 @@ class App extends Component {
    */
   getEventId = async id => {
     const getId = await this.setState({ eventId: id });
+    // debugger;
     return getId;
   };
 
@@ -106,7 +107,8 @@ class App extends Component {
     // -----------DATA STATES---------------
     const { galleryData, eventsData, testimonialsData } = this.state;
     // -----------DATA STATES---------------
-
+    console.log(eventId)
+    
     return (
       <div className="App">
         <Nav />

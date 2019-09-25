@@ -54,7 +54,6 @@ class DefaultLanding extends Component {
             <div className="event-container">
               {rest.eventsData.map((event, i) => {
                 console.log(event.name);
-                debugger;
                 while (i < 6) {
                   return (
                     <EventCard
