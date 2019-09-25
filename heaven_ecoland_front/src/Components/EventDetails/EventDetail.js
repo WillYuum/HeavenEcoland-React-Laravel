@@ -41,12 +41,11 @@ const EventDetails = ({ eventId }) => {
       throw new Error(`getting event with id = ${id} failed`);
     }
   };
-
   return (
     <div className="EventDetails">
       <div className="image"></div>
       <div className="details">
-        <div class="first-details">
+        <div className="first-details">
           <div className="event-date">
             <time>{event.date}</time>
           </div>

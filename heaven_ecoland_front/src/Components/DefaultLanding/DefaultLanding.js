@@ -57,7 +57,7 @@ class DefaultLanding extends Component {
                 while (i < 6) {
                   return (
                     <EventCard
-                      eventId={event.name}
+                      eventId={event.id}
                       price={event.price}
                       ImageSrc={event.img}
                       date={event.date}
