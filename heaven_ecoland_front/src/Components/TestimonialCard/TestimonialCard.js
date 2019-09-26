@@ -10,8 +10,7 @@ const TestimonialCard = ({ image, authr, date, text }) => {
   return (
     
     <div className="testimonialCard-container">
-     <div><h1>Testimonial</h1></div>
-
+    
       <div className="flip-card">
         <div className="flip-card-inner">
           <div className="flip-card-front">
@@ -19,9 +18,9 @@ const TestimonialCard = ({ image, authr, date, text }) => {
           </div>
           <div className="flip-card-back">
             <h3 className="authr-name">{authr}</h3>
-
-            <p className="testimonials-text">{text}</p>
             <small className="testimonials-date">{date}</small>
+            <br/><br/>
+            <p className="testimonials-text">{text}</p>
           </div>
         </div>
       </div>

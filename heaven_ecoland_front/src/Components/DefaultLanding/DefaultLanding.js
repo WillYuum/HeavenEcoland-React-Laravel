@@ -71,8 +71,24 @@ class DefaultLanding extends Component {
           <div>
             <TestimonialCard />
         
-            <div className="images-container">
+            <div className="testimonials-container">
               {rest.testimonialsData.map((testimonials, i) => {
+                while (i < 4) {
+                  return <TestimonialCard image={testimonials.img}
+                  date={testimonials.date} 
+                  authr={testimonials.authr}
+                  text={testimonials.text}/>;
+                }
+              })}
+               {rest.testimonialsData.map((testimonials, i) => {
+                while (i < 4) {
+                  return <TestimonialCard image={testimonials.img}
+                  date={testimonials.date} 
+                  authr={testimonials.authr}
+                  text={testimonials.text}/>;
+                }
+              })}
+                {rest.testimonialsData.map((testimonials, i) => {
                 while (i < 4) {
                   return <TestimonialCard image={testimonials.img}
                   date={testimonials.date} 
