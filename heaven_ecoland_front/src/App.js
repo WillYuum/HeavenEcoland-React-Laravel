@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Link, Switch, withRouter } from "react-router-dom";
+import { Route, Switch, withRouter } from "react-router-dom";
 
 //-------------CSS---------------
 import "./App.css";
@@ -61,14 +61,33 @@ class App extends Component {
       ],
       eventsData: [],
       testimonialsData: [],
+      isLoggedIn: false,
       editMode: false
     };
   }
+
+  logIn = () => {
+    const req = fetch("", {
+      method: "",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }
+    });
+    try {
+    } catch (err) {
+      console.log(err);
+      throw new Error("logging in failed");
+    }
+  };
 
   async componentDidMount() {
     this.getEvents();
   }
 
+  /**
+   * @function getEvents - fetch the data for events
+   */
   getEvents = async () => {
     try {
       const res = await fetch("http://127.0.0.1:8000/api/event/", {
@@ -80,20 +99,22 @@ class App extends Component {
       });
       const events = await res.json();
       this.setState({ eventsData: events });
-      console.log(this.state.eventsData);
     } catch (err) {
       console.log(err);
       throw new Error("fetching  EVENTS failed");
     }
   };
 
+  /**
+   * @function toggleEditMode -changes the editMode in state to True or False
+   */
   toggleEditMode = () => {
     const editMode = !this.state.editMode;
     this.setState({ editMode });
   };
 
   render() {
-    const { editMode, eventId } = this.state;
+    const { editMode, isLoggedIn } = this.state;
     // -----------DATA STATES---------------
     const { galleryData, eventsData, testimonialsData } = this.state;
     // -----------DATA STATES---------------
@@ -101,9 +122,11 @@ class App extends Component {
     return (
       <div className="App">
         <Nav />
-        <button className="EditMode-btn" onClick={this.toggleEditMode}>
-          Edit Mode
-        </button>
+        {isLoggedIn && (
+          <button className="EditMode-btn" onClick={this.toggleEditMode}>
+            Edit Mode
+          </button>
+        )}
         <Switch>
           <Route
             path="/"
@@ -124,7 +147,7 @@ class App extends Component {
               <GalleryPage editMode={editMode} galleryData={galleryData} />
             )}
           />
-          <Route path="/eventpage" render={() => <EventPage />} />
+          <Route path="/eventpage" render={() => <EventPage  eventsData={eventsData}/>} />
           <Route path="/blogpage" render={() => <BlogPage />} />
           <Route path="/contactus" render={() => <ContactUsPage />} />
           <Route
