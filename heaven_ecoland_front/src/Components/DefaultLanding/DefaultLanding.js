@@ -58,15 +58,17 @@ class DefaultLanding extends Component {
                     <EventCard
                       eventId={event.id}
                       price={event.price}
-                      ImageSrc={event.img}
+                      ImageSrc={event.image}
                       date={event.date}
-                      eventTitle={event.eventTitle}
-                      discription={event.discription}
+                      title={event.title}
+                      description={event.description}
                       getEventId={getEventId}
                     />
                   );
                 }
-              })}
+              }
+              )
+              }
             </div>
           </div>
           {/* -----------------EVENT SECTION------------------ */}

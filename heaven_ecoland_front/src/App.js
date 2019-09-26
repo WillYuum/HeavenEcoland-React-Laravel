@@ -147,7 +147,7 @@ class App extends Component {
               <GalleryPage editMode={editMode} galleryData={galleryData} />
             )}
           />
-          <Route path="/eventpage" render={() => <EventPage />} />
+          <Route path="/eventpage" render={() => <EventPage  eventsData={eventsData}/>} />
           <Route path="/blogpage" render={() => <BlogPage />} />
           <Route path="/contactus" render={() => <ContactUsPage />} />
           <Route
