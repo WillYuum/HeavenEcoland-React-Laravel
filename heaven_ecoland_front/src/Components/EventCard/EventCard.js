@@ -8,10 +8,10 @@ import "./Event.scss";
 const EventCard = ({
   eventId,
   price,
-  ImageSrc,
+  image,
   date,
-  eventTitle,
-  discription,
+  title,
+  description,
   getEventId
 }) => {
   const renderEventCard = () => {
@@ -20,16 +20,17 @@ const EventCard = ({
         <div className="priceTag">${price}</div>
         <img
           className="event-img"
-          src={ImageSrc}
+          src={image}
           width="300px"
           height="300px"
         />
         <div className="description-warper">
           <time className="time">{date}</time>
-          <h2 className="event-title">{eventTitle}</h2>
-          <div className="description">{discription}</div>
+          <h2 className="event-title">{title}</h2>
+          <div className="description">{description} </div>
+          <div class="more">  <Link  class ="more" to={`/event/${eventId}`} onClick={()=>{getEventId(eventId)}}>More Info</Link></div>
         </div>
-        <Link to={`/event/${eventId}`} onClick={()=>{getEventId(eventId)}}>More Info</Link>
+      
       </div>
     );
   };

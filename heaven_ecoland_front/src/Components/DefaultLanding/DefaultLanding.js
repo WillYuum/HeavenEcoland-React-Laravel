@@ -54,20 +54,23 @@ class DefaultLanding extends Component {
             <div className="event-container">
               {rest.eventsData.map((event, i) => {
                 console.log(event.name);
+                console.log(event.description);
                 while (i < 6) {
                   return (
                     <EventCard
                       eventId={event.id}
                       price={event.price}
-                      ImageSrc={event.img}
+                      ImageSrc={event.image}
                       date={event.date}
-                      eventTitle={event.eventTitle}
-                      discription={event.discription}
+                      title={event.title}
+                      description={event.description}
                       getEventId={getEventId}
                     />
                   );
                 }
-              })}
+              }
+              )
+              }
             </div>
           </div>
           {/* -----------------EVENT SECTION------------------ */}
