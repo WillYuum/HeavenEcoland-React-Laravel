@@ -19,7 +19,7 @@ class DefaultLanding extends Component {
     this.state = {};
   }
   render() {
-    const { editMode, ...rest} = this.props;
+    const { editMode, getEventId, ...rest } = this.props;
     return (
       <div className="DefaultLanding">
         {/* -----------------HERO SECTION---------------- */}
@@ -56,15 +56,19 @@ class DefaultLanding extends Component {
                 while (i < 6) {
                   return (
                     <EventCard
+                      eventId={event.id}
                       price={event.price}
-                      ImageSrc={event.img}
+                      ImageSrc={event.image}
                       date={event.date}
-                      eventTitle={event.eventTitle}
-                      discription={event.discription}
+                      title={event.title}
+                      description={event.description}
+                      getEventId={getEventId}
                     />
                   );
                 }
-              })}
+              }
+              )
+              }
             </div>
           </div>
           {/* -----------------EVENT SECTION------------------ */}

@@ -20,12 +20,20 @@
       position: fixed;
       right: 10px;
       top: 42vh;
-      .fa-facebook {
+      .fa-facebook-f {
         color: #1c89d1;
+        font-size: 3rem;
       }
       .fa-instagram {
         color: #e42c1f;
+        font-size: 3rem;
       }
     }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .social_media {
+    visibility: hidden;
   }
 }

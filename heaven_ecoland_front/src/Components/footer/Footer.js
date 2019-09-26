@@ -31,7 +31,7 @@ class Footer extends Component {
                   <img src={facebook} alt="facebook icon" />
                 </a>
               </div>
-              <div class="icon">
+              <div className="icon">
                 <a
                   href="https://www.instagram.com/explore/locations/149529028940477/heaven-ecoland"
                   target="_blank"
@@ -45,12 +45,12 @@ class Footer extends Component {
             <p className="contactus-Title">Contact Us</p>
             <div className="contactUs-Icons">
               <div className="icon">
-                <img src={email} alt="phone icon" />
+                <img src={phone} alt="phone icon" />
                 <p>+961 71 153 141</p>
               </div>
 
               <div className="icon">
-                <img src={email} alt="phone icon" />
+                <img src={email} alt="email icon" />
                 <p className="Gmail_Heaven">heavenecoland@gmail.com</p>
               </div>
             </div>
