@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Link, Switch, withRouter } from "react-router-dom";
+import { Route, Switch, withRouter } from "react-router-dom";
 
 //-------------CSS---------------
 import "./App.css";
@@ -14,6 +14,7 @@ import EventPage from "./Pages/EventPage/EventPage.js";
 import BlogPage from "./Pages/BlogPage/BlogPage.js";
 import ContactUsPage from "./Pages/ContactUsPage/ContactUsPage.js";
 import EventDetails from "./Components/EventDetails/EventDetail.js";
+import LoginPage from "./Pages/LoginPage/LoginPage.js";
 //---------IMPORTED PAGES--------------
 
 class App extends Component {
@@ -60,15 +61,33 @@ class App extends Component {
       ],
       eventsData: [],
       testimonialsData: [],
-      eventId: "",
+      isLoggedIn: false,
       editMode: false
     };
   }
+
+  logIn = () => {
+    const req = fetch("", {
+      method: "",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }
+    });
+    try {
+    } catch (err) {
+      console.log(err);
+      throw new Error("logging in failed");
+    }
+  };
 
   async componentDidMount() {
     this.getEvents();
   }
 
+  /**
+   * @function getEvents - fetch the data for events
+   */
   getEvents = async () => {
     try {
       const res = await fetch("http://127.0.0.1:8000/api/event/", {
@@ -80,41 +99,34 @@ class App extends Component {
       });
       const events = await res.json();
       this.setState({ eventsData: events });
-      console.log(this.state.eventsData);
     } catch (err) {
       console.log(err);
       throw new Error("fetching  EVENTS failed");
     }
   };
 
+  /**
+   * @function toggleEditMode -changes the editMode in state to True or False
+   */
   toggleEditMode = () => {
     const editMode = !this.state.editMode;
     this.setState({ editMode });
   };
 
-  /**
-   * @function getEventId
-   * @param {int} id - this function retrieves the event if from <EventCard />
-   */
-  getEventId = async id => {
-    const getId = await this.setState({ eventId: id });
-    // debugger;
-    return getId;
-  };
-
   render() {
-    const { editMode, eventId } = this.state;
+    const { editMode, isLoggedIn } = this.state;
     // -----------DATA STATES---------------
     const { galleryData, eventsData, testimonialsData } = this.state;
     // -----------DATA STATES---------------
-    console.log(eventId)
-    
+
     return (
       <div className="App">
         <Nav />
-        <button className="EditMode-btn" onClick={this.toggleEditMode}>
-          Edit Mode
-        </button>
+        {isLoggedIn && (
+          <button className="EditMode-btn" onClick={this.toggleEditMode}>
+            Edit Mode
+          </button>
+        )}
         <Switch>
           <Route
             path="/"
@@ -139,9 +151,10 @@ class App extends Component {
           <Route path="/blogpage" render={() => <BlogPage />} />
           <Route path="/contactus" render={() => <ContactUsPage />} />
           <Route
-            path={`/event/${eventId}`}
-            render={() => <EventDetails eventId={eventId} />}
+            path={`/event/:id`}
+            render={props => <EventDetails {...props} />}
           />
+          <Route path="/login-to-heaven" render={() => <LoginPage />} />
         </Switch>
         <Footer />
       </div>

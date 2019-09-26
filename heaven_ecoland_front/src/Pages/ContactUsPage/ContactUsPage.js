@@ -17,7 +17,7 @@ class ContactUsPage extends Component {
     return (
       <div className="contactUsPage-container">
         <div className="contactUs-Title">
-          <h1>ContactUs</h1>
+          <h1>Contact Us</h1>
         </div>
         <div className="contactUs-display">
           <div className="Contact_Information">

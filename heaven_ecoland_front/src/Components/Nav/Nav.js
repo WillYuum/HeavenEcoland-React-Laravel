@@ -12,29 +12,67 @@ class Nav extends Component {
   }
   render() {
     return (
-      <nav className="Nav-container">
+      <div class="Navbar">
+        <Link to="/">
+          {" "}
+          <h2 class="logo">Heaven Ecoland</h2>
+        </Link>
+        <input type="checkbox" id="chk" />
+        <label for="chk" class="show-menu-btn">
+          <i className="fas fa-ellipsis-h"></i>
+        </label>
+
+        <ul class="menu">
+          <Link to="/blogpage" className="Nav_Link">
+            Blog
+          </Link>
+          <Link to="/eventpage" className="Nav_Link">
+            Event
+          </Link>
+          <Link to="/gallerypage" className="Nav_Link">
+            Gallery
+          </Link>
+          <Link to="/contactus" className="Nav_Link">
+            Contact
+          </Link>
+          <label for="chk" class="hide-menu-btn">
+            <i class="fas fa-times"></i>
+          </label>
+        </ul>
+      </div>
+      // ----------------------------nav keep--------------------------------------
+      /* /* <nav className="Nav-container">
         <div className="Left_Nav">
-          <Link to="/">
+          <Link to="/" className="Left_Nav_Link">
             <h1>Heaven Ecoland</h1>
           </Link>
         </div>
         <div className="Right_Nav">
           <ul>
             <li>
-              <Link to="/blogpage">Blog</Link>
+              <Link to="/blogpage" className="Right_Nav_Link">
+                Blog
+              </Link>
             </li>
             <li>
-              <Link to="/eventpage">Event</Link>
+              <Link to="/eventpage" className="Right_Nav_Link">
+                Event
+              </Link>
             </li>
             <li>
-              <Link to="/gallerypage">Gallery</Link>
+              <Link to="/gallerypage" className="Right_Nav_Link">
+                Gallery
+              </Link>
             </li>
             <li>
-              <Link to="/contactus">Contact</Link>
+              <Link to="/contactus" className="Right_Nav_Link">
+                Contact
+              </Link>
             </li>
           </ul>
         </div>
-      </nav>
+      </nav> */
+      // ----------------------------nav keep--------------------------------------
     );
   }
 }
