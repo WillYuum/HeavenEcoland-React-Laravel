@@ -29,7 +29,7 @@
    </div>
    <img src="/images/{{ Session::get('path') }}" width="300" />
    @endif
-   <form method="post" action="{{url('/uploadimage')}}" enctype="multipart/form-data">
+   <form method="post" action="{{url('/uploadfile')}}" enctype="multipart/form-data">
     {{ csrf_field() }}
     <div class="form-group">
      <table class="table">
@@ -48,5 +48,6 @@
    </form>
    <br />
   </div>
+
  </body>
 </html>

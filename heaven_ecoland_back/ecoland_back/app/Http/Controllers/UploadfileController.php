@@ -15,15 +15,28 @@ class UploadfileController extends Controller
     function upload(Request $request)
     {
      $this->validate($request, [
-      'select_file'  => 'required|image|mimes:jpg,png,gif|max:2048'
+      'select_file'  => 'required|image|mimes:JPG,jpg,png,gif|max:2048'
      ]);
 
+     // retrieve FILE and store it in $image
      $image = $request->file('select_file');
 
+     // generates a random name (integer) with the extension and stores it in $new_name
      $new_name = rand() . '.' . $image->getClientOriginalExtension();
 
-     $image->move(public_path('images'), $new_name);
-     return back()->with('success', 'Image Uploaded Successfully')->with('path', $new_name);
+     // moves the file to the public folder with the new name $new_name
+    //  $image->move(public_path('images'), $new_name);
+     
+    //  return back()->with('success', 'Image Uploaded Successfully ')->with('path', $new_name);
+   
+   
+     //----------------------convert image file array to json------------------------------------
+   
+     return  [
+         'success'  => true,
+        'data' => $new_name
+     ];
+     //----------------------convert image file array to json------------------------------------
     }
 }
 ?>
