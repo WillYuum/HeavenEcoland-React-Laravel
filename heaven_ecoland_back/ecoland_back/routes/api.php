@@ -24,3 +24,5 @@ Route::resource('admin','AdminController');
 Route::resource('gallery','GalleryController');
 Route::resource('testimonial','TestimonialController');
 Route::resource('blog','BlogController');
+Route::get('/uploadimage', 'UploadfileController@index');
+Route::post('/uploadimage', 'UploadfileController@upload');
