@@ -61,9 +61,25 @@ class App extends Component {
       ],
       eventsData: [],
       testimonialsData: [],
+      isLoggedIn: false,
       editMode: false
     };
   }
+
+  logIn = () => {
+    const req = fetch("", {
+      method: "",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }
+    });
+    try {
+    } catch (err) {
+      console.log(err);
+      throw new Error("logging in failed");
+    }
+  };
 
   async componentDidMount() {
     this.getEvents();
@@ -83,7 +99,6 @@ class App extends Component {
       });
       const events = await res.json();
       this.setState({ eventsData: events });
-      console.log(this.state.eventsData);
     } catch (err) {
       console.log(err);
       throw new Error("fetching  EVENTS failed");
@@ -99,7 +114,7 @@ class App extends Component {
   };
 
   render() {
-    const { editMode, eventId } = this.state;
+    const { editMode, isLoggedIn } = this.state;
     // -----------DATA STATES---------------
     const { galleryData, eventsData, testimonialsData } = this.state;
     // -----------DATA STATES---------------
@@ -107,9 +122,11 @@ class App extends Component {
     return (
       <div className="App">
         <Nav />
-        <button className="EditMode-btn" onClick={this.toggleEditMode}>
-          Edit Mode
-        </button>
+        {isLoggedIn && (
+          <button className="EditMode-btn" onClick={this.toggleEditMode}>
+            Edit Mode
+          </button>
+        )}
         <Switch>
           <Route
             path="/"
