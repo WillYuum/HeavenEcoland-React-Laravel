@@ -14,8 +14,7 @@ class Nav extends Component {
     return (
       <div class="Navbar">
         <Link to="/">
-          {" "}
-          <h2 class="logo">Heaven Ecoland</h2>
+          <h2 className="logo">Heaven Ecoland</h2>
         </Link>
         <input type="checkbox" id="chk" />
         <label for="chk" class="show-menu-btn">
@@ -35,8 +34,8 @@ class Nav extends Component {
           <Link to="/contactus" className="Nav_Link">
             Contact
           </Link>
-          <label for="chk" class="hide-menu-btn">
-            <i class="fas fa-times"></i>
+          <label for="chk" className="hide-menu-btn">
+            <i className="fas fa-times"></i>
           </label>
         </ul>
       </div>

@@ -1,31 +1,21 @@
-
-
-
 .EventCard-container {
-/* 
-  box-shadow: 5px 10px 5px;
-  border-radius: 5px;
-    border:0 px solid #DDDDDD; */
   width: 300px;
 
-  position: relative; 
-   
+  position: relative;
+
   max-width: 100%;
   min-width: 100%;
   max-height: 100%;
   min-height: 100%;
-  
 
   .priceTag {
     font-weight: bold;
-
-  /*   float: right; */
     position: absolute;
     right: -15px;
     top: 50px;
-    z-index: 1000;
+    z-index: 2;
     background-color: rgb(255, 255, 255);
-     padding: 5px; 
+    padding: 5px;
     color: rgb(75, 70, 70);
     font-weight: bold;
     box-shadow: 5px 10px 5px;
@@ -33,242 +23,105 @@
   }
 
   .event-img {
-
-  box-shadow: 5px 10px 5px;
-  border-radius: 5px;
-    border:0 px solid #DDDDDD;
+    box-shadow: 5px 10px 5px;
+    border-radius: 5px;
+    border: 0 px solid #dddddd;
     max-width: 100%;
     min-width: 100%;
   }
 
-  .description-warper{
-
-    word-wrap: break-word; 
+  .description-warper {
+    word-wrap: break-word;
     overflow-x: hidden;
     position: absolute;
-    z-index: 999999;
     right: 0;
     left: 0;
     width: 300px;
-    height:170px;
-  box-shadow: 5px 10px 5px;
-    border-radius: 5px; 
+    height: 170px;
+    box-shadow: 5px 10px 5px;
+    border-radius: 5px;
     text-align: center;
-  
-/*   display: table; */
-  display: flex;
-  flex-wrap: wrap;
-  //------------------
+
+    /*   display: table; */
+    display: flex;
+    flex-wrap: wrap;
+    //------------------
     max-width: 100%;
-    min-width: 100%; 
+    min-width: 100%;
 
-
-    .time{
-      color:red;
+    .time {
+      color: red;
       font-weight: bold;
       position: relative;
       float: left;
-    height: 50px;
-    /* height: fit-content; */
-    /* margin-bottom: 100px; */
-    
+      height: 50px;
+      /* height: fit-content; */
+      /* margin-bottom: 100px; */
     }
-    .description{
-
-      width:100%;
+    .description {
+      width: 100%;
       white-space: nowrap;
-     /* word-wrap: break-word;  */
-      overflow: hidden; 
-   
-  /*     overflow-y: hidden; */
+      overflow: hidden;
       position: relative;
       float: right;
-      //-------------
       text-overflow: ellipsis;
     }
-    .event-title{
+    .event-title {
       margin-top: 1em;
-position: relative;
-float: center;
-
+      position: relative;
+      float: center;
     }
-.more{
-position: relative;
-float: right;
-color: #35c772;
-
+    .more {
+      position: relative;
+      float: right;
+      color: #35c772;
     }
   }
-
-
 }
 
-
-/* .container {
-  border:0 px solid #DDDDDD;
-  width: 300px;
-    height: 300px; 
-  position: relative;
-  
-
-} */
-
-
-
-/* .tag {
-  float: right;
-  position: absolute;
-  right: -15px;
-  top: 50px;
-  z-index: 1000;
-  background-color: rgb(255, 255, 255);
-   padding: 5px; 
-  color: rgb(75, 70, 70);
-  font-weight: bold;
-  box-shadow: 5px 10px 5px;
-  border-radius: 5px;
-
-} */
-
-/* .event-img{
-  box-shadow: 5px 10px 5px;
-  border-radius: 5px;
-
-} */
-/* .event-card{
-width:80%;
-position: absolute;
-left:10%;
-right:-10%;
-
-
-
-/* background-color: aqua; */
-
-/* display:grid;
-grid-template-columns: auto auto auto auto;
-justify-content: center;
-grid-column-gap:20px; */
-/* } */ 
-/* h2{
-width:100%;
-float: left;
-
-
-} */
-
-/* 
-.meta
-{
-  
-
-font-size: 14px;
-color: #666;
-width: 100%;
-  height:100px;
-  margin: 0px;
-position: relative;
-top: 50%;
-transform: translate(0,-50%);
-  
-} */
-/* 
-.description-warper{
-  word-wrap: break-word; 
-  overflow-x: hidden;
-  position: absolute;
-  z-index: 999999;
-  right: 0;
-  left: 0;
-  width: 300px;
-  height:150px;
-box-shadow: 5px 10px 5px;
-  border-radius: 5px; 
-  text-align: center;
-
-display: table;
-display: flex;
-flex-wrap: wrap;
-
-} */
-/* .descrip{
-  width:100%;
-  word-wrap: break-word; 
-  overflow-x: hidden;
-  /* height: 100%; */
-  /* overflow-y: hidden; */
-/* } */
-
-
 .bundle {
-  width: 30%;;
+  width: 30%;
   height: 75px;
-background-color: #35c772;
+  background-color: #35c772;
 
   border: 1px solid rgb(255, 255, 255);
   border-radius: 50%;
 }
 
+@media (max-width: 790px) {
+  .EventCard-container {
+    gap: 250px;
+  }
 
-
-
-
-
-
-@media(max-width:790px){
-/* 
-  .EventCard-container{
-   /*    width:100%; */
-     
-       /* background-color: aqua; 
-       
-      display:grid;
-  
-      grid-template-columns: auto;
-      justify-content: center;
-    
-    } */
-    .EventCard-container{
-
-      gap:250px;
-    }
-
-   .description-warper{
-
-      word-wrap: break-word; 
-      overflow-x: hidden;
-      position: absolute;
-      z-index: 1000;
-      right: 0;
-      left: 0;
-      width: 300px;
-      height:150px;
+  .description-warper {
+    word-wrap: break-word;
+    overflow-x: hidden;
+    position: absolute;
+    right: 0;
+    left: 0;
+    width: 300px;
+    height: 150px;
     box-shadow: 5px 10px 5px;
-      border-radius: 5px; 
-      text-align: center;
-    
-  /*   display: table; */
+    border-radius: 5px;
+    text-align: center;
+
+    /*   display: table; */
     display: flex;
     flex-wrap: wrap;
     //------------------
-      max-width: 100%;
-      min-width: 100%;
-    
-    }
-  
-       .price {
-          float: right;
-     position: absolute;  
-          right: 0px;
-          top: 50px;
-          z-index: 1000;
-          background-color: rgb(255, 255, 255);
-           padding: 5px; 
-          color: rgb(75, 70, 70);
-          font-weight: bold;
-          box-shadow: 5px 10px 5px;
-          border-radius: 5px;
-      
-       }
+    max-width: 100%;
+    min-width: 100%;
+  }
 
+  .price {
+    float: right;
+    position: absolute;
+    right: 0px;
+    top: 50px;
+    z-index: 2;
+    padding: 5px;
+    color: rgb(75, 70, 70);
+    font-weight: bold;
+    border-radius: 5px;
+  }
 }

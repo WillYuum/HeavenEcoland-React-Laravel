@@ -80,8 +80,8 @@ class DefaultLanding extends Component {
                     <TestimonialCard
                       image={testimonials.img}
                       date={testimonials.date}
-                      authr={testimonials.authr}
-                      text={testimonials.text}
+                      authr={testimonials.author}
+                      text={testimonials.content}
                     />
                   );
                 }
