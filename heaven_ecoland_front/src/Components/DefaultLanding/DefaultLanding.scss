@@ -37,7 +37,7 @@
 
     // ----------------------EVENT SECTION----------------------
     .event-Section {
-    margin-bottom: 12em;
+      margin-bottom: 12em;
       width: 100%;
       .event-title h2 {
         text-align: center;
@@ -49,7 +49,7 @@
         margin: 0px auto;
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(295px, 2fr));
-        object-fit: cover; 
+        object-fit: cover;
         gap: 190px 20px;
       }
 
@@ -65,7 +65,9 @@
     // ----------------------EVENT SECTION----------------------
   }
 }
-.testimonials-container{
+.testimonials-container {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  object-fit: cover;
+  gap: 20px 20px;
 }

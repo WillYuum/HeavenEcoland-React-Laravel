@@ -66,6 +66,29 @@ class App extends Component {
     };
   }
 
+  getTestimonilas = async () => {
+    try {
+      const req = await fetch("http://127.0.0.1:8000/api/testimonial/", {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        }
+      });
+
+      const testimonials = await req.json();
+      this.setState({ testimonialsData: testimonials });
+    } catch (err) {
+      console.log(err);
+      throw new Error("fetching testimonials failed");
+    }
+  };
+
+  /**
+   * @function logIn -function that takes the username and password to get the login and have the edit mode turn to true
+   * @param {string}
+   * @param {string}
+   */
   logIn = () => {
     const req = fetch("", {
       method: "",
@@ -83,6 +106,7 @@ class App extends Component {
 
   async componentDidMount() {
     this.getEvents();
+    this.getTestimonilas();
   }
 
   /**
@@ -147,7 +171,10 @@ class App extends Component {
               <GalleryPage editMode={editMode} galleryData={galleryData} />
             )}
           />
-          <Route path="/eventpage" render={() => <EventPage  eventsData={eventsData}/>} />
+          <Route
+            path="/eventpage"
+            render={() => <EventPage eventsData={eventsData} />}
+          />
           <Route path="/blogpage" render={() => <BlogPage />} />
           <Route path="/contactus" render={() => <ContactUsPage />} />
           <Route
