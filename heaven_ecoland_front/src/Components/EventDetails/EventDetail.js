@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import { Jumbotron } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 
 // ----------SCSS--------------
 import "./EventDetail.scss";
@@ -10,12 +10,25 @@ import "./EventDetail.scss";
 import BundleCard from "../bundleCard/bundleCard.js";
 //---------IMPORTED COMPONENTS--------------
 
-const EventDetails = ({ match }) => {
+const EventDetails = ({ ...props }) => {
+  // -----------EVENTDATA STATE-------------
   const [event, setEvent] = useState([]);
+  // -----------EVENTDATA STATE-------------
 
+  const [bundles, setBundle] = useState([
+    { name: "A3de Ta7t l Shajra", price: "12", description: "Eat with shajra" },
+    { name: "A3de Fo2 l Shajra", price: "16", description: "Fly with Shajra" },
+    { name: "A3de Ma3 l Shajra", price: "100", description: "Die with Shajra" },
+    { name: "A3de Ma3 l Shajra", price: "100", description: "Die with Shajra" },
+    { name: "A3de Ma3 l Shajra", price: "100", description: "Die with Shajra" }
+  ]);
+
+  /**
+   * @method useEffect -an alternative to didComponentMount + calls the api again after the state being updated.
+   */
   useEffect(() => {
-    getEvent(match.params.id);
-  }, [event]);
+    getEvent(props.match.params.id);
+  }, []);
 
   /**
    * @function getEvent -get event data depending on it's id and store in state event
@@ -34,8 +47,7 @@ const EventDetails = ({ match }) => {
         }
       });
       const result = await req.json();
-      setEvent(result);
-      console.log(event);
+      setEvent(result[0]);
     } catch (err) {
       console.log(err);
       throw new Error(`getting event with id = ${id} failed`);
@@ -43,22 +55,38 @@ const EventDetails = ({ match }) => {
   };
   return (
     <div className="EventDetails">
-      <div className="image"></div>
-      <div className="details">
-        <div className="first-details">
-          <div className="event-date">
-            <time>{event.date}</time>
-          </div>
-          <div className="event-title">
-            <p>{event.title}</p>
-          </div>
+      <div className="event-container">
+        <div className="image">
+          <img
+            src="http://www.vacationrentalsindia.com/sadmin/images/gallery/p1bs87ld4a1dkghhv1ef91slm1f6tt.jpg"
+            alt="Event Image"
+          />
         </div>
-        <div className="event-bundles">
-          <BundleCard />
-        </div>
-        <div className="event-description">
-          <p>{event.description}</p>
-          <p>Total Price:{event.price}</p>
+        <div className="details">
+          <div className="first-details">
+            <div className="event-date">
+              <time>Date: {event.date}</time>
+            </div>
+            <div className="event-title">
+              <p>{event.title}</p>
+            </div>
+          </div>
+          <div className="bundles-description">
+            <div className="event-bundles">
+              <p>Bundles</p>
+              {bundles.map(bundle => (
+                <BundleCard
+                  name={bundle.name}
+                  description={bundle.description}
+                  price={bundle.price}
+                />
+              ))}
+            </div>
+            <div className="event-description">
+              <p>{event.description}</p>
+              <p>Total Price:${event.price}</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -66,3 +94,38 @@ const EventDetails = ({ match }) => {
 };
 
 export default EventDetails;
+
+{
+  /* <div className="image">
+        <img
+          src="http://www.vacationrentalsindia.com/sadmin/images/gallery/p1bs87ld4a1dkghhv1ef91slm1f6tt.jpg"
+          alt="Event Image"
+        />
+      </div>
+      <div className="details">
+        <div className="first-details">
+          <div className="event-date">
+            <time>Date: {event.date}</time>
+          </div>
+          <div className="event-title">
+            <p>{event.title}</p>
+          </div>
+        </div>
+        <div className="bundles-description">
+          <div className="event-bundles">
+            <p>Bundles</p>
+            {bundles.map(bundle => (
+              <BundleCard
+                name={bundle.name}
+                description={bundle.description}
+                price={bundle.price}
+              />
+            ))}
+          </div>
+          <div className="event-description">
+            <p>{event.description}</p>
+            <p>Total Price:${event.price}</p>
+          </div>
+        </div>
+      </div> */
+}
