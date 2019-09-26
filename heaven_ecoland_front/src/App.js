@@ -66,28 +66,8 @@ class App extends Component {
     };
   }
 
-  getTestimonilas = async () => {
-    try {
-      const req = await fetch("http://127.0.0.1:8000/api/testimonial/", {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json"
-        }
-      });
-
-      const testimonials = await req.json();
-      this.setState({ testimonialsData: testimonials });
-    } catch (err) {
-      console.log(err);
-      throw new Error("fetching testimonials failed");
-    }
-  };
-
   /**
-   * @function logIn -function that takes the username and password to get the login and have the edit mode turn to true
-   * @param {string}
-   * @param {string}
+   * @function logIn -logsIn the admin and have the capability of editing
    */
   logIn = () => {
     const req = fetch("", {
@@ -109,6 +89,7 @@ class App extends Component {
     this.getTestimonilas();
   }
 
+  // -----------------------EVENTS FETCH-------------------------------
   /**
    * @function getEvents - fetch the data for events
    */
@@ -128,6 +109,30 @@ class App extends Component {
       throw new Error("fetching  EVENTS failed");
     }
   };
+  // -----------------------EVENTS FETCH-------------------------------
+
+  //-----------------------------------TESTIMONIALS FETCH-----------------------------------
+  /**
+   * @function getTestimonilas -get testimonials data from dataBase
+   */
+  getTestimonilas = async () => {
+    try {
+      const req = await fetch("http://127.0.0.1:8000/api/testimonial/", {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        }
+      });
+
+      const testimonials = await req.json();
+      this.setState({ testimonialsData: testimonials });
+    } catch (err) {
+      console.log(err);
+      throw new Error("fetching testimonials failed");
+    }
+  };
+  //-----------------------------------TESTIMONIALS FETCH------------------------------------
 
   /**
    * @function toggleEditMode -changes the editMode in state to True or False
@@ -138,7 +143,10 @@ class App extends Component {
   };
 
   render() {
+    // ----------ADMIN STATES--------------
     const { editMode, isLoggedIn } = this.state;
+    // ----------ADMIN STATES--------------
+
     // -----------DATA STATES---------------
     const { galleryData, eventsData, testimonialsData } = this.state;
     // -----------DATA STATES---------------
