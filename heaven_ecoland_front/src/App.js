@@ -14,6 +14,7 @@ import EventPage from "./Pages/EventPage/EventPage.js";
 import BlogPage from "./Pages/BlogPage/BlogPage.js";
 import ContactUsPage from "./Pages/ContactUsPage/ContactUsPage.js";
 import EventDetails from "./Components/EventDetails/EventDetail.js";
+import LoginPage from "./Pages/LoginPage/LoginPage.js";
 //---------IMPORTED PAGES--------------
 
 class App extends Component {
@@ -60,7 +61,6 @@ class App extends Component {
       ],
       eventsData: [],
       testimonialsData: [],
-      eventId: "",
       editMode: false
     };
   }
@@ -92,23 +92,12 @@ class App extends Component {
     this.setState({ editMode });
   };
 
-  /**
-   * @function getEventId
-   * @param {int} id - this function retrieves the event if from <EventCard />
-   */
-  getEventId = async id => {
-    const getId = await this.setState({ eventId: id });
-    // debugger;
-    return getId;
-  };
-
   render() {
     const { editMode, eventId } = this.state;
     // -----------DATA STATES---------------
     const { galleryData, eventsData, testimonialsData } = this.state;
     // -----------DATA STATES---------------
-    console.log(eventId)
-    
+
     return (
       <div className="App">
         <Nav />
@@ -139,9 +128,10 @@ class App extends Component {
           <Route path="/blogpage" render={() => <BlogPage />} />
           <Route path="/contactus" render={() => <ContactUsPage />} />
           <Route
-            path={`/event/${eventId}`}
-            render={() => <EventDetails eventId={eventId} />}
+            path={`/event/:id`}
+            render={props => <EventDetails {...props} />}
           />
+          <Route path="/login-to-heaven" render={() => <LoginPage />} />
         </Switch>
         <Footer />
       </div>

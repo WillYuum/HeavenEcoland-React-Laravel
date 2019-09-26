@@ -1,0 +1,20 @@
+.loginPage-container {
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+  background-image: linear-gradient(
+      rgba(117, 29, 82, 0.3),
+      rgba(117, 29, 82, 0.3)
+    ),
+    url(https://lh3.googleusercontent.com/mJucJPkLTfEmoqE9kNXjj5JGLyIhiP-Es_98KOWL4R2yWPaylqs12Ss_KNYLtkQWxAk71AZA=w1080-h608-p-no-v0);
+
+  padding-top: 1px;
+
+  .container {
+    max-width: 100%;
+  }
+
+  .img-fluid {
+    width: 350px;
+  }
+}
