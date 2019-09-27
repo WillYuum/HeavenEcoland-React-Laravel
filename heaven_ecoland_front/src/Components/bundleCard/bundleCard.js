@@ -11,7 +11,7 @@ const BundleCard = ({ name, description, price }) => {
         <div className="bundle-name">{name}</div>
         <div className="bundle-description">{description}</div>
       </div>
-      <p>{price}</p>
+      <p>${price}</p>
     </div>
   );
 };

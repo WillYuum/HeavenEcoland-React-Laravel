@@ -1,78 +1,34 @@
 @import url("https://use.fontawesome.com/releases/v5.6.1/css/all.css");
 
-// // nav container
-// .Nav-container {
-//   display: flex;
-//   flex-wrap: wrap;
-//   justify-content: space-between;
-//   // background-color: aqua;
-//   // left nav header
-//   h1 {
-//     font-size: 2rem;
-//   }
-//   // Left nav
-//   .Left_Nav {
-//     // background-color: red;
-//     margin-top: 1%;
-//     margin-left: 1%;
-
-//     position: relative;
-//     flex: 0 0 200px;
-//     margin: 10px;
-//   }
-//   //Right Nav
-//   .Right_Nav {
-//     // background-color: gold;
-//     margin-top: 1%;
-//     // margin-right: 2%;
-//     // position: relative;
-//     // flex: 0 0 200px;
-//     // margin: 10px;
-
-//     //right nav unordered list
-//     ul {
-//       display: flex;
-
-//       //right nav list
-//       li {
-//         list-style-type: none;
-//         margin: 0 4% 0 0;
-
-//         text-decoration: none;
-//         font-size: 1.7rem;
-//       }
-//     }
-//   }
-//   // right nav links
-//   .Right_Nav_Link {
-//     color: blue;
-//   }
-//   .Left_Nav_Link {
-//     color: blue;
-//   }
-// }
-
+// navbar
 .Navbar {
   height: 100px;
   background: #34495e;
-  // background-image: linear-gradient(rgb(49, 197, 207), rgb(210, 166, 221));
-  // opacity: 0.8;
-  padding: 0 20px;
+  z-index: 5;
   color: #fff;
+  position: fixed;
+  width: 100%;
+  margin: 0 auto;
 }
+
+// navbar  left header
 .Navbar h2 {
   color: white;
+  padding-left: 1%;
 }
+// navbar  left header
 .logo {
   line-height: 100px;
   float: left;
   text-transform: uppercase;
 }
-
+// navbar right
 .menu {
   float: right;
   line-height: 100px;
 }
+
+// navbar links
 .menu .Nav_Link {
   color: #fff;
   text-transform: uppercase;
@@ -105,22 +61,20 @@
   z-index: -1111;
 }
 
-.Navbar .content {
-  padding: 0 20px;
-}
-.Navbar .content img {
-  width: 100%;
-  max-width: 700px;
-  margin: 20px 0;
-}
-.Navbar .content p {
-  text-align: justify;
-}
-
 @media screen and (max-width: 800px) {
   .show-menu-btn,
   .hide-menu-btn {
     display: block;
+  }
+
+  .Navbar {
+    height: 100px;
+    background: #34495e;
+
+    color: #fff;
+    position: fixed;
+    width: 100%;
+    margin: 0 auto;
   }
 
   .menu {

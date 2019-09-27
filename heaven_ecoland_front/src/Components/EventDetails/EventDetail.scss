@@ -1,0 +1,30 @@
+.EventDetails {
+  width: 80vw;
+  margin: 0 auto;
+
+  .event-container {
+    width: 55vw;
+    margin: 0 auto;
+    .image {
+      width: 100%;
+
+      img {
+        width: 100%;
+      }
+    }
+    .details {
+      background-color: pink;
+
+      .first-details {
+        display: block;
+        background-color: red;
+
+        .event-title{
+          display: inline-block;
+          background-color: green;
+          text-align: center;
+        }
+      }
+    }
+  }
+}

@@ -24,3 +24,29 @@ Route::resource('admin','AdminController');
 Route::resource('gallery','GalleryController');
 Route::resource('testimonial','TestimonialController');
 Route::resource('blog','BlogController');
+
+// login authorization
+Route::post('login',function (Request $request) {
+    $this->validate($request, [
+        'email' => 'required|email',
+        'password' => 'required|string|min:8',
+     ]);
+     
+     
+     if(User::where('email', $request->get('email'))->exists()){
+        $user = User::where('email', $request->get('email'))->first();
+        $auth = Hash::check($request->get('password'), $user->password);
+        if($user && auth){
+     
+           $user->rollApiKey(); //Model Function
+     
+           return response(array(
+              'currentUser' => $user,
+              'message' => 'Authorization Successful!',
+           ));
+        }
+     }
+     return response(array(
+        'message' => 'Unauthorized, check your credentials.',
+     ), 401);
+});

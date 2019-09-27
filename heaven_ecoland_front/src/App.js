@@ -66,15 +66,28 @@ class App extends Component {
     };
   }
 
-  logIn = () => {
-    const req = fetch("", {
-      method: "",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      }
-    });
+  /**
+   * @function logIn -logsIn the admin and have the capability of editing
+   * @param username
+   * @param password
+   */
+  logIn = async params => {
+    const { email, password } = params;
+    if (!email || !password) {
+      throw new Error("username and password is empty");
+    }
+    console.log(email, password, params);
     try {
+      const req = await fetch("http://127.0.0.1:8000/api/user", {
+        method: "POST",
+        body: JSON.stringify(params),
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        }
+      });
+      const res = await req.json();
+      console.log(res);
     } catch (err) {
       console.log(err);
       throw new Error("logging in failed");
@@ -83,8 +96,10 @@ class App extends Component {
 
   async componentDidMount() {
     this.getEvents();
+    this.getTestimonilas();
   }
 
+  // -----------------------EVENTS FETCH-------------------------------
   /**
    * @function getEvents - fetch the data for events
    */
@@ -104,6 +119,30 @@ class App extends Component {
       throw new Error("fetching  EVENTS failed");
     }
   };
+  // -----------------------EVENTS FETCH-------------------------------
+
+  //-----------------------------------TESTIMONIALS FETCH-----------------------------------
+  /**
+   * @function getTestimonilas -get testimonials data from dataBase
+   */
+  getTestimonilas = async () => {
+    try {
+      const req = await fetch("http://127.0.0.1:8000/api/testimonial/", {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        }
+      });
+
+      const testimonials = await req.json();
+      this.setState({ testimonialsData: testimonials });
+    } catch (err) {
+      console.log(err);
+      throw new Error("fetching testimonials failed");
+    }
+  };
+  //-----------------------------------TESTIMONIALS FETCH------------------------------------
 
   /**
    * @function toggleEditMode -changes the editMode in state to True or False
@@ -114,7 +153,10 @@ class App extends Component {
   };
 
   render() {
+    // ----------ADMIN STATES--------------
     const { editMode, isLoggedIn } = this.state;
+    // ----------ADMIN STATES--------------
+
     // -----------DATA STATES---------------
     const { galleryData, eventsData, testimonialsData } = this.state;
     // -----------DATA STATES---------------
@@ -147,14 +189,20 @@ class App extends Component {
               <GalleryPage editMode={editMode} galleryData={galleryData} />
             )}
           />
-          <Route path="/eventpage" render={() => <EventPage  eventsData={eventsData}/>} />
+          <Route
+            path="/eventpage"
+            render={() => <EventPage eventsData={eventsData} />}
+          />
           <Route path="/blogpage" render={() => <BlogPage />} />
           <Route path="/contactus" render={() => <ContactUsPage />} />
           <Route
             path={`/event/:id`}
             render={props => <EventDetails {...props} />}
           />
-          <Route path="/login-to-heaven" render={() => <LoginPage />} />
+          <Route
+            path="/login-to-heaven"
+            render={() => <LoginPage loginFunc={this.logIn} />}
+          />
         </Switch>
         <Footer />
       </div>

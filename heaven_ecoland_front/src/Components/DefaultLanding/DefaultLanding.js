@@ -66,51 +66,28 @@ class DefaultLanding extends Component {
                     />
                   );
                 }
-              }
-              )
-              }
+              })}
             </div>
           </div>
           {/* -----------------EVENT SECTION------------------ */}
           <div>
             <TestimonialCard />
-        
+
             <div className="testimonials-container">
               {rest.testimonialsData.map((testimonials, i) => {
-                while (i < 4) {
-                  return <TestimonialCard image={testimonials.img}
-                  date={testimonials.date} 
-                  authr={testimonials.authr}
-                  text={testimonials.text}/>;
+                while (i < 3) {
+                  return (
+                    <TestimonialCard
+                      image={testimonials.img}
+                      date={testimonials.date}
+                      authr={testimonials.author}
+                      text={testimonials.content}
+                    />
+                  );
                 }
               })}
-               {rest.testimonialsData.map((testimonials, i) => {
-                while (i < 4) {
-                  return <TestimonialCard image={testimonials.img}
-                  date={testimonials.date} 
-                  authr={testimonials.authr}
-                  text={testimonials.text}/>;
-                }
-              })}
-                {rest.testimonialsData.map((testimonials, i) => {
-                while (i < 4) {
-                  return <TestimonialCard image={testimonials.img}
-                  date={testimonials.date} 
-                  authr={testimonials.authr}
-                  text={testimonials.text}/>;
-                }
-              })}
-              
-                
-            
-            
-              
-              
-        
             </div>
-<div>
-
-</div>
+            <div></div>
           </div>
 
           <OurStory editMode={editMode} />
