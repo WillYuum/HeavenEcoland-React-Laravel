@@ -71,18 +71,16 @@ class App extends Component {
    * @param username
    * @param password
    */
-  logIn = async (username, password) => {
-    if (!username || !password) {
+  logIn = async params => {
+    const { email, password } = params;
+    if (!email || !password) {
       throw new Error("username and password is empty");
     }
-
+    console.log(email, password, params);
     try {
-      let body = new FormData();
-      body.append("name", username);
-      body.append("password", password);
       const req = await fetch("http://127.0.0.1:8000/api/user", {
         method: "POST",
-        body: JSON.stringify(body),
+        body: JSON.stringify(params),
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json"

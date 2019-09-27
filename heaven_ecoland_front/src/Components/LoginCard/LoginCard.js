@@ -12,7 +12,7 @@ class LogInCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "",
+      email: "",
       password: ""
     };
   }
@@ -24,9 +24,8 @@ class LogInCard extends Component {
   submitForm = async e => {
     e.preventDefault();
     const { loginFunc } = this.props;
-    const { username, password } = this.state;
-    await loginFunc(username, password);
-    
+    const { email, password } = this.state;
+    await loginFunc({ email, password });
   };
 
   render() {
@@ -37,9 +36,9 @@ class LogInCard extends Component {
           <Form.Row>
             <Form.Label>UserName</Form.Label>
             <Form.Control
-              name="username"
+              name="email"
               onChange={this.handleChange}
-              type="text"
+              type="email"
               required
             />
 
