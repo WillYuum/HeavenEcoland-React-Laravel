@@ -68,16 +68,28 @@ class App extends Component {
 
   /**
    * @function logIn -logsIn the admin and have the capability of editing
+   * @param username
+   * @param password
    */
-  logIn = () => {
-    const req = fetch("", {
-      method: "",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      }
-    });
+  logIn = async (username, password) => {
+    if (!username || !password) {
+      throw new Error("username and password is empty");
+    }
+
     try {
+      let body = new FormData();
+      body.append("name", username);
+      body.append("password", password);
+      const req = await fetch("http://127.0.0.1:8000/api/user", {
+        method: "POST",
+        body: JSON.stringify(body),
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        }
+      });
+      const res = await req.json();
+      console.log(res);
     } catch (err) {
       console.log(err);
       throw new Error("logging in failed");
@@ -189,7 +201,10 @@ class App extends Component {
             path={`/event/:id`}
             render={props => <EventDetails {...props} />}
           />
-          <Route path="/login-to-heaven" render={() => <LoginPage />} />
+          <Route
+            path="/login-to-heaven"
+            render={() => <LoginPage loginFunc={this.logIn} />}
+          />
         </Switch>
         <Footer />
       </div>
