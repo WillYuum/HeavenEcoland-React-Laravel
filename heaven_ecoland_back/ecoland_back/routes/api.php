@@ -24,3 +24,4 @@ Route::resource('admin','AdminController');
 Route::resource('gallery','GalleryController');
 Route::resource('testimonial','TestimonialController');
 Route::resource('blog','BlogController');
+
