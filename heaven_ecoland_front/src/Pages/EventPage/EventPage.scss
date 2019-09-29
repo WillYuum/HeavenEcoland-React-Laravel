@@ -10,11 +10,26 @@
   margin-bottom: 20em;
 }
 
-.description-warper {
-  .time {
-    font-weight: bold;
-  }
-  .event-title {
-    text-align: center;
-  }
-}
+
+    .eventPage-container {
+        width: 80vw;
+        margin: 0px auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(295px, 2fr));
+        object-fit: cover; 
+        gap: 190px 20px;
+        margin-bottom: 20em;
+        margin-top:5 em;
+      }
+
+      .description-warper {
+        .time {
+          font-weight: bold;
+        }
+        .event-title {
+          text-align: center;
+        }
+      }
+    
+    
+  
