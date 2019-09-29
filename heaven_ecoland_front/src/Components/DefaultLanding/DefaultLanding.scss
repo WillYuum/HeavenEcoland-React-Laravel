@@ -63,11 +63,22 @@
       }
     }
     // ----------------------EVENT SECTION----------------------
+
+    // ----------------------TESTIMONILA SECTION----------------------
+    .testimonials-section {
+      width: 80vw;
+      margin: 0 auto;
+      .testimonials-title {
+        text-align: center;
+      }
+      .testimonials-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        object-fit: cover;
+        gap: 20px 20px;
+      }
+    }
+
+    // ----------------------EVENT SECTION----------------------
   }
-}
-.testimonials-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  object-fit: cover;
-  gap: 20px 20px;
 }

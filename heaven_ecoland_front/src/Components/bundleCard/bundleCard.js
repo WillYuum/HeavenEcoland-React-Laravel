@@ -7,11 +7,17 @@ import "./bundle.scss";
 const BundleCard = ({ name, description, price }) => {
   return (
     <div className="bundleCard">
-      <div className="bundle-left">
-        <div className="bundle-name">{name}</div>
-        <div className="bundle-description">{description}</div>
+      <div className="bundleCard-content">
+        <div className="bundle-left">
+          <div className="bundle-name">
+            <p>{name}</p>
+          </div>
+          <div className="bundle-description">
+            <p>{description}</p>
+          </div>
+        </div>
+        <p>Price: ${price}</p>
       </div>
-      <p>${price}</p>
     </div>
   );
 };

@@ -70,9 +70,8 @@ class DefaultLanding extends Component {
             </div>
           </div>
           {/* -----------------EVENT SECTION------------------ */}
-          <div>
-            <TestimonialCard />
-
+          <div className="testimonials-section">
+            <h2 className="testimonials-title">Testimonials</h2>
             <div className="testimonials-container">
               {rest.testimonialsData.map((testimonials, i) => {
                 while (i < 3) {
@@ -87,7 +86,6 @@ class DefaultLanding extends Component {
                 }
               })}
             </div>
-            <div></div>
           </div>
 
           <OurStory editMode={editMode} />

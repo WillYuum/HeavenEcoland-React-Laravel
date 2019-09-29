@@ -1,20 +1,16 @@
-.top {
-  width: 150px;
-  margin-left: 20px;
-  border-radius: 100px;
-}
-.testimonials-text {
-  width: 250px;
-  text-align: justify;
-  margin-left: -30px;
-}
-.testimonials-date {
-  margin-left: 160px;
-}
-.authr-name {
-  margin: 20px;
-  margin-left: 30px;
-}
 .testimonialCard-container {
-  margin-left: 60px;
+  padding: 40px;
+  .authr-name {
+    text-align: center;
+    margin-top: 15px;
+  }
+
+  .testimonials-date {
+    float: right;
+    margin-right: 50px;
+  }
+
+  .testimonials-text {
+    padding: 15px;
+  }
 }
