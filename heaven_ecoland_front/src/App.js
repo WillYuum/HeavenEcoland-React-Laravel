@@ -43,7 +43,7 @@ class App extends Component {
     try {
       const req = await fetch("http://127.0.0.1:8000/api/login", {
         method: "POST",
-        body: params,
+        body: JSON.stringify(params),
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json"
@@ -164,7 +164,7 @@ class App extends Component {
       console.log(updatedData);
     } catch (err) {
       console.log(err);
-      console.log("here update")
+      console.log("here update");
       throw new Error("updating an event failed");
     }
   };
@@ -294,7 +294,6 @@ class App extends Component {
                 eventsData={eventsData}
                 editMode={editMode}
                 deleteEvent={this.deleteEvent}
-                
               />
             )}
           />
