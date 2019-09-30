@@ -213,6 +213,7 @@ class App extends Component {
       throw new Error("fetching testimonials failed");
     }
   };
+  
   //-----------------------------------TESTIMONIALS FETCH------------------------------------
 
   /**
@@ -252,6 +253,7 @@ class App extends Component {
                 galleryData={galleryData}
                 eventsData={eventsData}
                 testimonialsData={testimonialsData}
+                createTestimonial={this.createTestimonial}
               />
             )}
           />

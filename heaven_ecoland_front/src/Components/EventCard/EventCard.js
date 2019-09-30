@@ -54,7 +54,6 @@ const EventCard = ({
   };
 
   const ViewEventCard = () => {
-    // console.log("here", image);
     return (
       <div className="EventCard-container">
         <div className="priceTag">${price}</div>
@@ -110,7 +109,6 @@ const EventCard = ({
       </div>
     );
   };
-  console.log("focuse here", editMode);
   return editMode ? EditEventCard() : ViewEventCard();
 };
 

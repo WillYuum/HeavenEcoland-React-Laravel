@@ -135,6 +135,8 @@ const EventDetails = ({ editmode, updateEvent, ...props }) => {
     const description = e.target.description.value;
     const price = e.target.price.value;
     console.log(title, date, description, price);
+
+    updateEvent(props.match.params.id, {title, date, price, description})
   }
 
 
