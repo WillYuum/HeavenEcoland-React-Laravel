@@ -96,6 +96,7 @@ class EventController extends Controller
         $event_id= $request->get('event_id');
         $image = $request->get('image');
 
+        if ($title || $date || $price || $description || $event_id ||     $image  ){
         DB::table('Event')
             ->where('id', $id)
             ->update(['title' => $title,
@@ -104,6 +105,18 @@ class EventController extends Controller
             'description' => $description,
             'event_id' => $event_id,
             'image'=>$image]);
+            // return response
+            return response()->json([
+                'success' => true,
+                'message'=>'event settings updated'
+            ]);
+            }
+            else{
+                return response()->json([
+                    'success' => false,
+                    'message'=>'update error'
+                ]);
+            }
     }
 
     /**

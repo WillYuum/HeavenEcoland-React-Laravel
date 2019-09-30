@@ -36,7 +36,7 @@ Route::post('login',function (Request $request) {
      if(User::where('email', $request->get('email'))->exists()){
         $user = User::where('email', $request->get('email'))->first();
         $auth = Hash::check($request->get('password'), $user->password);
-        if($user && auth){
+        if($user && $auth){
      
            $user->rollApiKey(); //Model Function
      
@@ -50,3 +50,12 @@ Route::post('login',function (Request $request) {
         'message' => 'Unauthorized, check your credentials.',
      ), 401);
 });
+
+
+
+
+// return VIEW of image upload
+// Route::get('/uploadfile', 'UploadfileController@index');
+
+// FUNCTION of upload request
+Route::post('fileupload', 'FileuploadController@store');
