@@ -137,7 +137,6 @@ const EventDetails = ({ editmode, updateEvent, ...props }) => {
 
     updateEvent(props.match.params.id, { title, date, price, description });
   };
-
   const EditEventDetail = () => {
     return (
       <div className="EventDetails-body">
@@ -163,6 +162,7 @@ const EventDetails = ({ editmode, updateEvent, ...props }) => {
                         type="date"
                         name="date"
                         defaultValue={event.date}
+
                       />
                     </time>
                   </div>

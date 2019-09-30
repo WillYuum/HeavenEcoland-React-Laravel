@@ -213,6 +213,29 @@ class App extends Component {
       throw new Error("fetching testimonials failed");
     }
   };
+
+  updateTestimonial = async id => {
+    if (!id) {
+      throw new Error("id is missing");
+    }
+
+    try {
+      const req = await fetch("http://127.0.0.1:8000/api/testimonial/", {
+        method: "PUT",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        }
+      });
+
+      const res = await req.json();
+      console.log(res);
+    } catch (err) {
+      console.log(err);
+      throw new Error("fetching testimonials failed");
+    }
+  };
+
   //-----------------------------------TESTIMONIALS FETCH------------------------------------
 
   /**
@@ -253,6 +276,7 @@ class App extends Component {
                 eventsData={eventsData}
                 testimonialsData={testimonialsData}
                 createTestimonial={this.createTestimonial}
+                updateTestimonial={this.updateTestimonial}
               />
             )}
           />
