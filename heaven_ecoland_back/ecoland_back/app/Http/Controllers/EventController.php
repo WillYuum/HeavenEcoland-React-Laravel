@@ -93,7 +93,7 @@ class EventController extends Controller
         $date= $request->get('date');
         $price = $request->get('price');
         $description = $request->get('description');
-        $event_id= $request->get('event_id');
+        // $event_id= $request->get('event_id');
         $image = $request->get('image');
 
         if ($title || $date || $price || $description || $event_id ||     $image  ){
@@ -103,7 +103,7 @@ class EventController extends Controller
             'date' => $date,
             'price'=>$price,
             'description' => $description,
-            'event_id' => $event_id,
+            // 'event_id' => $event_id,
             'image'=>$image]);
             // return response
             return response()->json([
