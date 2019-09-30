@@ -214,7 +214,6 @@ class App extends Component {
       throw new Error("fetching testimonials failed");
     }
   };
-
   //-----------------------------------TESTIMONIALS FETCH------------------------------------
 
   /**

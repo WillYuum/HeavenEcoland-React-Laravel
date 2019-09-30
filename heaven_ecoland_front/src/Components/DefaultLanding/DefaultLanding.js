@@ -20,9 +20,43 @@ class DefaultLanding extends Component {
   }
 
   renderAddImage = () => {
+<<<<<<< HEAD
+    return (
+      <div>
+        <input type="file" />
+        <button>submit</button>
+      </div>
+    );
+  };
+
+  renderAddTESTIMONIALS = () => {
+    return (
+      <div>
+        <form onSubmit={this.addTestimonials}>
+          <input name="testimonialimage" type="file" />
+          <input name="testimonialauthor" type="title" />
+          <input name="testimonialdate" type="date" />
+          <input name="testimonialcontent" type="text" />
+          <input type="submit" />
+
+          <br />
+        </form>
+      </div>
+    );
+  };
+  addTestimonials = e => {
+    e.preventDefault();
+    const image = e.target.testimonialimage.value;
+    const author = e.target.testimonialauthor.value;
+    const date = e.target.testimonialdate.value;
+    const content = e.target.testimonialcontent.value;
+    console.log(image, author, date, content);
+  };
+=======
     return <div></div>;
   };
 
+>>>>>>> a53c2004f8f3f019c73a6a36e816904f41c5c6f2
 
   render() {
     const { editMode,updateEvent, ...rest } = this.props;
@@ -86,6 +120,7 @@ class DefaultLanding extends Component {
           <div className="testimonials-section">
             <h2 className="testimonials-title">Testimonials</h2>
             <div className="testimonials-container">
+              {editMode ? this.renderAddTESTIMONIALS() : ""}
               {rest.testimonialsData.map((testimonials, i) => {
                 while (i < 3) {
                   return (
