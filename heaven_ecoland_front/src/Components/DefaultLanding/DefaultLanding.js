@@ -19,25 +19,38 @@ class DefaultLanding extends Component {
     this.state = {};
   }
 
-  renderAddImage = () =>{
-    return <div>
-  <input type="file"/>
-  <button>submit</button>
-    </div>
-  }
-  renderAddTESTIMONIALS = () =>{
-    return <div>
-  <input type="file"/>
-  <input type="title"/>
- <input type="date"/>
- <input type="text"/>
- <br/>
-  <button>submit</button>
-  
-    </div>
-    
-  }
-  
+  renderAddImage = () => {
+    return (
+      <div>
+        <input type="file" />
+        <button>submit</button>
+      </div>
+    );
+  };
+
+  renderAddTESTIMONIALS = () => {
+    return (
+      <div>
+        <form onSubmit={this.addTestimonials}>
+          <input name="testimonialimage" type="file" />
+          <input name="testimonialauthor" type="title" />
+          <input name="testimonialdate" type="date" />
+          <input name="testimonialcontent" type="text" />
+          <input type="submit" />
+
+          <br />
+        </form>
+      </div>
+    );
+  };
+  addTestimonials = e => {
+    e.preventDefault();
+    const image = e.target.testimonialimage.value;
+    const author = e.target.testimonialauthor.value;
+    const date = e.target.testimonialdate.value;
+    const content = e.target.testimonialcontent.value;
+    console.log(image, author, date, content);
+  };
 
   render() {
     const { editMode, ...rest } = this.props;
@@ -48,7 +61,6 @@ class DefaultLanding extends Component {
         <div className="hero-Section">
           <Hero />
         </div>
-      
 
         {/* -----------------HERO SECTION---------------- */}
         <div className="DefaultLanding-container">
@@ -58,7 +70,7 @@ class DefaultLanding extends Component {
               <h2>Gallery</h2>
             </div>
             <div className="images-container">
-            {editMode ? this.renderAddImage() : "" }
+              {editMode ? this.renderAddImage() : ""}
               {rest.galleryData.map((gallery, i) => {
                 while (i < 9) {
                   return <GalleryCard srcImage={gallery.img} />;
@@ -67,8 +79,6 @@ class DefaultLanding extends Component {
             </div>
           </div>
           {/* -----------------GALLERY SECTION---------------- */}
-
-
 
           {/* -----------------EVENT SECTION------------------ */}
           <div className="event-Section">
@@ -99,7 +109,7 @@ class DefaultLanding extends Component {
           <div className="testimonials-section">
             <h2 className="testimonials-title">Testimonials</h2>
             <div className="testimonials-container">
-            {editMode ? this.renderAddTESTIMONIALS() : "" }
+              {editMode ? this.renderAddTESTIMONIALS() : ""}
               {rest.testimonialsData.map((testimonials, i) => {
                 while (i < 3) {
                   return (
@@ -113,7 +123,6 @@ class DefaultLanding extends Component {
                 }
               })}
             </div>
-            
           </div>
           {/* -----------------TESTIMONIALS SECTION------------------ */}
 

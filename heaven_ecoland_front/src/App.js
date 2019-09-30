@@ -210,6 +210,22 @@ class App extends Component {
       throw new Error("fetching testimonials failed");
     }
   };
+  AddTestimonilas = async () => {
+    try {
+      const req = await fetch("http://127.0.0.1:8000/api/testimonial/", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        }
+      });
+      const result = await req.json();
+    console.log(result)
+    } catch (err) {
+      console.log(err);
+      throw new Error("uploading testimonials failed");
+    }
+  };
   //-----------------------------------TESTIMONIALS FETCH------------------------------------
 
   /**
