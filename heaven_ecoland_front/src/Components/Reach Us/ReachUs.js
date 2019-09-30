@@ -10,7 +10,20 @@ class ReachUs extends Component {
     this.state = {};
   }
   render() {
-    return <div className="ReachUs Container"></div>;
+    return (
+      <div className="ReachUs Container">
+        <div class="mapouter">
+          <div className="gmap_canvas">
+            <iframe
+             width="600px"
+             height="500px"
+              className="gmap_canvas"
+              src="https://maps.google.com/maps?q=heaven%20ecoland&t=&z=13&ie=UTF8&iwloc=&output=embed"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    );
   }
 }
 

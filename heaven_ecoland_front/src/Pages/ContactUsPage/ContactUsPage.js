@@ -16,8 +16,11 @@ class ContactUsPage extends Component {
   render() {
     return (
       <div className="contactUsPage-container">
+        <div className="INFO" >
+        
         <div className="contactUs-Title">
-          <h1>Contact Us</h1>
+        <h1>Contact Us</h1>
+          <br/>
         </div>
         <div className="contactUs-display">
           <div className="Contact_Information">
@@ -38,8 +41,13 @@ class ContactUsPage extends Component {
             <h4>24/7</h4>
             <br />
           </div>
-          <ReachUs />
+    
+         
         </div>
+        </div>
+        <div className="map-contactUs">
+<ReachUs/>
+          </div>
       </div>
     );
   }
