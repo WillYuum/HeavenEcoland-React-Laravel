@@ -10,7 +10,6 @@ import GalleryCard from "../GalleryCard/GalleryCard.js";
 import EventCard from "../EventCard/EventCard.js";
 import TestimonialCard from "../TestimonialCard/TestimonialCard.js";
 import OurStory from "../Our Story/OurStory.js";
-import ReacUs from "../Reach Us/ReachUs.js";
 //---------IMPORTED COMPONENTS--------------
 
 class DefaultLanding extends Component {
@@ -18,6 +17,14 @@ class DefaultLanding extends Component {
     super(props);
     this.state = {};
   }
+
+  renderAddImage = () => {
+    return (
+      <form>
+        <input name="galleryImage" type="file" />
+      </form>
+    );
+  };
 
   render() {
     const { editMode, updateEvent, ...rest } = this.props;
@@ -38,6 +45,7 @@ class DefaultLanding extends Component {
             </div>
             <div className="images-container">
               {editMode ? this.renderAddImage() : ""}
+
               {rest.galleryData.map((gallery, i) => {
                 while (i < 9) {
                   return <GalleryCard srcImage={gallery.img} />;
@@ -79,7 +87,6 @@ class DefaultLanding extends Component {
           <div className="testimonials-section">
             <h2 className="testimonials-title">Testimonials</h2>
             <div className="testimonials-container">
-              {editMode ? this.renderAddTESTIMONIALS() : ""}
               {rest.testimonialsData.map((testimonials, i) => {
                 while (i < 3) {
                   return (
