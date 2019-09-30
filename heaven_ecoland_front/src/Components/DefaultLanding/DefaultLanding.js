@@ -19,7 +19,7 @@ class DefaultLanding extends Component {
     this.state = {};
   }
   render() {
-    const { editMode, ...rest } = this.props;
+    const { editMode,updateEvent, ...rest } = this.props;
     return (
       <div className="DefaultLanding">
         {/* -----------------HERO SECTION---------------- */}
@@ -63,6 +63,7 @@ class DefaultLanding extends Component {
                       date={event.date}
                       title={event.title}
                       description={event.description}
+                      updateEvent={updateEvent}
                     />
                   );
                 }

@@ -247,6 +247,7 @@ class App extends Component {
                 galleryData={galleryData}
                 eventsData={eventsData}
                 testimonialsData={testimonialsData}
+                updateEvent={this.updateEvent}
               />
             )}
           />
@@ -263,6 +264,7 @@ class App extends Component {
                 eventsData={eventsData}
                 editMode={editMode}
                 deleteEvent={this.deleteEvent}
+                
               />
             )}
           />

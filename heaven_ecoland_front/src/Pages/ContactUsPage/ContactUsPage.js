@@ -43,8 +43,8 @@ class ContactUsPage extends Component {
         
           <ReachUs />
           </div>
-        </div>
-      </div>
+    
+   
     );
   }
 }
