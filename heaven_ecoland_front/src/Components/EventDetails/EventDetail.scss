@@ -2,99 +2,128 @@ $paragraph-font-size-lg: 18px;
 $paragraph-font-size-md: 16px;
 $paragraph-font-size-sm: 14px;
 $paragraph-font-size-xs: 12px;
-
-.EventDetails {
-  width: 80vw;
-  margin: 0 auto;
-  padding-top: 200px;
-  padding-bottom: 150px;
-
-  .event-container {
-    width: 55vw;
+.EventDetails-body {
+  background-position: center;
+  background-size: cover;
+  background-image: linear-gradient(
+      rgba(117, 29, 82, 0.3),
+      rgba(117, 29, 82, 0.3)
+    ),
+    url(https://lh3.googleusercontent.com/mJucJPkLTfEmoqE9kNXjj5JGLyIhiP-Es_98KOWL4R2yWPaylqs12Ss_KNYLtkQWxAk71AZA=w1080-h608-p-no-v0);
+  .EventDetails {
+    width: 80vw;
     margin: 0 auto;
-    .image {
-      width: 100%;
+    padding-top: 200px;
+    padding-bottom: 150px;
+    .event-container {
+      width: 55vw;
+      margin: 0 auto;
+      box-shadow: 4px 4px 10px;
 
-      img {
-        width: 100%;
+      @media (max-width: 540px) {
+        width: 80vw;
       }
-    }
-    .details {
-      background-color: pink;
-      padding: 15px 20px;
-
-      .first-details {
+      .image {
         width: 100%;
 
-        .event-date {
-          time {
-            font-size: 1.5vw;
-            span {
-              font-size: 1vw;
-              font-weight: bold;
-            }
-          }
-        }
-
-        .event-title {
-          text-align: center;
-          h1 {
-            font-size: 3vw;
-          }
+        img {
+          width: 100%;
         }
       }
+      .details {
+        background-color: rgb(99, 166, 233);
+        padding: 15px 20px;
 
-      .event-info {
-        width: 100%;
-        .event-description {
-          width: 80%;
-          height: 200px;
-          margin: 0px auto;
-          padding-top: 20px;
+        .first-details {
+          width: 100%;
 
-          p {
-            width: 100%;
-            word-wrap: break-word;
+          .event-date {
+            time {
+              font-size: $paragraph-font-size-lg;
+
+              @media (max-width: 1524px) {
+                font-size: $paragraph-font-size-md;
+              }
+
+              @media (max-width: 640px) {
+                font-size: $paragraph-font-size-sm;
+              }
+
+              @media (max-width: 480px) {
+                font-size: $paragraph-font-size-xs;
+              }
+            }
+          }
+
+          .event-title {
             text-align: center;
-            font-size: $paragraph-font-size-lg;
+            h1 {
 
-            @media (max-width: 1524px) {
-              font-size: $paragraph-font-size-md;
-            }
+              @media (max-width: 1524px) {
+                font-size: 18px;
+                
+              }
 
-            @media (max-width: 640px) {
-              font-size: $paragraph-font-size-sm;
-            }
+              @media (max-width: 640px) {
+                font-size: 18px;
+              }
 
-            @media (max-width: 480px) {
-              font-size: $paragraph-font-size-xs;
+              @media (max-width: 480px) {
+                font-size: $paragraph-font-size-xs;
+              }
             }
           }
         }
 
-        .event-bundles {
-          .bundle-center {
-            margin-bottom: 30px;
-            text-align: center;
-            font-size: 1.5em;
+        .event-info {
+          width: 100%;
+          .event-description {
+            width: 80%;
+            min-height: 200px;
+            margin: 0px auto;
+            padding-top: 20px;
+
+            p {
+              width: 100%;
+              word-wrap: break-word;
+              text-align: center;
+              font-size: $paragraph-font-size-lg;
+
+              @media (max-width: 1524px) {
+                font-size: $paragraph-font-size-md;
+              }
+
+              @media (max-width: 640px) {
+                font-size: $paragraph-font-size-sm;
+              }
+
+              @media (max-width: 480px) {
+                font-size: $paragraph-font-size-xs;
+              }
+            }
           }
 
-          .bundle-cards {
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 20px 0;
-            text-align: center;
-            overflow: auto;
-            white-space: nowrap;
-            user-select: none;
-            ::-webkit-scrollbar {
-              width: 1000px;
+          .event-bundles {
+            .bundle-center {
+              margin-bottom: 30px;
+              text-align: center;
+              font-size: 1.5em;
+            }
+
+            .bundle-cards {
+              background-color: rgba(0, 0, 0, 0.5);
+              padding: 20px 0;
+              text-align: center;
+              overflow: auto;
+              white-space: nowrap;
             }
           }
         }
 
-        .price {
+        .cost-entry {
           text-align: right;
-          height: 50px;
+          font-size: 1.2em;
+          padding: 20px 20px;
           p {
             margin-top: 20px;
             font-size: 1em;
