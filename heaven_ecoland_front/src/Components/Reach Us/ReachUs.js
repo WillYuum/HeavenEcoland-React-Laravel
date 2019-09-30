@@ -16,7 +16,7 @@ class ReachUs extends Component {
           <div className="gmap_canvas">
             <iframe
              width="600px"
-             height="500px"
+             height="450px"
               className="gmap_canvas"
               src="https://maps.google.com/maps?q=heaven%20ecoland&t=&z=13&ie=UTF8&iwloc=&output=embed"
             ></iframe>

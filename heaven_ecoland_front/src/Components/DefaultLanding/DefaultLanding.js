@@ -18,6 +18,7 @@ class DefaultLanding extends Component {
     super(props);
     this.state = {};
   }
+  
   render() {
     const { editMode, ...rest } = this.props;
     return (
