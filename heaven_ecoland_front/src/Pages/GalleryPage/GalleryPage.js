@@ -13,11 +13,20 @@ class GalleryPage extends Component {
     super(props);
     this.state = {};
   }
+
+  renderAddImage = () => {
+    return (
+      <form>
+        <input name="galleryImage" type="file" />
+      </form>
+    );
+  };
+
   render() {
     const { editMode, galleryData } = this.props;
-    console.log(galleryData)
     return (
       <div className="galleryPage-container">
+        {editMode ? this.renderAddImage() : ""}
         {galleryData.map(gallery => {
           return <GalleryCard srcImage={gallery.image} />;
         })}

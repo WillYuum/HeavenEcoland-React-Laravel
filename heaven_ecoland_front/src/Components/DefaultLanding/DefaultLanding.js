@@ -48,7 +48,7 @@ class DefaultLanding extends Component {
 
               {rest.galleryData.map((gallery, i) => {
                 while (i < 9) {
-                  return <GalleryCard srcImage={gallery.img} />;
+                  return <GalleryCard srcImage={gallery.image} />;
                 }
               })}
             </div>
