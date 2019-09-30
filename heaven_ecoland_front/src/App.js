@@ -144,12 +144,13 @@ class App extends Component {
     const { title, date, price, description, image } = params;
     const newEventData = {};
     Object.keys(params).forEach(key => {
-      if (params[key] != undefined) {
+      if (params[key] != undefined || params[key] != " " ) {
         newEventData[key] = params[key];
       }
     });
-    console.log("HERE WILLU",newEventData)
+    
     try {
+      console.log("HERE WILLU",newEventData)
       const req = await fetch(`http://127.0.0.1:8000/api/event/${id}`, {
         method: "PUT",
         body: JSON.stringify(newEventData),
