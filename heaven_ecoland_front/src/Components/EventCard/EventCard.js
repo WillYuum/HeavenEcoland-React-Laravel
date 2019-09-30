@@ -16,7 +16,6 @@ const EventCard = ({
   ...eventFuncs
 }) => {
   const ViewEventCard = () => {
-    console.log("here", image);
     return (
       <div className="EventCard-container">
         <div className="priceTag">${price}</div>
@@ -45,7 +44,11 @@ const EventCard = ({
         <img className="event-img" src={image} width="300px" height="300px" />
         <div className="description-warper">
           <input className="EDIT-event-date" type="date" value={date} />
-          <input type="text" className="EDIT-event-title" defaultValue={title}/>
+          <input
+            type="text"
+            className="EDIT-event-title"
+            defaultValue={title}
+          />
           <div className="description">{description} </div>
           <div class="more">
             <Link class="more" to={`/event/${eventId}`}>
@@ -56,7 +59,6 @@ const EventCard = ({
       </div>
     );
   };
-  console.log("focuse here", editMode);
   return editMode ? EditEventCard() : ViewEventCard();
 };
 
