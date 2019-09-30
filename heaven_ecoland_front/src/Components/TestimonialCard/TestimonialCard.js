@@ -5,8 +5,8 @@ import { Card, CardDeck } from "react-bootstrap";
 import "./TestimonialCard.scss";
 // ----------SCSS--------------
 
-const TestimonialCard = ({ image, authr, date, text, ...rest }) => {
-  const ViewTestimonial = () => {
+const TestimonialCard = ({ image, authr, date, text, editMode, ...rest }) => {
+  const ViewTestimonialCard = () => {
     return (
       <div className="testimonialCard-container">
         <div className="flip-card">
@@ -35,7 +35,7 @@ const TestimonialCard = ({ image, authr, date, text, ...rest }) => {
     const testimonialauthr = e.target.testimonialauthr.value;
   };
 
-  const EditTestimonial = () => {
+  const EditTestimonialCard = () => {
     return (
       <div className="testimonialCard-container">
         <form>
