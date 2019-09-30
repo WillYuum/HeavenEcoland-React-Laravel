@@ -148,16 +148,18 @@ class App extends Component {
         newEventData[key] = params[key];
       }
     });
+    console.log("HERE WILLU",newEventData)
     try {
-      const req = await fetch("http://127.0.0.1:8000/api/event/", {
-        method: "POST",
-        body: JSON.stringify(params),
+      const req = await fetch(`http://127.0.0.1:8000/api/event/${id}`, {
+        method: "PUT",
+        body: JSON.stringify(newEventData),
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json"
         }
       });
       const res = await req.json;
+      console.log(res)
     } catch (err) {
       console.log(err);
       throw new Error("updating an event failed");
@@ -272,7 +274,7 @@ class App extends Component {
           <Route path="/contactus" render={() => <ContactUsPage />} />
           <Route
             path={`/event/:id`}
-            render={props => <EventDetails editMode={editMode} {...props} />}
+            render={props => <EventDetails updateEvent={this.updateEvent} editMode={editMode} {...props} />}
           />
           <Route
             path="/login-to-heaven"
