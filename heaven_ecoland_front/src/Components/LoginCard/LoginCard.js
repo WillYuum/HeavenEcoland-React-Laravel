@@ -31,7 +31,11 @@ class LogInCard extends Component {
   render() {
     return (
       <div className="SignInCard-container">
-        <Form onSubmit={this.submitForm}>
+        <Form
+          onSubmit={this.submitForm}
+          method="POST"
+          enctype="multipart/form-data"
+        >
           <h2>Sign In</h2>
           <Form.Row>
             <Form.Label>UserName</Form.Label>

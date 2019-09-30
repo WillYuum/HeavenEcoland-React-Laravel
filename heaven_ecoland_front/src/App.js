@@ -41,15 +41,16 @@ class App extends Component {
     }
     console.log(email, password, params);
     try {
-      const req = await fetch("http://127.0.0.1:8000/api/user", {
+      const req = await fetch("http://127.0.0.1:8000/api/login", {
         method: "POST",
-        body: JSON.stringify(params),
+        body: params,
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json"
         }
       });
       const res = await req.json();
+      console.log("response is:");
       console.log(res);
     } catch (err) {
       console.log(err);
