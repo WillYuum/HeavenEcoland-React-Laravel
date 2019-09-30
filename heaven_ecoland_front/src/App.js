@@ -59,7 +59,6 @@ class App extends Component {
     }
   };
 
-
   /**
    * @function checkExpiration it'll get the date of the lasttime the Admin logged in and expires the token if it was more than an hour
    */
@@ -193,13 +192,15 @@ class App extends Component {
       throw new Error("id is Undefined");
     }
     try {
-      const req = await fetch("http://127.0.0.1:8000/api/event/", {
+      const req = await fetch(`http://127.0.0.1:8000/api/event/${id}`, {
         method: "DELETE",
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json"
         }
       });
+      const res = await req.json();
+      console.log(res);
       console.log(`The event with id = ${id} got deleted`);
       return req;
     } catch (err) {
@@ -294,6 +295,7 @@ class App extends Component {
                 testimonialsData={testimonialsData}
                 createTestimonial={this.createTestimonial}
                 deleteTestimonial={this.deleteTestimonial}
+                deleteEvent={this.deleteEvent}
               />
             )}
           />

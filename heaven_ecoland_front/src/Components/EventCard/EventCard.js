@@ -1,15 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-
 // ----------SCSS--------------
 import "./Event.scss";
-import { object } from "prop-types";
 // ----------SCSS--------------
 
-
 const EventCard = ({
-  
   eventId,
   price,
   image,
@@ -19,7 +15,6 @@ const EventCard = ({
   editMode,
   updateEvent,
   ...eventFuncs
-  
 }) => {
   // this.onFormSubmit = this.onFormSubmit.bind(this);
   // this.onChange = this.onChange.bind(this);
@@ -62,8 +57,14 @@ const EventCard = ({
   const ViewEventCard = () => {
     return (
       <div className="EventCard-container">
-        <div className="priceTag" >${price}</div>
-        <img className="event-img" src={image} width="300px" height="300px" />
+        <div className="priceTag">${price}</div>
+        <img
+          className="event-img"
+          src={image}
+          alt="sommething went wrong"
+          width="300px"
+          height="300px"
+        />
         <div className="description-warper">
           <time className="time">{date}</time>
           <h2 className="event-title">{title}</h2>
@@ -81,8 +82,9 @@ const EventCard = ({
   const EditEventCard = () => {
     return (
       <div className="EventCard-container">
+        <button onClick={() => eventFuncs.deleteEvent(eventId)}>X</button>
         <div className="EDIT-priceTag">
-          <input type="text"  />
+          <input type="text" />
         </div>
         <form
           method="POST"
@@ -91,12 +93,16 @@ const EventCard = ({
         >
           {" "}
           {/* form of method 'post and action =url ('/uploadfile')' and enctype="multipart/form-data"  */}
-          <input type="file" name="select_file" onChange={onChange} className="imageUpload"/>{" "}
+          <input
+            type="file"
+            name="select_file"
+            onChange={onChange}
+            className="imageUpload"
+          />{" "}
           {/* browse button of type 'file' */}
-         
           {/* UPLOAD button  of type 'submit' and name 'upload'  */}
         </form>
-        
+
         <img className="event-img" src={image} width="300px" height="300px" />
         <div className="description-warper">
           <input className="EDIT-event-date" type="date" value={date} />
@@ -105,16 +111,24 @@ const EventCard = ({
             className="EDIT-event-title"
             defaultValue={title}
           />
-             <input className="EDIT-event-description" type="text" value={description} />
-             <input type="submit" name="upload"  className="submit"value="Upload" />{" "}
+          <input
+            className="EDIT-event-description"
+            type="text"
+            value={description}
+          />
+          <input
+            type="submit"
+            name="upload"
+            className="submit"
+            value="Upload"
+          />{" "}
           {/* <div class="more">
             <Link class="more" to={`/event/${eventId}`}>
               More Info
             </Link>
           </div> */}
-    
         </div>
- </div>
+      </div>
     );
   };
   return editMode ? EditEventCard() : ViewEventCard();
