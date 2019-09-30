@@ -20,7 +20,6 @@ class DefaultLanding extends Component {
   }
 
   renderAddImage = () => {
-<<<<<<< HEAD
     return (
       <div>
         <input type="file" />
@@ -52,11 +51,6 @@ class DefaultLanding extends Component {
     const content = e.target.testimonialcontent.value;
     console.log(image, author, date, content);
   };
-=======
-    return <div></div>;
-  };
-
->>>>>>> a53c2004f8f3f019c73a6a36e816904f41c5c6f2
 
   render() {
     const { editMode,updateEvent, ...rest } = this.props;

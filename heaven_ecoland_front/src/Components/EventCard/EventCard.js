@@ -105,7 +105,7 @@ const EventCard = ({
             className="EDIT-event-title"
             defaultValue={title}
           />
-             <input className="EDIT-event-description" type="text" value={description} />
+             <input className="EDIT-event-description" type="text" defaultValue={description} />
              <input type="submit" name="upload"  className="submit"value="Upload" />{" "}
           {/* <div class="more">
             <Link class="more" to={`/event/${eventId}`}>
