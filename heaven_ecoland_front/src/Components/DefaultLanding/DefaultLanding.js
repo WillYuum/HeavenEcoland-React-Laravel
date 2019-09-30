@@ -91,6 +91,7 @@ class DefaultLanding extends Component {
                       authr={testimonials.author}
                       text={testimonials.content}
                       deleteTestimonial={rest.deleteTestimonial}
+                      editMode = {editMode}
                     />
                   );
                 }
