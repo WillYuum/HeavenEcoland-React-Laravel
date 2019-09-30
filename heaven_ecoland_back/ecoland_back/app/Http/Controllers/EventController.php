@@ -91,14 +91,14 @@ class EventController extends Controller
         // Edit an Event
         $title = $request->get('title');
         $date= $request->get('date');
-        $price = $request->get('price');
+        $price = $request->input('price');
         $description = $request->get('description');
         // $event_id= $request->get('event_id');
         $image = $request->get('image');
 
-        if ($title || $date || $price || $description ||     $image  ){
+  
         DB::table('Event')
-            ->where('id', $id)
+            ->where('id', 1)
             ->update(['title' => $title,
             'date' => $date,
             'price'=>$price,
@@ -109,13 +109,8 @@ class EventController extends Controller
                 'success' => true,
                 'message'=>'event settings updated'
             ]);
-            }
-            else{
-                return response()->json([
-                    'success' => false,
-                    'message'=>'update error'
-                ]);
-            }
+            
+       
     }
 
     /**

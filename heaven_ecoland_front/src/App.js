@@ -151,16 +151,16 @@ class App extends Component {
 
     try {
       console.log("HERE WILLU", newEventData);
-      const req = await fetch(`http://127.0.0.1:8000/api/event/${id}`, {
+      const res = await fetch(`http://127.0.0.1:8000/api/event/${id}`, {
         method: "PUT",
-        body: newEventData,
+        body: JSON.stringify(newEventData),
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json"
         }
       });
-      const res = await req.json;
-      console.log(res);
+      const updatedData = await res.json;
+      console.log(updatedData);
     } catch (err) {
       console.log(err);
       throw new Error("updating an event failed");
@@ -213,7 +213,7 @@ class App extends Component {
       throw new Error("fetching testimonials failed");
     }
   };
-  
+
   //-----------------------------------TESTIMONIALS FETCH------------------------------------
 
   /**
