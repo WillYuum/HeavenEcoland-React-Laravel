@@ -20,6 +20,7 @@ class DefaultLanding extends Component {
   }
 
   renderAddImage = () => {
+<<<<<<< HEAD
     return (
       <div>
         <input type="file" />
@@ -51,6 +52,11 @@ class DefaultLanding extends Component {
     const content = e.target.testimonialcontent.value;
     console.log(image, author, date, content);
   };
+=======
+    return <div></div>;
+  };
+
+>>>>>>> a53c2004f8f3f019c73a6a36e816904f41c5c6f2
 
   render() {
     const { editMode, ...rest } = this.props;
@@ -105,7 +111,9 @@ class DefaultLanding extends Component {
           </div>
           {/* -----------------EVENT SECTION------------------ */}
 
+
           {/* -----------------TESTIMONIALS SECTION------------------ */}
+
           <div className="testimonials-section">
             <h2 className="testimonials-title">Testimonials</h2>
             <div className="testimonials-container">
@@ -122,6 +130,22 @@ class DefaultLanding extends Component {
                   );
                 }
               })}
+            </div>
+            <div>
+              <div class="mapouter">
+                <div class="gmap_canvas">
+                  <iframe
+                    width="600"
+                    height="500"
+                    className="gmap_canvas"
+                    src="https://maps.google.com/maps?q=heaven%20ecoland&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                    frameborder="0"
+                    scrolling="no"
+                    marginheight="0"
+                    marginwidth="0"
+                  ></iframe>
+                </div>
+              </div>
             </div>
           </div>
           {/* -----------------TESTIMONIALS SECTION------------------ */}

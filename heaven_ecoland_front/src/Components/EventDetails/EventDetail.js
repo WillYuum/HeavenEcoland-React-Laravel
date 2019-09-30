@@ -127,7 +127,6 @@ const EventDetails = ({ editmode, updateEvent, ...props }) => {
     );
   };
 
-
   const handleSubmit = e => {
     e.preventDefault();
     const title = e.target.title.value;
@@ -135,89 +134,102 @@ const EventDetails = ({ editmode, updateEvent, ...props }) => {
     const description = e.target.description.value;
     const price = e.target.price.value;
     console.log(title, date, description, price);
-  }
 
+    updateEvent(props.match.params.id, { title, date, price, description });
+  };
 
   const EditEventDetail = () => {
     return (
       <div className="EventDetails-body">
-        <form onSubmit={handleSubmit}>
-        <div className="EventDetails">
-          <div className="event-container">
-            <div className="image">
-              <img
-                src="http://www.vacationrentalsindia.com/sadmin/images/gallery/p1bs87ld4a1dkghhv1ef91slm1f6tt.jpg"
-                alt="Event Image"
-              />
-            </div>
-            
-            <div className="details">
-              <div className="first-details">
-                <div className="event-date">
-                  <time>
-                    <input type="date" name="date" defaultValue={event.date} />
-                  </time>
-                </div>
-                <div className="event-title">
-                  <h1>
-                    <input
-                      type="text"
-                      name="title"
-                      defaultValue={event.title}
-                    />
-                  </h1>
-                </div>
+        <form
+          onSubmit={handleSubmit}
+          method="POST"
+          enctype="multipart/form-data"
+        >
+          <div className="EventDetails">
+            <div className="event-container">
+              <div className="image">
+                <img
+                  src="http://www.vacationrentalsindia.com/sadmin/images/gallery/p1bs87ld4a1dkghhv1ef91slm1f6tt.jpg"
+                  alt="Event Image"
+                />
               </div>
-              <div className="event-info">
-                <div className="event-description">
-                  <p>
-                    <input
-                      type="text"
-                      name="description"
-                      defaultValue={event.description}
-                    />
-                  </p>
-                </div>
-                <div className="event-bundles">
-                  <h2 className="bundle-center">Bundles</h2>
-                  <div className="bundle-cards">
-                    <AliceCarousel
-                      mouseDragEnabled
-                      buttonsDisabled={true}
-                      autoHeight={true}
-                      infinite={false}
-                      responsive={responsive}
-                    >
-                      {bundles.map(bundle => (
-                        <BundleCard
-                          editMode={props.editmode}
-                          name={bundle.name}
-                          description={bundle.description}
-                          price={bundle.price}
-                        />
-                      ))}
-                    </AliceCarousel>
+
+              <div className="details">
+                <div className="first-details">
+                  <div className="event-date">
+                    <time>
+                      <input
+                        type="date"
+                        name="date"
+                        defaultValue={event.date}
+                      />
+                    </time>
                   </div>
-                </div>
-                <div className="cost-entry">
-                  <p>
-                    Entry Cost: $
-                    <span>
+                  <div className="event-title">
+                    <h1>
                       <input
                         type="text"
-                        name="price"
-                        defaultValue={event.price}
+                        name="title"
+                        defaultValue={event.title}
                       />
-                    </span>
-                  </p>
+                    </h1>
+                  </div>
                 </div>
-                <div className="submint-btn-container">
-                  <input type="submit"  value = "Update"className="Submit-btn"/>
+                <div className="event-info">
+                  <div className="event-description">
+                    <p>
+                      <input
+                        type="text"
+                        name="description"
+                        defaultValue={event.description}
+                      />
+                    </p>
+                  </div>
+                  <div className="event-bundles">
+                    <h2 className="bundle-center">Bundles</h2>
+                    <div className="bundle-cards">
+                      <AliceCarousel
+                        mouseDragEnabled
+                        buttonsDisabled={true}
+                        autoHeight={true}
+                        infinite={false}
+                        responsive={responsive}
+                      >
+                        {bundles.map(bundle => (
+                          <BundleCard
+                            editMode={props.editmode}
+                            name={bundle.name}
+                            description={bundle.description}
+                            price={bundle.price}
+                          />
+                        ))}
+                      </AliceCarousel>
+                    </div>
+                  </div>
+                  <div className="cost-entry">
+                    <p>
+                      Entry Cost: $
+                      <span>
+                        <input
+                          type="text"
+                          name="price"
+                          defaultValue={event.price}
+                        />
+                      </span>
+                    </p>
+                  </div>
+                  <div className="submint-btn-container">
+                    <input
+                      type="submit"
+                      value="Update"
+                      className="Submit-btn"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
         </form>
       </div>
     );

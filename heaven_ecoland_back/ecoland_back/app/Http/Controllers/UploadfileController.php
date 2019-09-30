@@ -1,42 +1,33 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Intervention\Image\ImageServiceProvider;
+use DB;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 
 class UploadfileController extends Controller
 {
-    function index()
+    function index() // returns HTML
     {
      return view('upload');
     }
 
-    function upload(Request $request)
+    function upload(Request $request)  // UPLOAD FUNCTIONALITY
     {
-     $this->validate($request, [
+     $this->validate($request, [ // UPLOAD VALIDATION
       'select_file'  => 'required|image|mimes:JPG,jpg,png,gif|max:2048'
      ]);
 
-     // retrieve FILE and store it in $image
-     $image = $request->file('select_file');
-
-     // generates a random name (integer) with the extension and stores it in $new_name
-     $new_name = rand() . '.' . $image->getClientOriginalExtension();
-
-     // moves the file to the public folder with the new name $new_name
-    //  $image->move(public_path('images'), $new_name);
-     
-    //  return back()->with('success', 'Image Uploaded Successfully ')->with('path', $new_name);
-   
-   
-     //----------------------convert image file array to json------------------------------------
-   
-     return  [
-         'success'  => true,
-        'data' => $new_name
-     ];
-     //----------------------convert image file array to json------------------------------------
+     $image = $request->file('select_file');  // retrieve FILENAME from upload request and store it in $image,  'select_file' is input name
+     $image_name=$image ->getClientOriginalName(); // gets IMAGE NAME
+     $image->move(public_path('images'), $image_name ); // moves the file to the IMAGE folder in PUBLIC with the name ($image_name)
+    DB::table('Gallery')->insert(  // insert image to Gallery table in database
+        ['image' =>   $image_name]
+    );
+    
     }
 }
 ?>
+
+
