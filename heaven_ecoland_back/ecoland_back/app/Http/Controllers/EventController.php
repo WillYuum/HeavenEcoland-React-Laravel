@@ -11,11 +11,11 @@ class EventController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public  function index()
     {
         // LIST EVENTS 
       
-        $events = DB::table('Event')->get();
+        $events = DB::table('Event')->orderBy('date', 'DESC')->get();
         return $events;
     }
 

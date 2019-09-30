@@ -19,41 +19,8 @@ class DefaultLanding extends Component {
     this.state = {};
   }
 
-  renderAddImage = () => {
-    return (
-      <div>
-        <input type="file" />
-        <button>submit</button>
-      </div>
-    );
-  };
-
-  renderAddTESTIMONIALS = () => {
-    return (
-      <div>
-        <form onSubmit={this.addTestimonials}>
-          <input name="testimonialimage" type="file" />
-          <input name="testimonialauthor" type="title" />
-          <input name="testimonialdate" type="date" />
-          <input name="testimonialcontent" type="text" />
-          <input type="submit" />
-
-          <br />
-        </form>
-      </div>
-    );
-  };
-  addTestimonials = e => {
-    e.preventDefault();
-    const image = e.target.testimonialimage.value;
-    const author = e.target.testimonialauthor.value;
-    const date = e.target.testimonialdate.value;
-    const content = e.target.testimonialcontent.value;
-    console.log(image, author, date, content);
-  };
-
   render() {
-    const { editMode, ...rest } = this.props;
+    const { editMode, updateEvent, ...rest } = this.props;
     return (
       <div className="DefaultLanding">
         {/* -----------------HERO SECTION---------------- */}
@@ -97,6 +64,8 @@ class DefaultLanding extends Component {
                       date={event.date}
                       title={event.title}
                       description={event.description}
+                      updateEvent={updateEvent}
+                      id={event.id}
                     />
                   );
                 }
@@ -104,7 +73,6 @@ class DefaultLanding extends Component {
             </div>
           </div>
           {/* -----------------EVENT SECTION------------------ */}
-
 
           {/* -----------------TESTIMONIALS SECTION------------------ */}
 
@@ -116,6 +84,7 @@ class DefaultLanding extends Component {
                 while (i < 3) {
                   return (
                     <TestimonialCard
+                      testimonialId={testimonials.id}
                       image={testimonials.img}
                       date={testimonials.date}
                       authr={testimonials.author}
