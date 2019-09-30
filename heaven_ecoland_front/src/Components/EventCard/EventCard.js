@@ -7,7 +7,9 @@ import "./Event.scss";
 import { object } from "prop-types";
 // ----------SCSS--------------
 
+
 const EventCard = ({
+  
   eventId,
   price,
   image,
@@ -17,15 +19,35 @@ const EventCard = ({
   editMode,
   updateEvent,
   ...eventFuncs
+  
 }) => {
+  const [eventsData, setEventData] = useState({});
+
+  const handleChange=event =>{
+    
+      const target= event.target;
+    const value= target.value;
+    const name= target.name;
+  setEventData({
+[name]:value
+
+    });
+  }
+   const handleSubmit=event=>{
+     event.preventDefault();
+ updateEvent(eventId,eventsData);
+
+   }
   const ViewEventCard = () => {
 
-    const [eventData, setEventData] = useState({)
+    
 
+ 
+  
     console.log("here", image);
     return (
       <div className="EventCard-container">
-        <div className="priceTag">${price}</div>
+        <div className="priceTag" >${price}</div>
         <img className="event-img" src={image} width="300px" height="300px" />
         <div className="description-warper">
           <time className="time">{date}</time>
@@ -47,22 +69,20 @@ const EventCard = ({
         <div className="EDIT-priceTag">
           <input type="text" />
         </div>
-        <input type="file" className="imageUpload"   />
+        <form  onSubmit={handleSubmit} method="PUT">
+        <input type="file" className="imageUpload"  onChange={handleChange}  name="image" />
         <img className="event-img" src={image} width="300px" height="300px" />
         <div className="description-warper">
-          <input className="EDIT-event-date" type="date" defaultValue={date}  />
-          <input type="text" className="EDIT-event-title" defaultValue={title}/>
-          <input type="text" className="EDIT-event-description" defaultValue={description}/>
+          <input className="EDIT-event-date" type="date" defaultValue={date}  onChange={handleChange} name="date" />
+          <input type="text" className="EDIT-event-title" defaultValue={title} onChange={handleChange} name="title"/>
+          <input type="text" className="EDIT-event-description" defaultValue={description} onChange={handleChange} name="description"/>
           
           
            
-              <input type="submit" className="submit" onClick={updateEvent(
-
-
-              )
-              } value ="submit"/>
-          
+              <input type="submit" className="submit"  value ="submit"/>
+         
           </div>
+          </form>
         </div>
  
     );

@@ -149,8 +149,9 @@ class App extends Component {
       }
     });
     try {
+      console.log('hello')
       const req = await fetch("http://127.0.0.1:8000/api/event/", {
-        method: "POST",
+        method: "PUT",
         body: JSON.stringify(params),
         headers: {
           Accept: "application/json",
@@ -160,6 +161,7 @@ class App extends Component {
       const res = await req.json;
     } catch (err) {
       console.log(err);
+      console.log("here update")
       throw new Error("updating an event failed");
     }
   };
