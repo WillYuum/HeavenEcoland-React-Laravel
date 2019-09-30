@@ -144,21 +144,23 @@ class App extends Component {
     const { title, date, price, description, image } = params;
     const newEventData = {};
     Object.keys(params).forEach(key => {
-      if (params[key] != undefined) {
+      if (params[key] != undefined || params[key] != " ") {
         newEventData[key] = params[key];
       }
     });
+
     try {
-      console.log('hello')
-      const req = await fetch("http://127.0.0.1:8000/api/event/", {
+      console.log("HERE WILLU", newEventData);
+      const res = await fetch(`http://127.0.0.1:8000/api/event/${id}`, {
         method: "PUT",
-        body: JSON.stringify(params),
+        body: JSON.stringify(newEventData),
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json"
         }
       });
-      const res = await req.json;
+      const updatedData = await res.json;
+      console.log(updatedData);
     } catch (err) {
       console.log(err);
       console.log("here update")
@@ -212,6 +214,7 @@ class App extends Component {
       throw new Error("fetching testimonials failed");
     }
   };
+
   //-----------------------------------TESTIMONIALS FETCH------------------------------------
 
   /**
@@ -251,7 +254,7 @@ class App extends Component {
                 galleryData={galleryData}
                 eventsData={eventsData}
                 testimonialsData={testimonialsData}
-                updateEvent={this.updateEvent}
+                createTestimonial={this.createTestimonial}
               />
             )}
           />
@@ -276,7 +279,13 @@ class App extends Component {
           <Route path="/contactus" render={() => <ContactUsPage />} />
           <Route
             path={`/event/:id`}
-            render={props => <EventDetails editMode={editMode} {...props} />}
+            render={props => (
+              <EventDetails
+                updateEvent={this.updateEvent}
+                editMode={editMode}
+                {...props}
+              />
+            )}
           />
           <Route
             path="/login-to-heaven"

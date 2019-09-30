@@ -18,6 +18,12 @@ class DefaultLanding extends Component {
     super(props);
     this.state = {};
   }
+
+  renderAddImage = () => {
+    return <div></div>;
+  };
+
+
   render() {
     const { editMode,updateEvent, ...rest } = this.props;
     return (
@@ -29,7 +35,6 @@ class DefaultLanding extends Component {
         </div>
 
         {/* -----------------HERO SECTION---------------- */}
-
         <div className="DefaultLanding-container">
           {/* -----------------GALLERY SECTION---------------- */}
           <div className="galleryCard-container">
@@ -37,6 +42,7 @@ class DefaultLanding extends Component {
               <h2>Gallery</h2>
             </div>
             <div className="images-container">
+              {editMode ? this.renderAddImage() : ""}
               {rest.galleryData.map((gallery, i) => {
                 while (i < 9) {
                   return <GalleryCard srcImage={gallery.img} />;
@@ -74,7 +80,9 @@ class DefaultLanding extends Component {
           </div>
           {/* -----------------EVENT SECTION------------------ */}
 
+
           {/* -----------------TESTIMONIALS SECTION------------------ */}
+
           <div className="testimonials-section">
             <h2 className="testimonials-title">Testimonials</h2>
             <div className="testimonials-container">
@@ -92,11 +100,20 @@ class DefaultLanding extends Component {
               })}
             </div>
             <div>
-            <div class="mapouter">
-              <div class="gmap_canvas">
-                <iframe width="600" height="500" className="gmap_canvas" src="https://maps.google.com/maps?q=heaven%20ecoland&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+              <div class="mapouter">
+                <div class="gmap_canvas">
+                  <iframe
+                    width="600"
+                    height="500"
+                    className="gmap_canvas"
+                    src="https://maps.google.com/maps?q=heaven%20ecoland&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                    frameborder="0"
+                    scrolling="no"
+                    marginheight="0"
+                    marginwidth="0"
+                  ></iframe>
                 </div>
-                </div>
+              </div>
             </div>
           </div>
           {/* -----------------TESTIMONIALS SECTION------------------ */}

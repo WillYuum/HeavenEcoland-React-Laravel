@@ -58,10 +58,8 @@ $paragraph-font-size-xs: 12px;
           .event-title {
             text-align: center;
             h1 {
-
               @media (max-width: 1524px) {
                 font-size: 18px;
-                
               }
 
               @media (max-width: 640px) {
@@ -130,6 +128,14 @@ $paragraph-font-size-xs: 12px;
             span {
               font-weight: 600;
             }
+          }
+        }
+
+        .submint-btn-container {
+          width: 20%;
+          margin:0 auto;
+          .Submit-btn {
+            width: 200px;
           }
         }
       }

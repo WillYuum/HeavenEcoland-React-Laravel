@@ -7,7 +7,10 @@ import "./GalleryCard.scss";
 const GalleryCard = ({ srcImage }) => {
   return (
     <div className="image-card">
-      <img className="galleryImage" src={srcImage} />
+      <img
+        className="galleryImage"
+        src={`http://127.0.0.1:8000/public/images${srcImage}`}
+      />
     </div>
   );
 };

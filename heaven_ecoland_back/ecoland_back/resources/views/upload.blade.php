@@ -29,14 +29,19 @@
    </div>
    <img src="/images/{{ Session::get('path') }}" width="300" />
    @endif
+   <!-- form of method 'post and action =url ('/uploadfile')' and enctype="multipart/form-data" -->
    <form method="post" action="{{url('/uploadfile')}}" enctype="multipart/form-data">
     {{ csrf_field() }}
     <div class="form-group">
      <table class="table">
       <tr>
        <td width="40%" align="right"><label>Select File for Upload</label></td>
-       <td width="30"><input type="file" name="select_file" /></td>
-       <td width="30%" align="left"><input type="submit" name="upload" class="btn btn-primary" value="Upload"></td>
+       <td width="30">
+       <!-- browse button of type 'file and name''select_file' -->
+       <input type="file" name="select_file" /></td>
+       <td width="30%" align="left">
+       <!-- UPLOAD button  of type 'submit' and name 'upload' -->
+       <input type="submit" name="upload" class="btn btn-primary" value="Upload"></td>
       </tr>
       <tr>
        <td width="40%" align="right"></td>
