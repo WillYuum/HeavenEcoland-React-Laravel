@@ -23,7 +23,6 @@ class DefaultLanding extends Component {
     return <div></div>;
   };
 
-
   render() {
     const { editMode, ...rest } = this.props;
     return (
@@ -77,7 +76,6 @@ class DefaultLanding extends Component {
           </div>
           {/* -----------------EVENT SECTION------------------ */}
 
-
           {/* -----------------TESTIMONIALS SECTION------------------ */}
 
           <div className="testimonials-section">
@@ -87,10 +85,12 @@ class DefaultLanding extends Component {
                 while (i < 3) {
                   return (
                     <TestimonialCard
+                      testimonialId={testimonials.id}
                       image={testimonials.img}
                       date={testimonials.date}
                       authr={testimonials.author}
                       text={testimonials.content}
+                      deleteTestimonial={rest.deleteTestimonial}
                     />
                   );
                 }
