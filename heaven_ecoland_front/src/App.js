@@ -58,7 +58,7 @@ class App extends Component {
   };
 
   async componentDidMount() {
-    // this.getEvents();
+    this.getGallery();
     this.getEvents();
     this.getTestimonilas();
   }
@@ -69,7 +69,7 @@ class App extends Component {
    */
   getGallery = async () => {
     try {
-      const res = await fetch("http://127.0.0.1:8000/api/Gallery/", {
+      const res = await fetch("http://127.0.0.1:8000/api/gallery/", {
         method: "GET",
         headers: {
           Accept: "application/json",
@@ -137,7 +137,10 @@ class App extends Component {
    * @function addEvent
    * @param {object} params -will recieve an object of {title, date, price, description, image}
    */
-  updateEvent = async params => {
+  updateEvent = async (id, params) => {
+    if (!id) {
+      throw new Error("id for event is missing");
+    }
     const { title, date, price, description, image } = params;
     const newEventData = {};
     Object.keys(params).forEach(key => {
@@ -225,7 +228,6 @@ class App extends Component {
     // -----------DATA STATES---------------
     const { galleryData, eventsData, testimonialsData } = this.state;
     // -----------DATA STATES---------------
-    console.log(editMode)
     return (
       <div className="App">
         <Nav />
@@ -272,7 +274,7 @@ class App extends Component {
           <Route path="/contactus" render={() => <ContactUsPage />} />
           <Route
             path={`/event/:id`}
-            render={props => <EventDetails {...props} />}
+            render={props => <EventDetails editMode={editMode} {...props} />}
           />
           <Route
             path="/login-to-heaven"
