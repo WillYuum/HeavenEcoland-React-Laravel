@@ -16,6 +16,7 @@ class ContactUsPage extends Component {
   render() {
     return (
       <div className="contactUsPage-container">
+       
         <div className="contactUs-Title">
           <h1>Contact Us</h1>
         </div>
@@ -38,7 +39,10 @@ class ContactUsPage extends Component {
             <h4>24/7</h4>
             <br />
           </div>
+          </div>
+        
           <ReachUs />
+          </div>
         </div>
       </div>
     );

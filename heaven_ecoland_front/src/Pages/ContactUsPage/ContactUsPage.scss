@@ -1,9 +1,11 @@
 .contactUsPage-container {
+
   .contactUs-Title {
     text-align: center;
     text-decoration: underline;
     margin-bottom: 10vh;
     padding-top: 200px;
+ 
   }
 
   .contactUs-display {
@@ -15,8 +17,10 @@
     margin-bottom: 30px;
 
     .Contact_Information {
-      height: 150px;
+     
+      height: fit-content;
       display: inline-block;
     }
+
   }
 }
