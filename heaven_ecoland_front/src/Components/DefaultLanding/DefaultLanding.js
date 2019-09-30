@@ -19,7 +19,7 @@ class DefaultLanding extends Component {
     this.state = {};
   }
   render() {
-    const { editMode, getEventId, ...rest } = this.props;
+    const { editMode, ...rest } = this.props;
     return (
       <div className="DefaultLanding">
         {/* -----------------HERO SECTION---------------- */}
@@ -56,13 +56,13 @@ class DefaultLanding extends Component {
                 while (i < 6) {
                   return (
                     <EventCard
+                      editMode={editMode}
                       eventId={event.id}
                       price={event.price}
-                      ImageSrc={event.image}
+                      image={event.image}
                       date={event.date}
                       title={event.title}
                       description={event.description}
-                      getEventId={getEventId}
                     />
                   );
                 }
@@ -70,9 +70,10 @@ class DefaultLanding extends Component {
             </div>
           </div>
           {/* -----------------EVENT SECTION------------------ */}
-          <div>
-            <TestimonialCard />
 
+          {/* -----------------TESTIMONIALS SECTION------------------ */}
+          <div className="testimonials-section">
+            <h2 className="testimonials-title">Testimonials</h2>
             <div className="testimonials-container">
               {rest.testimonialsData.map((testimonials, i) => {
                 while (i < 3) {
@@ -87,8 +88,15 @@ class DefaultLanding extends Component {
                 }
               })}
             </div>
-            <div></div>
+            <div>
+            <div class="mapouter">
+              <div class="gmap_canvas">
+                <iframe width="600" height="500" className="gmap_canvas" src="https://maps.google.com/maps?q=heaven%20ecoland&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                </div>
+                </div>
+            </div>
           </div>
+          {/* -----------------TESTIMONIALS SECTION------------------ */}
 
           <OurStory editMode={editMode} />
           <ReacUs />
