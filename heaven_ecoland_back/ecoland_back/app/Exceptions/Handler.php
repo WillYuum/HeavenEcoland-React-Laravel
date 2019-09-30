@@ -12,7 +12,7 @@ class Handler extends ExceptionHandler
      *
      * @var array
      */
-    protected $dontReport = [
+    protected $dontReport = [   
         //
     ];
 
@@ -34,6 +34,10 @@ class Handler extends ExceptionHandler
      */
     public function report(Exception $exception)
     {
+        if ($exception instanceof CustomException) {
+            //
+        }
+    
         parent::report($exception);
     }
 
@@ -46,13 +50,10 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-        return response()->json(
-            [
-                'errors' => [
-                    'status' => 401,
-                    'message' => 'Unauthenticated',
-                ]
-            ], 401
-        );
+        if ($exception instanceof CustomException) {
+            return response()->view('errors.custom', [], 500);
+        }
+    
+        return parent::render($request, $exception);
     }
 }

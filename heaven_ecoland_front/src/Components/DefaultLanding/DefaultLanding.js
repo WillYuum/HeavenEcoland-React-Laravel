@@ -18,7 +18,27 @@ class DefaultLanding extends Component {
     super(props);
     this.state = {};
   }
+
+  renderAddImage = () =>{
+    return <div>
+  <input type="file"/>
+  <button>submit</button>
+    </div>
+  }
+  renderAddTESTIMONIALS = () =>{
+    return <div>
+  <input type="file"/>
+  <input type="title"/>
+ <input type="date"/>
+ <input type="text"/>
+ <br/>
+  <button>submit</button>
   
+    </div>
+    
+  }
+  
+
   render() {
     const { editMode, ...rest } = this.props;
     return (
@@ -28,9 +48,9 @@ class DefaultLanding extends Component {
         <div className="hero-Section">
           <Hero />
         </div>
+      
 
         {/* -----------------HERO SECTION---------------- */}
-
         <div className="DefaultLanding-container">
           {/* -----------------GALLERY SECTION---------------- */}
           <div className="galleryCard-container">
@@ -38,6 +58,7 @@ class DefaultLanding extends Component {
               <h2>Gallery</h2>
             </div>
             <div className="images-container">
+            {editMode ? this.renderAddImage() : "" }
               {rest.galleryData.map((gallery, i) => {
                 while (i < 9) {
                   return <GalleryCard srcImage={gallery.img} />;
@@ -46,6 +67,8 @@ class DefaultLanding extends Component {
             </div>
           </div>
           {/* -----------------GALLERY SECTION---------------- */}
+
+
 
           {/* -----------------EVENT SECTION------------------ */}
           <div className="event-Section">
@@ -76,6 +99,7 @@ class DefaultLanding extends Component {
           <div className="testimonials-section">
             <h2 className="testimonials-title">Testimonials</h2>
             <div className="testimonials-container">
+            {editMode ? this.renderAddTESTIMONIALS() : "" }
               {rest.testimonialsData.map((testimonials, i) => {
                 while (i < 3) {
                   return (
