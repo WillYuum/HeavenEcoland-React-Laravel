@@ -1,9 +1,21 @@
 .contactUsPage-container {
+<<<<<<< HEAD
+
+=======
+  // width: 90%;
+  display: grid;
+  grid-template-columns: auto auto auto;
+>>>>>>> 9f8eaadcde75b4eb70e01689a1d0c5448867cd29
   .contactUs-Title {
     text-align: center;
     text-decoration: underline;
     margin-bottom: 10vh;
+<<<<<<< HEAD
     padding-top: 200px;
+ 
+=======
+    padding-top: 120px;
+>>>>>>> 9f8eaadcde75b4eb70e01689a1d0c5448867cd29
   }
 
   .contactUs-display {
@@ -15,8 +27,22 @@
     margin-bottom: 30px;
 
     .Contact_Information {
-      height: 150px;
+<<<<<<< HEAD
+     
+      height: fit-content;
+=======
+      // height: 150px;
+>>>>>>> 9f8eaadcde75b4eb70e01689a1d0c5448867cd29
       display: inline-block;
     }
+
   }
+}
+.map-contactUs{
+ 
+  padding-top: 130px;
+  margin-right: 0px;
+}
+.INFO{
+  margin-left: 80px;
 }

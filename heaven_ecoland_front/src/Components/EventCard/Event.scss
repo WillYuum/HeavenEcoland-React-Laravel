@@ -124,6 +124,7 @@
 }
 
 .EventCard-container {
+ 
   .EDIT-priceTag {
     input {
       font-weight: bold;
@@ -142,24 +143,46 @@
   }
 
   .description-warper {
+    display: flex;
+/*     align-content: center; */
     input.EDIT-event-date {
       color: red;
       font-weight: bold;
       position: relative;
       margin-top: 1em;
       float: left;
-      height: 50px;
-      width:90px;
+      height: 2em;
+      width:fit-content;
       font-size: 10px;
 
     }
     .EDIT-event-title{
       margin-top: 1em;
       float: center;
-      width: 100px;
-      height: 40px;
+      width: fit-content;
+      height: 1em;
+     /*  height: 40px; */
       margin: 0 auto;
       text-align: center;
     }
+  }
+  .EDIT-event-description{
+position: relative;
+margin: 0 auto;
+
+  }
+  input {
+  height: 1em;
+ 
+  }
+  .submit{
+    position: relative;
+    margin: 0 auto;
+    height: 1.5em;
+
+ 
+  }
+  .imageUpload{
+    height: 1.5em;
   }
 }

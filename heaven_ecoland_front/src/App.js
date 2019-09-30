@@ -163,6 +163,7 @@ class App extends Component {
       console.log(updatedData);
     } catch (err) {
       console.log(err);
+      console.log("here update")
       throw new Error("updating an event failed");
     }
   };
@@ -292,6 +293,7 @@ class App extends Component {
                 eventsData={eventsData}
                 editMode={editMode}
                 deleteEvent={this.deleteEvent}
+                
               />
             )}
           />
