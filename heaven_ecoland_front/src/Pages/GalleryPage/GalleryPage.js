@@ -15,10 +15,11 @@ class GalleryPage extends Component {
   }
   render() {
     const { editMode, galleryData } = this.props;
+    console.log(galleryData)
     return (
       <div className="galleryPage-container">
         {galleryData.map(gallery => {
-          return <GalleryCard srcImage={gallery.img} />;
+          return <GalleryCard srcImage={gallery.image} />;
         })}
       </div>
     );

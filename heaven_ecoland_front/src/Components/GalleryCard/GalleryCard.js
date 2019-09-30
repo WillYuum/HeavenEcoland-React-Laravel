@@ -9,7 +9,7 @@ const GalleryCard = ({ srcImage }) => {
     <div className="image-card">
       <img
         className="galleryImage"
-        src={`http://127.0.0.1:8000/public/images${srcImage}`}
+        src={`http://127.0.0.1:8000/heaven_ecoland_back\ecoland_back/public/images/${srcImage}`}
       />
     </div>
   );

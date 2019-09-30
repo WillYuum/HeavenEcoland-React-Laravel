@@ -19,13 +19,8 @@ class DefaultLanding extends Component {
     this.state = {};
   }
 
-  renderAddImage = () => {
-    return <div></div>;
-  };
-
-
   render() {
-    const { editMode, ...rest } = this.props;
+    const { editMode, updateEvent, ...rest } = this.props;
     return (
       <div className="DefaultLanding">
         {/* -----------------HERO SECTION---------------- */}
@@ -69,6 +64,8 @@ class DefaultLanding extends Component {
                       date={event.date}
                       title={event.title}
                       description={event.description}
+                      updateEvent={updateEvent}
+                      id={event.id}
                     />
                   );
                 }
@@ -77,20 +74,23 @@ class DefaultLanding extends Component {
           </div>
           {/* -----------------EVENT SECTION------------------ */}
 
-
           {/* -----------------TESTIMONIALS SECTION------------------ */}
 
           <div className="testimonials-section">
             <h2 className="testimonials-title">Testimonials</h2>
             <div className="testimonials-container">
+              {editMode ? this.renderAddTESTIMONIALS() : ""}
               {rest.testimonialsData.map((testimonials, i) => {
                 while (i < 3) {
                   return (
                     <TestimonialCard
+                      testimonialId={testimonials.id}
                       image={testimonials.img}
                       date={testimonials.date}
                       authr={testimonials.author}
                       text={testimonials.content}
+                      deleteTestimonial={rest.deleteTestimonial}
+                      editMode={editMode}
                     />
                   );
                 }
