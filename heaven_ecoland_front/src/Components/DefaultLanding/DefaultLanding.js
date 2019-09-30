@@ -18,6 +18,13 @@ class DefaultLanding extends Component {
     super(props);
     this.state = {};
   }
+
+  renderAddImage = () =>{
+    return <div>
+
+    </div>
+  }
+
   render() {
     const { editMode, ...rest } = this.props;
     return (
@@ -29,7 +36,6 @@ class DefaultLanding extends Component {
         </div>
 
         {/* -----------------HERO SECTION---------------- */}
-
         <div className="DefaultLanding-container">
           {/* -----------------GALLERY SECTION---------------- */}
           <div className="galleryCard-container">
@@ -37,6 +43,7 @@ class DefaultLanding extends Component {
               <h2>Gallery</h2>
             </div>
             <div className="images-container">
+            {editMode ? this.renderAddImage() : "" }
               {rest.galleryData.map((gallery, i) => {
                 while (i < 9) {
                   return <GalleryCard srcImage={gallery.img} />;
@@ -45,6 +52,8 @@ class DefaultLanding extends Component {
             </div>
           </div>
           {/* -----------------GALLERY SECTION---------------- */}
+
+
 
           {/* -----------------EVENT SECTION------------------ */}
           <div className="event-Section">
