@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import AliceCarousel from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
 
 import { Card } from "react-bootstrap";
 
@@ -15,6 +17,14 @@ const EventDetails = ({ ...props }) => {
   const [event, setEvent] = useState([]);
   // -----------EVENTDATA STATE-------------
 
+  // -----------SLIDER STATE-------------
+  const [responsive, setResponsive] = useState({
+    0: { items: 1 },
+    630: { items: 2 },
+    1024: { items: 3 }
+  });
+  // -----------SLIDER STATE-------------
+
   const [bundles, setBundle] = useState([
     { name: "A3de Ta7t l Shajra", price: "12", description: "Eat with shajra" },
     { name: "A3de Fo2 l Shajra", price: "16", description: "Fly with Shajra" },
@@ -24,7 +34,7 @@ const EventDetails = ({ ...props }) => {
   ]);
 
   /**
-   * @method useEffect -an alternative to didComponentMount + calls the api again after the state being updated.
+   * @method useEffect -an alternative to didComponentMount
    */
   useEffect(() => {
     getEvent(props.match.params.id);
@@ -54,37 +64,54 @@ const EventDetails = ({ ...props }) => {
     }
   };
   return (
-    <div className="EventDetails">
-      <div className="event-container">
-        <div className="image">
-          <img
-            src="http://www.vacationrentalsindia.com/sadmin/images/gallery/p1bs87ld4a1dkghhv1ef91slm1f6tt.jpg"
-            alt="Event Image"
-          />
-        </div>
-        <div className="details">
-          <div className="first-details">
-            <div className="event-date">
-              <time>Date: {event.date}</time>
-            </div>
-            <div className="event-title">
-              <p>{event.title}</p>
-            </div>
+    <div className="EventDetails-body">
+      <div className="EventDetails">
+        <div className="event-container">
+          <div className="image">
+            <img
+              src="http://www.vacationrentalsindia.com/sadmin/images/gallery/p1bs87ld4a1dkghhv1ef91slm1f6tt.jpg"
+              alt="Event Image"
+            />
           </div>
-          <div className="bundles-description">
-            <div className="event-bundles">
-              <p>Bundles</p>
-              {bundles.map(bundle => (
-                <BundleCard
-                  name={bundle.name}
-                  description={bundle.description}
-                  price={bundle.price}
-                />
-              ))}
+          <div className="details">
+            <div className="first-details">
+              <div className="event-date">
+                <time>{event.date}</time>
+              </div>
+              <div className="event-title">
+                <h1>{event.title}</h1>
+              </div>
+              
             </div>
-            <div className="event-description">
-              <p>{event.description}</p>
-              <p>Total Price:${event.price}</p>
+            <div className="event-info">
+              <div className="event-description">
+                <p>{event.description}</p>
+              </div>
+              <div className="event-bundles">
+                <h2 className="bundle-center">Bundles</h2>
+                <div className="bundle-cards">
+                  <AliceCarousel
+                    mouseDragEnabled
+                    buttonsDisabled={true}
+                    autoHeight={true}
+                    infinite={false}
+                    responsive={responsive}
+                  >
+                    {bundles.map(bundle => (
+                      <BundleCard
+                        name={bundle.name}
+                        description={bundle.description}
+                        price={bundle.price}
+                      />
+                    ))}
+                  </AliceCarousel>
+                </div>
+              </div>
+              <div className="cost-entry">
+                <p>
+                  Entry Cost: $<span>{event.price}</span>
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -94,38 +121,3 @@ const EventDetails = ({ ...props }) => {
 };
 
 export default EventDetails;
-
-{
-  /* <div className="image">
-        <img
-          src="http://www.vacationrentalsindia.com/sadmin/images/gallery/p1bs87ld4a1dkghhv1ef91slm1f6tt.jpg"
-          alt="Event Image"
-        />
-      </div>
-      <div className="details">
-        <div className="first-details">
-          <div className="event-date">
-            <time>Date: {event.date}</time>
-          </div>
-          <div className="event-title">
-            <p>{event.title}</p>
-          </div>
-        </div>
-        <div className="bundles-description">
-          <div className="event-bundles">
-            <p>Bundles</p>
-            {bundles.map(bundle => (
-              <BundleCard
-                name={bundle.name}
-                description={bundle.description}
-                price={bundle.price}
-              />
-            ))}
-          </div>
-          <div className="event-description">
-            <p>{event.description}</p>
-            <p>Total Price:${event.price}</p>
-          </div>
-        </div>
-      </div> */
-}

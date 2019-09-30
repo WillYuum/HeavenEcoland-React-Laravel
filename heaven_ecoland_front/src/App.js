@@ -21,47 +21,10 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      galleryData: [
-        {
-          img:
-            "https://lh3.googleusercontent.com/bCDiJJkItiG4-s1ijDXxtsKy60hpf4Jo1fiQExKujtORmIrWgczZ67gLmFifzUuDxaRbaVV1oYgGD4HE4g=w768-h768-n-o-v1"
-        },
-        {
-          img:
-            "https://lh3.googleusercontent.com/bCDiJJkItiG4-s1ijDXxtsKy60hpf4Jo1fiQExKujtORmIrWgczZ67gLmFifzUuDxaRbaVV1oYgGD4HE4g=w768-h768-n-o-v1"
-        },
-        {
-          img:
-            "https://lh3.googleusercontent.com/bCDiJJkItiG4-s1ijDXxtsKy60hpf4Jo1fiQExKujtORmIrWgczZ67gLmFifzUuDxaRbaVV1oYgGD4HE4g=w768-h768-n-o-v1"
-        },
-        {
-          img:
-            "https://lh3.googleusercontent.com/bCDiJJkItiG4-s1ijDXxtsKy60hpf4Jo1fiQExKujtORmIrWgczZ67gLmFifzUuDxaRbaVV1oYgGD4HE4g=w768-h768-n-o-v1"
-        },
-        {
-          img:
-            "https://lh3.googleusercontent.com/bCDiJJkItiG4-s1ijDXxtsKy60hpf4Jo1fiQExKujtORmIrWgczZ67gLmFifzUuDxaRbaVV1oYgGD4HE4g=w768-h768-n-o-v1"
-        },
-        {
-          img:
-            "https://lh3.googleusercontent.com/bCDiJJkItiG4-s1ijDXxtsKy60hpf4Jo1fiQExKujtORmIrWgczZ67gLmFifzUuDxaRbaVV1oYgGD4HE4g=w768-h768-n-o-v1"
-        },
-        {
-          img:
-            "https://lh3.googleusercontent.com/bCDiJJkItiG4-s1ijDXxtsKy60hpf4Jo1fiQExKujtORmIrWgczZ67gLmFifzUuDxaRbaVV1oYgGD4HE4g=w768-h768-n-o-v1"
-        },
-        {
-          img:
-            "https://lh3.googleusercontent.com/bCDiJJkItiG4-s1ijDXxtsKy60hpf4Jo1fiQExKujtORmIrWgczZ67gLmFifzUuDxaRbaVV1oYgGD4HE4g=w768-h768-n-o-v1"
-        },
-        {
-          img:
-            "https://lh3.googleusercontent.com/bCDiJJkItiG4-s1ijDXxtsKy60hpf4Jo1fiQExKujtORmIrWgczZ67gLmFifzUuDxaRbaVV1oYgGD4HE4g=w768-h768-n-o-v1"
-        }
-      ],
+      galleryData: [],
       eventsData: [],
       testimonialsData: [],
-      isLoggedIn: false,
+      isLoggedIn: true,
       editMode: false
     };
   }
@@ -95,9 +58,32 @@ class App extends Component {
   };
 
   async componentDidMount() {
+    // this.getEvents();
     this.getEvents();
     this.getTestimonilas();
   }
+
+  // -----------------------GALLERY FETCH-------------------------------
+  /**
+   * @function getGallery retrieves images gallery images from backend
+   */
+  getGallery = async () => {
+    try {
+      const res = await fetch("http://127.0.0.1:8000/api/Gallery/", {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        }
+      });
+      const images = await res.json();
+      this.setState({ galleryData: images });
+    } catch (err) {
+      console.log(err);
+      throw new Error("fetching gallery images failed");
+    }
+  };
+  // -----------------------GALLERY FETCH-------------------------------
 
   // -----------------------EVENTS FETCH-------------------------------
   /**
@@ -117,6 +103,85 @@ class App extends Component {
     } catch (err) {
       console.log(err);
       throw new Error("fetching  EVENTS failed");
+    }
+  };
+
+  /**
+   * @function addEvent
+   * @param {object} params -will recieve an object of {title, date, price, description, image}
+   */
+  addEvent = async params => {
+    const { title, date, price, description, image } = params;
+    if (!(title, date, price, description, image)) {
+      throw new Error("The params has an undefined value");
+    }
+    try {
+      const req = await fetch("http://127.0.0.1:8000/api/event/", {
+        method: "POST",
+        body: JSON.stringify(params),
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        }
+      });
+
+      const res = await req.json();
+      console.log(res);
+    } catch (err) {
+      console.log(err);
+      throw new Error("adding an event failed");
+    }
+  };
+
+  /**
+   * @function addEvent
+   * @param {object} params -will recieve an object of {title, date, price, description, image}
+   */
+  updateEvent = async params => {
+    const { title, date, price, description, image } = params;
+    const newEventData = {};
+    Object.keys(params).forEach(key => {
+      if (params[key] != undefined) {
+        newEventData[key] = params[key];
+      }
+    });
+    try {
+      const req = await fetch("http://127.0.0.1:8000/api/event/", {
+        method: "POST",
+        body: JSON.stringify(params),
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        }
+      });
+      const res = await req.json;
+    } catch (err) {
+      console.log(err);
+      throw new Error("updating an event failed");
+    }
+  };
+
+  /**
+   * @function deleteEvent deletes an event from default landing page or events page
+   * @param {int} id
+   */
+  deleteEvent = async id => {
+    if (!id) {
+      throw new Error("id is Undefined");
+    }
+    try {
+      const req = await fetch("http://127.0.0.1:8000/api/event/", {
+        method: "DELETE",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        }
+      });
+      console.log(`The event with id = ${id} got deleted`);
+      return req;
+    } catch (err) {
+      console.log(err);
+      throw new Error("deleting an event failed");
     }
   };
   // -----------------------EVENTS FETCH-------------------------------
@@ -160,14 +225,16 @@ class App extends Component {
     // -----------DATA STATES---------------
     const { galleryData, eventsData, testimonialsData } = this.state;
     // -----------DATA STATES---------------
-
+    console.log(editMode)
     return (
       <div className="App">
         <Nav />
-        {isLoggedIn && (
+        {isLoggedIn ? (
           <button className="EditMode-btn" onClick={this.toggleEditMode}>
             Edit Mode
           </button>
+        ) : (
+          alert("hi")
         )}
         <Switch>
           <Route
@@ -191,7 +258,13 @@ class App extends Component {
           />
           <Route
             path="/eventpage"
-            render={() => <EventPage eventsData={eventsData} />}
+            render={() => (
+              <EventPage
+                eventsData={eventsData}
+                editMode={editMode}
+                deleteEvent={this.deleteEvent}
+              />
+            )}
           />
           <Route path="/blogpage" render={() => <BlogPage />} />
           <Route path="/contactus" render={() => <ContactUsPage />} />

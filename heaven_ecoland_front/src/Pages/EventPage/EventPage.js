@@ -12,35 +12,30 @@ class EventPage extends Component {
   constructor(props) {
     super(props);
     this.state = {};
-    
   }
-  
+
   render() {
-    const { editMode, getEventId } = this.props;
+    const { editMode, ...eventFuncs } = this.props;
+    console.log("WILLY", editMode)
     return (
-         <div className="eventPage-container">
-        
-          {this.props.eventsData.map((event) => {
-        
-                return  ( <EventCard
-                      eventId={event.id}
-                      price={event.price}
-                      ImageSrc={event.image}
-                      date={event.date}
-                      title={event.title}
-                      description={event.description}
-                /*       getEventId={getEventId} */
-                    />
-                );
-          }
-    )  
-          }
-              
+      <div className="eventPage-container">
+        {this.props.eventsData.map(event => {
+          return (
+            <EventCard
+              eventId={event.id}
+              price={event.price}
+              ImageSrc={event.image}
+              date={event.date}
+              title={event.title}
+              description={event.description}
+              editMode={editMode}
+              {...eventFuncs}
+            />
+          );
+        })}
       </div>
     );
-    }
-            }
-            
-
+  }
+}
 
 export default EventPage;

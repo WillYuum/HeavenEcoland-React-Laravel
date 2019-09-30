@@ -28,7 +28,7 @@
         width: 80vw;
         margin: 0px auto;
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(295px, 1fr));
         object-fit: cover;
         gap: 20px 20px;
       }
@@ -63,11 +63,24 @@
       }
     }
     // ----------------------EVENT SECTION----------------------
+
+    // ----------------------TESTIMONILA SECTION----------------------
+    .testimonials-section {
+      width: 80vw;
+      margin: 0 auto;
+      padding-top:20px;
+      .testimonials-title {
+        text-align: center;
+        margin: 100px 0;
+      }
+      .testimonials-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        object-fit: cover;
+        gap: 20px 20px;
+      }
+    }
+
+    // ----------------------EVENT SECTION----------------------
   }
-}
-.testimonials-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  object-fit: cover;
-  gap: 20px 20px;
 }
