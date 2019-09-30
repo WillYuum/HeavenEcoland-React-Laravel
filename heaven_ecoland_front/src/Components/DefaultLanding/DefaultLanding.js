@@ -95,27 +95,31 @@ class DefaultLanding extends Component {
                 }
               })}
             </div>
-            <div>
-              <div class="mapouter">
-                <div class="gmap_canvas">
-                  <iframe
-                    width="600"
-                    height="500"
-                    className="gmap_canvas"
-                    src="https://maps.google.com/maps?q=heaven%20ecoland&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                    frameborder="0"
-                    scrolling="no"
-                    marginheight="0"
-                    marginwidth="0"
-                  ></iframe>
-                </div>
-              </div>
-            </div>
           </div>
           {/* -----------------TESTIMONIALS SECTION------------------ */}
 
           <OurStory editMode={editMode} />
-          <ReacUs />
+
+          <div className="heaven-location">
+            <div className="location-title">
+              <h2>Heaven Location</h2>
+            </div>
+            <div class="mapouter">
+              <div class="gmap_canvas">
+                <iframe
+                  title="Heaven-location"
+                  width="100%"
+                  height="600"
+                  className="gmap_canvas"
+                  src="https://maps.google.com/maps?q=heaven%20ecoland&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                  frameborder="0"
+                  scrolling="no"
+                  marginheight="0"
+                  marginwidth="0"
+                ></iframe>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     );

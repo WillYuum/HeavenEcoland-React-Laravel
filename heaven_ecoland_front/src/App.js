@@ -50,11 +50,24 @@ class App extends Component {
         }
       });
       const res = await req.json();
-      console.log("response is:");
-      console.log(res);
+      const c_time = new Date().getDay();
+      localStorage.setItem("token", res.token);
+      localStorage.setItem("last-login", c_time);
     } catch (err) {
       console.log(err);
       throw new Error("logging in failed");
+    }
+  };
+
+
+  /**
+   * @function checkExpiration it'll get the date of the lasttime the Admin logged in and expires the token if it was more than an hour
+   */
+  checkExpiration = () => {
+    const lastLogin = localStorage.getItem("last-login");
+    const timeNow = new Date().getHours();
+    if (lastLogin - timeNow > 0) {
+      localStorage.removeItem("token");
     }
   };
 
@@ -62,6 +75,8 @@ class App extends Component {
     this.getGallery();
     this.getEvents();
     this.getTestimonilas();
+    // Checking for last login
+    this.checkExpiration();
   }
 
   // -----------------------GALLERY FETCH-------------------------------
@@ -142,10 +157,10 @@ class App extends Component {
     if (!id) {
       throw new Error("id for event is missing");
     }
-    const { title, date, price, description, image } = params;
+    // const { title, date, price, description, image } = params;
     const newEventData = {};
     Object.keys(params).forEach(key => {
-      if (params[key] != undefined || params[key] != " ") {
+      if (params[key] !== undefined || params[key] !== " ") {
         newEventData[key] = params[key];
       }
     });
