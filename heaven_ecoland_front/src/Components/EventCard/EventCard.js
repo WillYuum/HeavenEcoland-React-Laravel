@@ -16,17 +16,35 @@ const EventCard = ({
   updateEvent,
   ...eventFuncs
 }) => {
+  const [eventsData, setEventData] = useState({});
   // this.onFormSubmit = this.onFormSubmit.bind(this);
   // this.onChange = this.onChange.bind(this);
   // this.fileUpload = this.fileUpload.bind(this);
   const [imageUploaded, setImage] = useState([]);
 
+  const handleChange=event =>{
+
+    const target= event.target;
+  const value= target.value;
+  const name= target.name;
+setEventData({
+[name]:value
+});
+  }
   const onFormSubmit = e => {
     // on submit form;
     e.preventDefault();
     fileUpload(imageUploaded);
   };
 
+  const handleSubmit=(id,event)=>{
+    event.preventDefault();
+    console.log(eventsData);
+    console.log(eventId);
+    eventId=id;
+updateEvent(eventId,eventsData);
+   // const formData = { file: imageUploaded };
+ };
   const onChange = e => {
     // onchange
     let files = e.target.files || e.dataTransfer.files;
@@ -87,7 +105,7 @@ const EventCard = ({
           <input type="text" />
         </div>
         <form
-          method="POST"
+          method="PUT"
           onSubmit={e => onFormSubmit(e)}
           enctype="multipart/form-data"
         >
@@ -105,22 +123,28 @@ const EventCard = ({
 
         <img className="event-img" src={image} width="300px" height="300px" />
         <div className="description-warper">
-          <input className="EDIT-event-date" type="date" value={date} />
+          <input className="EDIT-event-date"
+           type="date"
+            value={date} 
+             onChange={handleChange} />
           <input
             type="text"
             className="EDIT-event-title"
             defaultValue={title}
+            onChange={handleChange}
           />
           <input
             className="EDIT-event-description"
             type="text"
-            value={description}
+            defaultValue={description}
+            onChange={handleChange}
           />
           <input
             type="submit"
             name="upload"
             className="submit"
             value="Upload"
+            onClick={eventId=>handleSubmit}
           />{" "}
           {/* <div class="more">
             <Link class="more" to={`/event/${eventId}`}>

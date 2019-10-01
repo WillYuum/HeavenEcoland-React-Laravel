@@ -296,6 +296,7 @@ class App extends Component {
                 createTestimonial={this.createTestimonial}
                 deleteTestimonial={this.deleteTestimonial}
                 deleteEvent={this.deleteEvent}
+                updateEvent={this.updateEvent}
               />
             )}
           />

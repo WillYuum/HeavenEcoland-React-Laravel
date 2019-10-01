@@ -93,12 +93,13 @@ class EventController extends Controller
         $date= $request->get('date');
         $price = $request->input('price');
         $description = $request->get('description');
-        // $event_id= $request->get('event_id');
+        $event_id= $request->get('id');
         $image = $request->get('image');
+    
 
   
         DB::table('Event')
-            ->where('id', 1)
+            ->where('id',$id)
             ->update(['title' => $title,
             'date' => $date,
             'price'=>$price,

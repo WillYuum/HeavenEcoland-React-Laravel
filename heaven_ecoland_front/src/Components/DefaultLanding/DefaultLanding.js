@@ -43,7 +43,7 @@ class DefaultLanding extends Component {
             <div className="gallery-title">
               <h2>Gallery</h2>
             </div>
-            <div className="images-container">
+            {/* <div className="images-container">
               {editMode ? this.renderAddImage() : ""}
 
               {rest.galleryData.map((gallery, i) => {
@@ -51,7 +51,7 @@ class DefaultLanding extends Component {
                   return <GalleryCard srcImage={gallery.image} />;
                 }
               })}
-            </div>
+            </div> */}
           </div>
           {/* -----------------GALLERY SECTION---------------- */}
 
@@ -87,6 +87,7 @@ class DefaultLanding extends Component {
           <div className="testimonials-section">
             <h2 className="testimonials-title">Testimonials</h2>
             <div className="testimonials-container">
+            
               {rest.testimonialsData.map((testimonials, i) => {
                 while (i < 3) {
                   return (
@@ -100,7 +101,9 @@ class DefaultLanding extends Component {
                     />
                   );
                 }
-              })}
+              }
+              )
+              }
             </div>
           </div>
           {/* -----------------TESTIMONIALS SECTION------------------ */}
