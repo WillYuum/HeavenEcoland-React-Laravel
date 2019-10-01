@@ -1,4 +1,5 @@
 <?php
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -25,6 +26,7 @@ Route::resource('event','EventController');
 Route::resource('bundle','BundleController');
 Route::resource('eventbundle','EventBundleController');
 Route::resource('admin','AdminController');
+
 Route::resource('gallery','GalleryController');
 Route::resource('testimonial','TestimonialController');
 Route::resource('blog','BlogController');

@@ -10,7 +10,7 @@ class gallery extends Model
     protected $table='Gallery';
     protected $fillable = [
 
-        'img'
+        'image'
 
     ];
 }
