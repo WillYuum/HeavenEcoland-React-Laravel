@@ -134,7 +134,7 @@ const EventDetails = ({ editmode, updateEvent, ...props }) => {
       <div className="EventDetails-body">
         <form
           onSubmit={handleSubmit}
-          method="POST"
+          method="PUT"
           enctype="multipart/form-data"
         >
           <div className="EventDetails">

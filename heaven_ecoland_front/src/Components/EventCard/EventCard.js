@@ -87,7 +87,7 @@ const EventCard = ({
           <input type="text" />
         </div>
         <form
-          method="POST"
+          method="PUT"
           onSubmit={e => onFormSubmit(e)}
           enctype="multipart/form-data"
         >
