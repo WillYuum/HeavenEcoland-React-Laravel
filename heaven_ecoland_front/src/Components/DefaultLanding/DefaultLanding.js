@@ -43,7 +43,7 @@ class DefaultLanding extends Component {
             <div className="gallery-title">
               <h2>Gallery</h2>
             </div>
-            {/* <div className="images-container">
+            <div className="images-container">
               {editMode ? this.renderAddImage() : ""}
 
               {rest.galleryData.map((gallery, i) => {
@@ -51,7 +51,7 @@ class DefaultLanding extends Component {
                   return <GalleryCard srcImage={gallery.image} />;
                 }
               })}
-            </div> */}
+            </div>
           </div>
           {/* -----------------GALLERY SECTION---------------- */}
 
@@ -73,7 +73,6 @@ class DefaultLanding extends Component {
                       title={event.title}
                       description={event.description}
                       updateEvent={updateEvent}
-                  
                       deleteEvent={deleteEvent}
                     />
                   );
@@ -88,7 +87,6 @@ class DefaultLanding extends Component {
           <div className="testimonials-section">
             <h2 className="testimonials-title">Testimonials</h2>
             <div className="testimonials-container">
-            
               {rest.testimonialsData.map((testimonials, i) => {
                 while (i < 3) {
                   return (
@@ -102,9 +100,7 @@ class DefaultLanding extends Component {
                     />
                   );
                 }
-              }
-              )
-              }
+              })}
             </div>
           </div>
           {/* -----------------TESTIMONIALS SECTION------------------ */}
@@ -123,7 +119,7 @@ class DefaultLanding extends Component {
                   height="600"
                   className="gmap_canvas"
                   src="https://maps.google.com/maps?q=heaven%20ecoland&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                  frameborder="0"
+                  frameBorder="0"
                   scrolling="no"
                   marginheight="0"
                   marginwidth="0"

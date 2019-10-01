@@ -87,16 +87,13 @@ class App extends Component {
    */
   getGallery = async () => {
     try {
-      const res = await fetch(
-        `${process.env.REACT_APP_HEAVEN_BACK_URL}api/gallery/`,
-        {
-          method: "GET",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json"
-          }
+      const res = await fetch(`http://127.0.0.1:8000/api/gallery/`, {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
         }
-      );
+      });
       const images = await res.json();
       this.setState({ galleryData: images });
     } catch (err) {
