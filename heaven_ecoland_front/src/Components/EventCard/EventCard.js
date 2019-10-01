@@ -37,14 +37,16 @@ setEventData({
     fileUpload(imageUploaded);
   };
 
-  const handleSubmit=(id,event)=>{
-    event.preventDefault();
-    console.log(eventsData);
-    console.log(eventId);
-    eventId=id;
-updateEvent(eventId,eventsData);
-   // const formData = { file: imageUploaded };
- };
+  const handleSubmit = e => {
+    e.preventDefault();
+    const title = e.target.title.value;
+    const date = e.target.date.value;
+    const description = e.target.description.value;
+    const price = e.target.price.value;
+    console.log("HI",title, date, description, price);
+
+    updateEvent(eventId, { title, date, price, description });
+  };
   const onChange = e => {
     // onchange
     let files = e.target.files || e.dataTransfer.files;
@@ -73,6 +75,7 @@ updateEvent(eventId,eventsData);
   };
 
   const ViewEventCard = () => {
+ 
     return (
       <div className="EventCard-container">
         <div className="priceTag">${price}</div>
@@ -101,58 +104,61 @@ updateEvent(eventId,eventsData);
     return (
       <div className="EventCard-container">
         <button onClick={() => eventFuncs.deleteEvent(eventId)}>X</button>
-        <div className="EDIT-priceTag">
-          <input type="text" />
-        </div>
+        
+        
         <form
           method="PUT"
-          onSubmit={e => onFormSubmit(e)}
+          onSubmit={ handleSubmit}
           enctype="multipart/form-data"
         >
-          {" "}
           {/* form of method 'post and action =url ('/uploadfile')' and enctype="multipart/form-data"  */}
           <input
             type="file"
             name="select_file"
             onChange={onChange}
             className="imageUpload"
-          />{" "}
+          />
+          <div className="EDIT-priceTag">
+          <input name="price" type="text" value={price}/>
+          </div>
+          {/* browse buttor
           {/* browse button of type 'file' */}
           {/* UPLOAD button  of type 'submit' and name 'upload'  */}
-        </form>
 
         <img className="event-img" src={image} width="300px" height="300px" />
         <div className="description-warper">
           <input className="EDIT-event-date"
            type="date"
             value={date} 
-             onChange={handleChange} />
+             onChange={handleChange}
+             name="date"
+              />
           <input
             type="text"
             className="EDIT-event-title"
             defaultValue={title}
             onChange={handleChange}
+            name="title"
           />
           <input
             className="EDIT-event-description"
             type="text"
             defaultValue={description}
             onChange={handleChange}
+            name="description"
           />
           <input
             type="submit"
             name="upload"
             className="submit"
             value="Upload"
-            onClick={eventId=>handleSubmit}
-          />{" "}
-          {/* <div class="more">
-            <Link class="more" to={`/event/${eventId}`}>
-              More Info
-            </Link>
-          </div> */}
+          
+          />
         </div>
-      </div>
+        </form>
+        
+      
+        </div>
     );
   };
   return editMode ? EditEventCard() : ViewEventCard();

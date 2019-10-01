@@ -73,6 +73,7 @@ class DefaultLanding extends Component {
                       title={event.title}
                       description={event.description}
                       updateEvent={updateEvent}
+                  
                       deleteEvent={deleteEvent}
                     />
                   );
