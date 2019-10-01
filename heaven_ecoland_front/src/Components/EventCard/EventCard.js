@@ -21,17 +21,32 @@ const EventCard = ({
   ...eventFuncs
   
 }) => {
+  const [eventsData, setEventData] = useState({});
   // this.onFormSubmit = this.onFormSubmit.bind(this);
   // this.onChange = this.onChange.bind(this);
   // this.fileUpload = this.fileUpload.bind(this);
   const [imageUploaded, setImage] = useState([]);
 
+  const handleChange=event =>{
+
+    const target= event.target;
+  const value= target.value;
+  const name= target.name;
+setEventData({
+[name]:value
+});
+  }
   const onFormSubmit = e => {
     // on submit form;
     e.preventDefault();
     fileUpload(imageUploaded);
   };
 
+  const handleSubmit=event=>{
+    event.preventDefault();
+updateEvent(eventId,eventsData);
+   // const formData = { file: imageUploaded };
+ };
   const onChange = e => {
     // onchange
     let files = e.target.files || e.dataTransfer.files;

@@ -19,41 +19,8 @@ class DefaultLanding extends Component {
     this.state = {};
   }
 
-  renderAddImage = () => {
-    return (
-      <div>
-        <input type="file" />
-        <button>submit</button>
-      </div>
-    );
-  };
-
-  renderAddTESTIMONIALS = () => {
-    return (
-      <div>
-        <form onSubmit={this.addTestimonials}>
-          <input name="testimonialimage" type="file" />
-          <input name="testimonialauthor" type="title" />
-          <input name="testimonialdate" type="date" />
-          <input name="testimonialcontent" type="text" />
-          <input type="submit" />
-
-          <br />
-        </form>
-      </div>
-    );
-  };
-  addTestimonials = e => {
-    e.preventDefault();
-    const image = e.target.testimonialimage.value;
-    const author = e.target.testimonialauthor.value;
-    const date = e.target.testimonialdate.value;
-    const content = e.target.testimonialcontent.value;
-    console.log(image, author, date, content);
-  };
-
   render() {
-    const { editMode,updateEvent, ...rest } = this.props;
+    const { editMode, updateEvent, ...rest } = this.props;
     return (
       <div className="DefaultLanding">
         {/* -----------------HERO SECTION---------------- */}
@@ -69,14 +36,14 @@ class DefaultLanding extends Component {
             <div className="gallery-title">
               <h2>Gallery</h2>
             </div>
-            <div className="images-container">
+            {/* <div className="images-container">
               {editMode ? this.renderAddImage() : ""}
               {rest.galleryData.map((gallery, i) => {
                 while (i < 9) {
                   return <GalleryCard srcImage={gallery.img} />;
                 }
               })}
-            </div>
+            </div> */}
           </div>
           {/* -----------------GALLERY SECTION---------------- */}
 
@@ -99,7 +66,6 @@ class DefaultLanding extends Component {
                       description={event.description}
                       updateEvent={updateEvent}
                       id={event.id}
-                     
                     />
                   );
                 }
@@ -108,25 +74,29 @@ class DefaultLanding extends Component {
           </div>
           {/* -----------------EVENT SECTION------------------ */}
 
-
           {/* -----------------TESTIMONIALS SECTION------------------ */}
 
           <div className="testimonials-section">
             <h2 className="testimonials-title">Testimonials</h2>
             <div className="testimonials-container">
-              {editMode ? this.renderAddTESTIMONIALS() : ""}
+            
               {rest.testimonialsData.map((testimonials, i) => {
                 while (i < 3) {
                   return (
                     <TestimonialCard
+                      testimonialId={testimonials.id}
                       image={testimonials.img}
                       date={testimonials.date}
                       authr={testimonials.author}
                       text={testimonials.content}
+                      deleteTestimonial={rest.deleteTestimonial}
+                      editMode={editMode}
                     />
                   );
                 }
-              })}
+              }
+              )
+              }
             </div>
             <div>
               <div class="mapouter">
