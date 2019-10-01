@@ -43,18 +43,30 @@ class App extends Component {
     try {
       const req = await fetch("http://127.0.0.1:8000/api/login", {
         method: "POST",
-        body: params,
+        body: JSON.stringify(params),
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json"
         }
       });
       const res = await req.json();
-      console.log("response is:");
-      console.log(res);
+      const c_time = new Date().getDay();
+      localStorage.setItem("token", res.token);
+      localStorage.setItem("last-login", c_time);
     } catch (err) {
       console.log(err);
       throw new Error("logging in failed");
+    }
+  };
+
+  /**
+   * @function checkExpiration it'll get the date of the lasttime the Admin logged in and expires the token if it was more than an hour
+   */
+  checkExpiration = () => {
+    const lastLogin = localStorage.getItem("last-login");
+    const timeNow = new Date().getHours();
+    if (lastLogin - timeNow > 0) {
+      localStorage.removeItem("token");
     }
   };
 
@@ -62,6 +74,8 @@ class App extends Component {
     this.getGallery();
     this.getEvents();
     this.getTestimonilas();
+    // Checking for last login
+    this.checkExpiration();
   }
 
   // -----------------------GALLERY FETCH-------------------------------
@@ -142,10 +156,10 @@ class App extends Component {
     if (!id) {
       throw new Error("id for event is missing");
     }
-    const { title, date, price, description, image } = params;
+    // const { title, date, price, description, image } = params;
     const newEventData = {};
     Object.keys(params).forEach(key => {
-      if (params[key] != undefined || params[key] != " ") {
+      if (params[key] !== undefined || params[key] !== " ") {
         newEventData[key] = params[key];
       }
     });
@@ -164,7 +178,7 @@ class App extends Component {
       console.log(updatedData);
     } catch (err) {
       console.log(err);
-      console.log("here update")
+      console.log("here update");
       throw new Error("updating an event failed");
     }
   };
@@ -178,13 +192,15 @@ class App extends Component {
       throw new Error("id is Undefined");
     }
     try {
-      const req = await fetch("http://127.0.0.1:8000/api/event/", {
+      const req = await fetch(`http://127.0.0.1:8000/api/event/${id}`, {
         method: "DELETE",
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json"
         }
       });
+      const res = await req.json();
+      console.log(res);
       console.log(`The event with id = ${id} got deleted`);
       return req;
     } catch (err) {
@@ -216,13 +232,14 @@ class App extends Component {
     }
   };
 
-  deleteTestimonial = async id => {
+  updateTestimonial = async id => {
     if (!id) {
       throw new Error("id is missing");
     }
+
     try {
-      const req = await fetch(`http://127.0.0.1:8000/api/testimonial/${id}`, {
-        method: "DELETE",
+      const req = await fetch("http://127.0.0.1:8000/api/testimonial/", {
+        method: "PUT",
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json"
@@ -233,7 +250,7 @@ class App extends Component {
       console.log(res);
     } catch (err) {
       console.log(err);
-      throw new Error("deleting testimonials failed");
+      throw new Error("updating testimonials failed");
     }
   };
 
@@ -278,6 +295,8 @@ class App extends Component {
                 testimonialsData={testimonialsData}
                 createTestimonial={this.createTestimonial}
                 deleteTestimonial={this.deleteTestimonial}
+                deleteEvent={this.deleteEvent}
+                updateEvent={this.updateEvent}
               />
             )}
           />
@@ -294,7 +313,6 @@ class App extends Component {
                 eventsData={eventsData}
                 editMode={editMode}
                 deleteEvent={this.deleteEvent}
-                
               />
             )}
           />

@@ -10,7 +10,6 @@ import GalleryCard from "../GalleryCard/GalleryCard.js";
 import EventCard from "../EventCard/EventCard.js";
 import TestimonialCard from "../TestimonialCard/TestimonialCard.js";
 import OurStory from "../Our Story/OurStory.js";
-import ReacUs from "../Reach Us/ReachUs.js";
 //---------IMPORTED COMPONENTS--------------
 
 class DefaultLanding extends Component {
@@ -19,8 +18,16 @@ class DefaultLanding extends Component {
     this.state = {};
   }
 
+  renderAddImage = () => {
+    return (
+      <form>
+        <input name="galleryImage" type="file" />
+      </form>
+    );
+  };
+
   render() {
-    const { editMode, updateEvent, ...rest } = this.props;
+    const { editMode, updateEvent, deleteEvent, ...rest } = this.props;
     return (
       <div className="DefaultLanding">
         {/* -----------------HERO SECTION---------------- */}
@@ -38,9 +45,10 @@ class DefaultLanding extends Component {
             </div>
             {/* <div className="images-container">
               {editMode ? this.renderAddImage() : ""}
+
               {rest.galleryData.map((gallery, i) => {
                 while (i < 9) {
-                  return <GalleryCard srcImage={gallery.img} />;
+                  return <GalleryCard srcImage={gallery.image} />;
                 }
               })}
             </div> */}
@@ -65,7 +73,7 @@ class DefaultLanding extends Component {
                       title={event.title}
                       description={event.description}
                       updateEvent={updateEvent}
-                      id={event.id}
+                      deleteEvent={deleteEvent}
                     />
                   );
                 }
@@ -89,8 +97,7 @@ class DefaultLanding extends Component {
                       date={testimonials.date}
                       authr={testimonials.author}
                       text={testimonials.content}
-                      deleteTestimonial={rest.deleteTestimonial}
-                      editMode={editMode}
+                      {...rest}
                     />
                   );
                 }
@@ -98,27 +105,31 @@ class DefaultLanding extends Component {
               )
               }
             </div>
-            <div>
-              <div class="mapouter">
-                <div class="gmap_canvas">
-                  <iframe
-                    width="600"
-                    height="500"
-                    className="gmap_canvas"
-                    src="https://maps.google.com/maps?q=heaven%20ecoland&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                    frameborder="0"
-                    scrolling="no"
-                    marginheight="0"
-                    marginwidth="0"
-                  ></iframe>
-                </div>
-              </div>
-            </div>
           </div>
           {/* -----------------TESTIMONIALS SECTION------------------ */}
 
           <OurStory editMode={editMode} />
-          <ReacUs />
+
+          <div className="heaven-location">
+            <div className="location-title">
+              <h2>Heaven Location</h2>
+            </div>
+            <div class="mapouter">
+              <div class="gmap_canvas">
+                <iframe
+                  title="Heaven-location"
+                  width="100%"
+                  height="600"
+                  className="gmap_canvas"
+                  src="https://maps.google.com/maps?q=heaven%20ecoland&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                  frameborder="0"
+                  scrolling="no"
+                  marginheight="0"
+                  marginwidth="0"
+                ></iframe>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     );

@@ -11,14 +11,19 @@ class ReachUs extends Component {
   }
   render() {
     return (
-      <div className="ReachUs Container">
+      <div className="reachus-container">
         <div class="mapouter">
-          <div className="gmap_canvas">
+          <div class="gmap_canvas">
             <iframe
-             width="600px"
-             height="450px"
+              title="Heaven-Ecoland-location"
+              width="600"
+              height="500"
               className="gmap_canvas"
               src="https://maps.google.com/maps?q=heaven%20ecoland&t=&z=13&ie=UTF8&iwloc=&output=embed"
+              frameborder="0"
+              scrolling="no"
+              marginheight="0"
+              marginwidth="0"
             ></iframe>
           </div>
         </div>

@@ -5,11 +5,14 @@ import "./GalleryCard.scss";
 // ----------SCSS--------------
 
 const GalleryCard = ({ srcImage }) => {
+  console.log(srcImage);
   return (
     <div className="image-card">
       <img
         className="galleryImage"
-        src={`http://127.0.0.1:8000/heaven_ecoland_back\ecoland_back/public/images/${srcImage}`}
+        src={`/public/images/${srcImage}`}
+        crossOrigin="anonymous"
+        alt="something went wrong"
       />
     </div>
   );

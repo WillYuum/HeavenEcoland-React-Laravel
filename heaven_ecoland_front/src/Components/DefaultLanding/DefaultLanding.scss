@@ -20,6 +20,8 @@
       width: 100%;
       margin: 0 auto;
 
+      
+
       .gallery-title {
         text-align: center;
         margin: 100px 0px;
@@ -44,7 +46,6 @@
         margin: 100px 0px;
       }
 
-
       .event-container {
         width: 80vw;
         margin: 0px auto;
@@ -65,11 +66,11 @@
     }
     // ----------------------EVENT SECTION----------------------
 
-    // ----------------------TESTIMONILA SECTION----------------------
+    // ----------------------TESTIMONIALS SECTION----------------------
     .testimonials-section {
       width: 80vw;
       margin: 0 auto;
-      padding-top:20px;
+      padding-top: 20px;
       .testimonials-title {
         text-align: center;
         margin: 100px 0;
@@ -82,6 +83,18 @@
       }
     }
 
-    // ----------------------EVENT SECTION----------------------
+    // ----------------------TESTIMONIALS SECTION----------------------
   }
+
+
+  .heaven-location{
+    width:80vw;
+    margin:150px auto;
+    .location-title{
+      margin: 150px 0;
+      text-align: center;
+    }
+  }
+
+
 }
