@@ -38,14 +38,6 @@ const EventDetails = ({ editmode, updateEvent, ...props }) => {
     getEvent(props.match.params.id);
   }, []);
 
-  const [eventDetailData, SetEventDetailData] = useState({
-    title: "",
-    date: "",
-    price: "",
-    description: "",
-    image: ""
-  });
-
   /**
    * @function getEvent -get event data depending on it's id and store in state event
    * @param {int} id
@@ -78,7 +70,7 @@ const EventDetails = ({ editmode, updateEvent, ...props }) => {
             <div className="image">
               <img
                 src="http://www.vacationrentalsindia.com/sadmin/images/gallery/p1bs87ld4a1dkghhv1ef91slm1f6tt.jpg"
-                alt="Event Image"
+                alt="Event display"
               />
             </div>
             <div className="details">
@@ -133,7 +125,7 @@ const EventDetails = ({ editmode, updateEvent, ...props }) => {
     const date = e.target.date.value;
     const description = e.target.description.value;
     const price = e.target.price.value;
-    console.log(title, date, description, price);
+    console.log("HI",title, date, description, price);
 
     updateEvent(props.match.params.id, { title, date, price, description });
   };
@@ -142,7 +134,7 @@ const EventDetails = ({ editmode, updateEvent, ...props }) => {
       <div className="EventDetails-body">
         <form
           onSubmit={handleSubmit}
-          method="POST"
+          method="PUT"
           enctype="multipart/form-data"
         >
           <div className="EventDetails">
@@ -162,7 +154,6 @@ const EventDetails = ({ editmode, updateEvent, ...props }) => {
                         type="date"
                         name="date"
                         defaultValue={event.date}
-
                       />
                     </time>
                   </div>
