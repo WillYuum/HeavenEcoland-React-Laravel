@@ -41,7 +41,7 @@ class App extends Component {
     }
     console.log(email, password, params);
     try {
-      const req = await fetch(`${process.env.REACT_APP_HEAVEN_API}api/login`, {
+      const req = await fetch(`http://127.0.0.1:8000/api/login`, {
         method: "POST",
         body: JSON.stringify(params),
         headers: {
@@ -71,7 +71,7 @@ class App extends Component {
   };
 
   async componentDidMount() {
-    console.log("here", process.env.REACT_APP_HEAVEN_API);
+    console.log("here");
     this.getGallery();
     this.getEvents();
     this.getTestimonilas();
@@ -85,16 +85,13 @@ class App extends Component {
    */
   getGallery = async () => {
     try {
-      const res = await fetch(
-        `${process.env.REACT_APP_HEAVEN_API}api/gallery/`,
-        {
-          method: "GET",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json"
-          }
+      const res = await fetch(`http://127.0.0.1:8000/api/gallery/`, {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
         }
-      );
+      });
       const images = await res.json();
       this.setState({ galleryData: images });
     } catch (err) {
@@ -110,7 +107,7 @@ class App extends Component {
    */
   getEvents = async () => {
     try {
-      const res = await fetch(`${process.env.REACT_APP_HEAVEN_API}api/event/`, {
+      const res = await fetch(`http://127.0.0.1:8000/api/event/`, {
         method: "GET",
         headers: {
           Accept: "application/json",
@@ -135,7 +132,7 @@ class App extends Component {
       throw new Error("The params has an undefined value");
     }
     try {
-      const req = await fetch(`${process.env.REACT_APP_HEAVEN_API}api/event/`, {
+      const req = await fetch(`http://127.0.0.1:8000/api/event/`, {
         method: "POST",
         body: JSON.stringify(params),
         headers: {
@@ -170,17 +167,14 @@ class App extends Component {
 
     try {
       console.log("HERE WILLU", newEventData);
-      const res = await fetch(
-        `${process.env.REACT_APP_HEAVEN_API}api/event/${id}`,
-        {
-          method: "PUT",
-          body: JSON.stringify(newEventData),
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json"
-          }
+      const res = await fetch(`http://127.0.0.1:8000/api/event/${id}`, {
+        method: "PUT",
+        body: JSON.stringify(newEventData),
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
         }
-      );
+      });
       const updatedData = await res.json;
       console.log(updatedData);
     } catch (err) {
@@ -199,16 +193,13 @@ class App extends Component {
       throw new Error("id is Undefined");
     }
     try {
-      const req = await fetch(
-        `${process.env.REACT_APP_HEAVEN_API}api/event/${id}`,
-        {
-          method: "DELETE",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json"
-          }
+      const req = await fetch(`http://127.0.0.1:8000/api/event/${id}`, {
+        method: "DELETE",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
         }
-      );
+      });
       const res = await req.json();
       console.log(res);
       console.log(`The event with id = ${id} got deleted`);
@@ -226,16 +217,13 @@ class App extends Component {
    */
   getTestimonilas = async () => {
     try {
-      const req = await fetch(
-        `${process.env.REACT_APP_HEAVEN_API}api/testimonial/`,
-        {
-          method: "GET",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json"
-          }
+      const req = await fetch(`http://127.0.0.1:8000/api/testimonial/`, {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
         }
-      );
+      });
 
       const testimonials = await req.json();
       this.setState({ testimonialsData: testimonials });
@@ -251,16 +239,13 @@ class App extends Component {
     }
 
     try {
-      const req = await fetch(
-        `${process.env.REACT_APP_HEAVEN_API}api/testimonial/`,
-        {
-          method: "PUT",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json"
-          }
+      const req = await fetch(`http://127.0.0.1:8000/api/testimonial/`, {
+        method: "PUT",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
         }
-      );
+      });
 
       const res = await req.json();
       console.log(res);

@@ -73,7 +73,6 @@ class DefaultLanding extends Component {
                       title={event.title}
                       description={event.description}
                       updateEvent={updateEvent}
-                  
                       deleteEvent={deleteEvent}
                     />
                   );
@@ -88,7 +87,6 @@ class DefaultLanding extends Component {
           <div className="testimonials-section">
             <h2 className="testimonials-title">Testimonials</h2>
             <div className="testimonials-container">
-            
               {rest.testimonialsData.map((testimonials, i) => {
                 while (i < 3) {
                   return (
@@ -102,9 +100,7 @@ class DefaultLanding extends Component {
                     />
                   );
                 }
-              }
-              )
-              }
+              })}
             </div>
           </div>
           {/* -----------------TESTIMONIALS SECTION------------------ */}
