@@ -17,7 +17,7 @@ class Nav extends Component {
           <h2 className="logo">Heaven Ecoland</h2>
         </Link>
         <input type="checkbox" id="chk" />
-        <label for="chk" className="show-menu-btn">
+        <label className="show-menu-btn">
           <i className="fas fa-ellipsis-h"></i>
         </label>
 
